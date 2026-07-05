@@ -1,16 +1,23 @@
-# Awesome Maps Examples [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# 🗺️ Awesome Maps Examples [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> A curated collection of interactive map examples built with [Leaflet.js](https://leafletjs.com/), [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/), and [Azure Maps](https://azuremaps.com/).
+> **The ultimate playbook for building stunning, interactive 2D-focused geospatial applications.**
 
-*Examples are categorized by topic to help you mix, match, and compare implementations across different mapping libraries.*
+Welcome to **Awesome Maps Examples**! Whether you are building a data-rich visualization dashboard, a real-time fleet tracking platform, or a lightning-fast store locator, you will find the inspiration and implementation details you need right here.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+This repository is a meticulously curated collection of **over 500 interactive, 2D-focused map examples**, highlighting the industry's leading rendering engines:
+- 🍃 **[Leaflet.js](https://leafletjs.com/)** - The legendary, mobile-friendly interactive mapping library.
+- 🚀 **[MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)** - High-performance WebGL vector maps for dynamic 2D rendering.
+- ☁️ **[Azure Maps](https://azuremaps.com/)** - Microsoft's enterprise-grade mapping and spatial analytics APIs.
+
+### 🧭 How to use this list
+Unlike traditional lists grouped simply by library, this collection is **categorized entirely by feature and topic** (e.g., *Routing*, *Controls & UI*, *Spatial Analysis*). This structure empowers you to directly mix, match, and compare how different libraries solve the exact same problems! 
+
+We've also included advanced integration ideas, Turf.js architectures, and a complete overview of the global geospatial ecosystem to help you architect your next great map.
 
 ---
 
 ## Table of Contents
 
-- [3D, Terrain & Globe](#3d-terrain-globe)
 - [Animation & Camera](#animation-camera)
 - [Controls & UI](#controls-ui)
 - [Data Visualization](#data-visualization)
@@ -25,6 +32,7 @@
 - [Traffic & Navigation](#traffic-navigation)
 - [Weather & Sensors](#weather-sensors)
 - [Potential Turf.js Examples](#potential-turfjs-examples-advanced-spatial-analysis)
+- [Core Geospatial Algorithms & Math](#core-geospatial-algorithms--math)
 - [Advanced Cross-Library Integrations](#advanced-cross-library-integrations-interactive-apps--editors)
 - [Global Geospatial Ecosystem](#global-geospatial-ecosystem-across-languages)
 - [Plugins Reference](#plugins-reference)
@@ -44,13 +52,12 @@
 - [Multi-Library Combinations](#multi-library-combinations)
   - [Interactive Geometry Editor](#interactive-geometry-editor)
   - [Data Visualization Dashboard](#data-visualization-dashboard)
-  - [3D & Immersive Maps](#3d--immersive-maps)
   - [Story Map & Narrative](#story-map--narrative)
   - [Geospatial Analysis Tool](#geospatial-analysis-tool)
   - [Real-Time & Live Tracking](#real-time--live-tracking)
   - [Offline & Progressive Web App](#offline--progressive-web-app)
   - [Print & Export](#print--export)
-  - [Mobile & Framework-Specific](#mobile--framework-specific)
+  - [Geo Calculation & Algorithms](#geo-calculation--algorithms)
   - [Data Pipeline & ETL](#data-pipeline--etl)
   - [Creative & Experimental](#creative--experimental)
   - [Multi-Library Quick Reference](#multi-library-quick-reference)
@@ -63,7 +70,6 @@
   - [C / C++](#c--c)
   - [Rust](#rust)
   - [Go](#go)
-  - [Dart / Flutter](#dart--flutter)
   - [Ruby](#ruby)
   - [PHP](#php)
   - [R](#r)
@@ -74,43 +80,6 @@
 - [Contributing](#contributing)
 
 > **Legend:** Rows marked with <sup>🆕</sup> are **potential examples** that could be contributed to fill cross-library gaps.
-
----
-
-## 3D, Terrain & Globe
-
-| Library | Example | Description |
-|---------|---------|-------------|
-| **Azure Maps** | [Arc line layer](https://samples.azuremaps.com/line-layer/arc-line-layer) | 3D arc lines |
-| **Azure Maps** | [Babylon custom WebGL layer](https://samples.azuremaps.com/3d-layer/babylon.js) | Custom 3D layer with Babylon.js |
-| **Azure Maps** | [Create 3D isobands from isolines](https://samples.azuremaps.com/spatial-math/create-3d-isobands-from-isolines) | 3D isobands from isoline data with data-driven styling |
-| **Azure Maps** | [Deck GL custom WebGL layer](https://samples.azuremaps.com/3d-layer/deck.gl) | Custom 3D layer with Deck.gl |
-| **Azure Maps** | [Extruded choropleth map](https://samples.azuremaps.com/polygons/extruded-choropleth-map) | Choropleth map of extruded polygons |
-| **Azure Maps** | [Extruded gridded data source](https://samples.azuremaps.com/polygons/extruded-gridded-data-source) | 3D polygon extrusions from gridded data |
-| **Azure Maps** | [Flowmap.gl integration](https://samples.azuremaps.com/3d-layer/flowmap.gl) | Flow map visualization |
-| **Azure Maps** | [NYC cab trips WebGL](https://samples.azuremaps.com/3d-layer/newyork) | 3D trips layer with Deck.gl |
-| **Azure Maps** | [Simple 2D WebGL layer](https://samples.azuremaps.com/3d-layer/webgl) | Custom 2D triangle on map |
-| **Azure Maps** | [Three.js custom WebGL layer](https://samples.azuremaps.com/3d-layer/three.js) | Custom 3D layer with Three.js |
-| **Azure Maps** | [Threebox custom WebGL layer](https://samples.azuremaps.com/3d-layer/threebox) | Custom 3D layer with Threebox |
-| **Leaflet** | <sup>🆕</sup> [Leaflet with CesiumJS globe](https://github.com/zakjan/leaflet-cesium) | 3D globe via CesiumJS plugin |
-| **Leaflet** | <sup>🆕</sup> [CSS 3D tilt on polygons](https://leafletjs.com/examples/layers/) | CSS 3D transforms for visual depth |
-| **MapLibre** | [3D Terrain](https://maplibre.org/maplibre-gl-js/docs/examples/3d-terrain) | 3D terrain with raster-dem |
-| **MapLibre** | [Add a color relief layer](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-color-relief-layer) | Color-coded elevation |
-| **MapLibre** | [Add a custom layer with tiles to a globe](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-custom-layer-with-tiles-to-a-globe) | Custom tiles on globe |
-| **MapLibre** | [Add a simple custom layer on a globe](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-simple-custom-layer-on-a-globe) | WebGL on globe |
-| **MapLibre** | [Create a Heatmap layer on a globe with terrain elevation](https://maplibre.org/maplibre-gl-js/docs/examples/create-a-heatmap-layer-on-a-globe-with-terrain-elevation) | Heatmap + terrain |
-| **MapLibre** | [Create deck.gl layer using REST API](https://maplibre.org/maplibre-gl-js/docs/examples/create-deckgl-layer-using-rest-api) | deck.gl integration |
-| **MapLibre** | [Display a globe with a fill extrusion layer](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-globe-with-a-fill-extrusion-layer) | 3D buildings on globe |
-| **MapLibre** | [Display a globe with a vector map](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-globe-with-a-vector-map) | Globe projection |
-| **MapLibre** | [Display a globe with an atmosphere](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-globe-with-an-atmosphere) | Globe with atmosphere |
-| **MapLibre** | [Display a hybrid satellite map with terrain elevation](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-hybrid-satellite-map-with-terrain-elevation) | Satellite + terrain |
-| **MapLibre** | [Display buildings in 3D](https://maplibre.org/maplibre-gl-js/docs/examples/display-buildings-in-3d) | Fill-extrusion buildings |
-| **MapLibre** | [Extrude polygons for 3D indoor mapping](https://maplibre.org/maplibre-gl-js/docs/examples/extrude-polygons-for-3d-indoor-mapping) | Indoor 3D floor plans |
-| **MapLibre** | [Sky, Fog, Terrain](https://maplibre.org/maplibre-gl-js/docs/examples/sky-fog-terrain) | Atmosphere effects |
-| **MapLibre** | [Toggle deck.gl layer](https://maplibre.org/maplibre-gl-js/docs/examples/toggle-deckgl-layer) | deck.gl layer toggle |
-| **MapLibre** | [Zoom and planet size relation on globe](https://maplibre.org/maplibre-gl-js/docs/examples/zoom-and-planet-size-relation-on-globe) | Globe zoom behavior |
-
-> **Gap note:** Leaflet has no native 3D/Globe support. The <sup>🆕</sup> entries above point to plugin-based approaches. For true 3D, consider MapLibre or Azure Maps.
 
 ---
 
@@ -697,28 +666,54 @@
 
 
 
+
+## Core Geospatial Algorithms & Math
+
+Underneath the high-level mapping libraries and spatial APIs are fundamental geometric algorithms. Understanding these algorithms is crucial for building custom spatial analysis tools or optimizing map performance:
+
+### Distance & Earth Models
+* **Haversine Formula**: The standard mathematical formula to calculate the *great-circle distance* between two points on a sphere given their longitudes and latitudes. It is fast but assumes a perfectly spherical Earth.
+* **Vincenty's Formulae**: A highly accurate iterative method to calculate distance between two points on the surface of a spheroid (specifically using the WGS-84 ellipsoid model). It is more computationally expensive than Haversine but accurate to within half a millimeter.
+
+### Point & Polygon Analysis
+* **Ray-Casting Algorithm**: The foundational algorithm used to determine if a point is inside a polygon (`Point-in-Polygon`). It works by shooting an imaginary ray from the point in a single direction and counting how many times it intersects the polygon's edges. An odd number means the point is inside; an even number means it is outside.
+* **Convex Hull**: An algorithm that finds the smallest convex polygon enclosing a given set of points (imagine stretching a rubber band around a set of pegs). Commonly used to define the bounding area of a clustered dataset.
+
+### Simplification & Smoothing
+* **Douglas-Peucker Algorithm**: A line simplification algorithm that reduces the number of points in a complex curve or polygon while preserving its overall shape. Essential for rendering large, complex GeoJSON borders efficiently at lower zoom levels.
+* **Chaikin's Algorithm**: A corner-cutting algorithm used to generate smooth curves from a jagged polyline or polygon.
+
+### Space Partitioning & Tessellation
+* **Voronoi Diagrams**: An algorithm that partitions a plane into regions based on distance to a specific set of points. Any location within a Voronoi cell is closer to that cell's center point than to any other. Highly useful for generating catchment areas or nearest-neighbor territories.
+* **Delaunay Triangulation**: The dual graph of a Voronoi diagram. It connects a set of points into a mesh of triangles such that no point is inside the circumcircle of any triangle. Used for generating 3D terrain meshes (TINs) from scatter points.
+
+### Spatial Indexing & Tree Structures
+* **R-Trees**: A tree data structure used for spatial access methods. It groups nearby objects and represents them with their minimum bounding rectangles (MBR). Crucial for quickly querying "what features are visible on the screen right now" without iterating over millions of points. (e.g., `RBush` in JavaScript).
+* **K-D Trees**: A space-partitioning data structure for organizing points in a k-dimensional space. Excellent for blazing-fast *nearest-neighbor* searches.
+* **Geohashing & Space-Filling Curves**: Algorithms (like Z-order curves or Hilbert curves) that reduce 2D spatial coordinates into a 1D string or integer. This allows databases to perform incredibly fast proximity searches using standard string prefix matching. Modern alternatives include Uber's **H3** (Hexagonal hierarchical spatial index) and Google's **S2** (Spherical geometry).
+
+
 ## Advanced Cross-Library Integrations (Interactive Apps & Editors)
 
 While individual libraries are powerful, combining them unlocks the ability to build production-grade geographic editors, data dashboards, and storytelling experiences. Here are some potential architectures combining multiple libraries:
 
 ### 1. Full-Featured GeoJSON Editor & Validator
-* **Combination**: `React` + `MapLibre GL JS` + `terra-draw` + `Turf.js`
+* **Combination**: `MapLibre GL JS` + `terra-draw` + `Turf.js`
 * **Concept**: Build an interactive data creation tool similar to *geojson.io*.
   * **MapLibre** handles the high-performance basemap.
   * **terra-draw** provides uniform, cross-browser drawing tools for lines, polygons, and points.
   * **Turf.js** runs real-time topology validation (e.g., preventing self-intersecting polygons using `turf.kinks`) and live area calculations in the sidebar.
 
-### 2. Massive Scale Point Cloud & Heatmap Explorer
-* **Combination**: `Deck.gl` + `Mapbox/MapLibre GL JS` + `PMTiles`
+### 2. Massive Scale Vector Tile Explorer
+* **Combination**: `Mapbox\/MapLibre GL JS` + `PMTiles`
 * **Concept**: Visualize millions of spatial records (e.g., nationwide building footprints or live telematics) entirely in the browser.
   * **PMTiles** allows you to stream massive vector tile datasets directly from an S3 bucket (serverless architecture).
-  * **Deck.gl** overlays the heavy WebGL scatterplot or 3D hexagon layers.
-  * **MapLibre** provides the underlying styled basemap.
+  * **MapLibre** provides the underlying styled basemap and renders the dense vector geometries rapidly using WebGL.
 
-### 3. Scrollytelling & 3D Data Storytelling
+### 3. Scrollytelling & Interactive Data Storytelling
 * **Combination**: `MapLibre GL JS` + `IntersectionObserver` (or `ScrollMagic`) + `D3.js`
 * **Concept**: Create an immersive journalistic experience.
-  * As the user scrolls down an article, **IntersectionObserver** triggers the map camera to smoothly fly (using `map.flyTo` with pitch/bearing) between different 3D terrains.
+  * As the user scrolls down an article, **IntersectionObserver** triggers the map camera to smoothly fly (using `map.flyTo`) between different points of interest.
   * **D3.js** renders dynamic charts over the map that animate and update based on the features currently visible in the map's bounding box.
 
 ### 4. Real-Time Fleet Tracking & Logistics Dashboard
@@ -736,11 +731,11 @@ While individual libraries are powerful, combining them unlocks the ability to b
   * **Leaflet** renders the UI over top of custom OpenStreetMap tiles.
 
 ### 6. Indoor Mapping & Facility Management
-* **Combination**: `MapLibre GL JS` + `mapbox-gl-indoor` + `React`
+* **Combination**: `MapLibre GL JS` + `mapbox-gl-indoor`
 * **Concept**: Build an interactive campus or mall directory.
-  * Use **MapLibre** to render extruded 3D indoor floor plans.
+  * Use **MapLibre** to render indoor floor plans.
   * Implement **mapbox-gl-indoor** to give users a UI widget to toggle between different floors (Level 1, Level 2, etc.).
-  * **React** manages a side-panel where clicking on an extruded room opens an editor to update occupancy metadata or reserve the space.
+  * Clicking on a room highlights it and opens a custom pop-up to update occupancy metadata or reserve the space.
 
 
 ## Global Geospatial Ecosystem (Across Languages)
@@ -748,14 +743,12 @@ While individual libraries are powerful, combining them unlocks the ability to b
 Beyond the specific web examples listed above, the broader geospatial ecosystem spans almost every major programming language. Here is a comprehensive overview of the most popular mapping, spatial analysis, and geo-data processing libraries available today:
 
 ### 🌐 JavaScript / TypeScript (Web & Node.js)
-* **Web Mapping**: [Leaflet](https://leafletjs.com/), [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/), [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/), [OpenLayers](https://openlayers.org/), [CesiumJS](https://cesium.com/cesiumjs/) (3D Globes)
+* **Web Mapping**: [Leaflet](https://leafletjs.com/), [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/), [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/), [OpenLayers](https://openlayers.org/)
 * **Spatial Analysis**: [Turf.js](https://turfjs.org/) (Advanced geospatial analysis for browsers and Node), [JSTS](https://github.com/bjornharrtell/jsts)
-* **Data Visualization**: [deck.gl](https://deck.gl/), [kepler.gl](https://kepler.gl/), [d3-geo](https://github.com/d3/d3-geo)
-* **React Wrappers**: [react-leaflet](https://react-leaflet.js.org/), [react-map-gl](https://visgl.github.io/react-map-gl/)
 
 ### 🐍 Python
 * **Data Analysis & Processing**: [GeoPandas](https://geopandas.org/) (Extends pandas for spatial data), [Shapely](https://shapely.readthedocs.io/) (Geometry manipulation), [Fiona](https://fiona.readthedocs.io/) (Data reading/writing), [Rasterio](https://rasterio.readthedocs.io/) (Raster data)
-* **Interactive Mapping**: [Folium](https://python-visualization.github.io/folium/) (Python wrapper for Leaflet), [KeplerGL](https://docs.kepler.gl/docs/keplergl-jupyter)
+* **Interactive Mapping**: [Folium](https://python-visualization.github.io/folium/) (Python wrapper for Leaflet)
 * **Visualization**: [Cartopy](https://scitools.org.uk/cartopy/docs/latest/), [Geoplot](https://residentmario.github.io/geoplot/)
 * **Advanced**: [PySAL](https://pysal.org/) (Spatial analysis library), [OSMnx](https://osmnx.readthedocs.io/) (Street network analysis), [Pyproj](https://pyproj4.github.io/pyproj/) (Projections)
 
@@ -820,9 +813,6 @@ Beyond the specific web examples listed above, the broader geospatial ecosystem 
 | [terra-draw](https://github.com/terra-draw/terra-draw) | Multi-shape drawing |
 | [maplibre-gl-rtl-text](https://github.com/nickkatsios/maplibre-gl-rtl-text) | Right-to-left text |
 | [Turf.js](https://turfjs.org/) | Geospatial analysis |
-| [three.js](https://threejs.org/) | 3D model rendering |
-| [babylon.js](https://www.babylonjs.com/) | 3D model rendering |
-| [deck.gl](https://deck.gl/) | Large-scale data visualization |
 | [PMTiles](https://protomaps.com/) | Single-file tile archives |
 
 ### Azure Maps
@@ -835,10 +825,6 @@ Beyond the specific web examples listed above, the broader geospatial ecosystem 
 | [Azure Maps Control](https://www.npmjs.com/package/azure-maps-control) | Core SDK with layers, controls |
 | [Azure Maps REST API](https://docs.microsoft.com/rest/api/maps/) | Geocoding, routing, search, traffic |
 | [Turf.js](https://turfjs.org/) | Geospatial analysis |
-| [Three.js](https://threejs.org/) | 3D model rendering |
-| [Babylon.js](https://www.babylonjs.com/) | 3D model rendering |
-| [Deck.gl](https://deck.gl/) | Large-scale data visualization |
-| [Threebox](https://github.com/arjunrn/threebox) | Three.js + Mapbox/Azure integration |
 | [Flowmap.gl](https://github.com/FlowmapBlue/flowmap.gl/) | Flow visualization |
 
 ---
@@ -876,7 +862,6 @@ Turf.js is the standard geospatial analysis library for JavaScript. It works sta
 |---------|-------------------|----------|-------------|
 | <sup>🆕</sup> Point-to-point distance | `distance` | Leaflet / MapLibre / Azure | Click two points, display distance in km/mi |
 | <sup>🆕</sup> Route length measurement | `length` | Leaflet / MapLibre | Click along a polyline, show cumulative length |
-| <sup>🆕</sup> Rhumb line vs great circle | `rhumb-distance`, `bearing`, `great-circle` | MapLibre | Compare two navigation paths on globe |
 | <sup>🆕</sup> Bearing calculator | `bearing`, `destination` | Leaflet | Click origin + destination, show bearing angle |
 | <sup>🆕</sup> Area calculator | `area` | Any | Draw polygon, show area in m²/km²/acres |
 | <sup>🆕</sup> Distance from point to line | `point-to-line-distance` | MapLibre | Drag point, show shortest distance to route |
@@ -915,7 +900,6 @@ Turf.js is the standard geospatial analysis library for JavaScript. It works sta
 | Example | Turf.js Module(s) | Renderer | Description |
 |---------|-------------------|----------|-------------|
 | <sup>🆕</sup> Voronoi diagram from points | `voronoi` | MapLibre / Leaflet | Generate service areas from store locations |
-| <sup>🆕</sup> Hex grid density map | `hex-grid`, `points-within-polygon` | MapLibre / deck.gl | Count points per hex cell, color by density |
 | <sup>🆕</sup> Point grid sampling | `point-grid`, `tag` | MapLibre | Grid of sample points, tag with polygon properties |
 | <sup>🆕</sup> Rectangle grid analysis | `rectangle-grid` | Leaflet / MapLibre | Overlay grid, aggregate data per cell |
 | <sup>🆕</sup> Concave hull from points | `concave` | MapLibre | Draw boundary around cluster of points |
@@ -928,7 +912,6 @@ Turf.js is the standard geospatial analysis library for JavaScript. It works sta
 
 | Example | Turf.js Module(s) | Renderer | Description |
 |---------|-------------------|----------|-------------|
-| <sup>🆕</sup> IDW interpolation surface | `interpolate` | MapLibre / deck.gl | Generate continuous surface from sample points |
 | <sup>🆕</sup> Isoline contours | `isolines` | MapLibre / Azure | Elevation contour lines from point data |
 | <sup>🆕</sup> Isoband filled contours | `isobands` | MapLibre / Azure | Filled elevation/temperature bands |
 | <sup>🆕</sup> Nearest neighbor analysis | `nearest-neighbor-analysis` | Any | Statistical analysis of point distribution |
@@ -956,7 +939,6 @@ Turf.js is the standard geospatial analysis library for JavaScript. It works sta
 | <sup>🆕</sup> Route chunks | `line-chunk` | MapLibre | Divide route into equal-length segments |
 | <sup>🆕</sup> Nearest point on route | `nearest-point-on-line` | Leaflet / MapLibre | Snap location to nearest point on road |
 | <sup>🆕</sup> Route waypoints from polygon | `tag`, `points-within-polygon` | MapLibre | Find all waypoints inside service zone |
-| <sup>🆕</sup> Great circle route | `great-circle` | MapLibre (globe) | Trans-oceanic flight path on globe |
 | <sup>NECT</sup> Route corridor | `buffer`, `line-to-polygon` | MapLibre | Create corridor polygon around route |
 | <sup>🆕</sup> Shortest path | `shortest-path` | MapLibre | Path between two points avoiding obstacles |
 
@@ -976,7 +958,6 @@ Turf.js is the standard geospatial analysis library for JavaScript. It works sta
 | Example | Turf.js Module(s) | Renderer | Description |
 |---------|-------------------|----------|-------------|
 | <sup>🆕</sup> Bezier spline curves | `bezier-spline` | Leaflet / MapLibre | Smooth curves through waypoints |
-| <sup>🆕</sup> Great circle arcs | `great-circle` | MapLibre (globe) | Curved flight paths |
 | <sup>🆕</sup> Circle generation | `circle` | Leaflet / MapLibre / Azure | Generate circle polygon from center + radius |
 | <sup>🆕</sup> Ellipse generation | `ellipse` | MapLibre | Draw ellipse from center + axes + rotation |
 | <sup>🆕</sup> Sector generation | `sector` | MapLibre | Draw pie/wedge shape |
@@ -1011,7 +992,6 @@ Turf.js is the standard geospatial analysis library for JavaScript. It works sta
 |---------|-----------------|----------|-------------|
 | <sup>🆕</sup> Service area comparison | `buffer`, `intersect`, `area` | MapLibre | Compare overlapping service areas |
 | <sup>🆕</sup> Delivery zone optimizer | `voronoi`, `intersect`, `area` | MapLibre | Optimize delivery boundaries |
-| <sup>🆕</sup> Coverage gap analysis | `hex-grid`, `boolean-point-in-polygon`, `collect` | MapLibre / deck.gl | Find unserved areas in grid |
 | <sup>🆕</sup> Catchment area analysis | `buffer`, `dissolve`, `area` | MapLibre | Merge buffers, calculate total coverage |
 | <sup>🆕</sup> Route impact assessment | `buffer`, `intersect`, `tag` | MapLibre | Find features affected by route corridor |
 | <sup>🆕</sup> Spatial join visualization | `tag`, `collect`, `clusters-kmeans` | Leaflet / MapLibre | Join datasets, cluster, visualize |
@@ -1045,11 +1025,9 @@ Real-world interactive map applications rarely use a single library. Below are p
 
 ### Legend
 
-- **Renderer**: Map rendering library (Leaflet, MapLibre, Azure Maps, OpenLayers, CesiumJS)
-- **Analysis**: Turf.js, deck.gl, D3-geo
+- **Renderer**: Map rendering library (Leaflet, MapLibre, Azure Maps, OpenLayers)
+- **Analysis**: Turf.js, D3-geo, deck.gl (non-3D layers)
 - **Drawing**: Leaflet-Geoman, mapbox-gl-draw, terra-draw
-- **UI Framework**: React, Vue, Svelte, Angular
-- **3D Engine**: Three.js, Babylon.js, Deck.gl
 - **Data**: PMTiles, Martin, GeoServer, PostGIS
 
 ---
@@ -1071,51 +1049,22 @@ Real-world interactive map applications rarely use a single library. Below are p
 
 | Example | Libraries | Description |
 |---------|-----------|-------------|
-| <sup>🆕</sup> Interactive choropleth dashboard | MapLibre + D3-scale + Turf.js + React | Filter, zoom, tooltip-rich choropleth |
-| <sup>🆕</sup> Large-scale point visualization | MapLibre + deck.gl (ScatterplotLayer) | 100K+ points with GPU rendering |
-| <sup>🆕</sup> Animated heatmap timeline | MapLibre + deck.gl (HeatmapLayer) + D3-time | Time-slider heatmap animation |
-| <sup>🆕</sup> Flow map dashboard | MapLibre + Flowmap.gl + React | Origin-destination flow visualization |
-| <sup>🆕</sup> 3D extrusion dashboard | MapLibre + fill-extrusion + Turf.js + React | Data-driven 3D polygon extrusions |
-| <sup>🆕</sup> Multi-layer comparison | MapLibre + Mapbox Compare + React | Side-by-side layer comparison |
-| <sup>🆕</sup> Real-time tracking dashboard | MapLibre + deck.gl (TripsLayer) + WebSocket | Live vehicle/asset tracking |
-| <sup>🆕</sup> Spatial statistics dashboard | MapLibre + Turf.js (moran-index, kmeans) + React | Cluster analysis + hotspot detection |
-| <sup>🆕</sup> Hex bin dashboard | MapLibre + deck.gl (HexagonLayer) + React | Hexagonal binning with aggregation |
-| <sup>🆕</sup> Arc layer dashboard | MapLibre + deck.gl (ArcLayer) + React | Origin-destination arc visualization |
 | <sup>🆕</sup> Vector tile data viz | MapLibre + PMTiles + Martin + PostGIS | Self-hosted vector tile pipeline |
-
-### 3D & Immersive Maps
-
-| Example | Libraries | Description |
-|---------|-----------|-------------|
-| <sup>🆕</sup> 3D building scene | MapLibre + Three.js + Threebox | Place 3D models on buildings |
-| <sup>🆕</sup> Globe with 3D terrain | MapLibre (globe projection) + terrain-dem + Sky + Fog | Immersive globe with atmosphere |
-| <sup>🆕</sup> CesiumJS + 3D Tiles + Turf.js | Full 3D globe with terrain and buildings |
-| <sup>🆕</sup> Indoor 3D map | MapLibre + fill-extrusion + terra-draw | Multi-floor indoor navigation |
-| <sup>🆕</sup> AR map overlay | MapLibre + WebXR + Three.js | Augmented reality map in browser |
-| <sup>🆕</sup> WebGL custom layer | MapLibre + Three.js + deck.gl | Custom WebGL rendering on map |
-| <sup>🆕</sup> Drone flight path 3D | MapLibre + Three.js + Turf.js | 3D drone corridor visualization |
-| <sup>🆕</sup> Point cloud on map | MapLibre + Potree + Three.js | LiDAR point cloud overlay |
 
 ### Story Map & Narrative
 
 | Example | Libraries | Description |
 |---------|-----------|-------------|
 | <sup>🆕</sup> Scroll-driven story map | MapLibre + IntersectionObserver + Turf.js | Fly-to on scroll, data updates |
-| <sup>🆕</sup> Timeline story map | MapLibre + D3-time + Turf.js + React | Historical map evolution |
-| <sup>🆕</sup> Split-screen story | MapLibre + Mapbox Compare + React | Before/after comparison narrative |
 | <sup>🆕</sup> Guided tour map | MapLibre + Shepherd.js + Turf.js | Step-by-step guided exploration |
 | <sup>🆕</sup> Photo essay on map | Leaflet + Lightbox + Turf.js | Geo-tagged photo narrative |
-| <sup>🆕</sup> Data journalism interactive | MapLibre + D3 + Turf.js + React | NYT-style interactive maps |
-| <sup>🆕</sup> Educational globe | CesiumJS + Cesium Stories + Turf.js | Interactive geography lessons |
 
 ### Geospatial Analysis Tool
 
 | Example | Libraries | Description |
 |---------|-----------|-------------|
-| <sup>🆕</sup> Spatial analysis workbench | MapLibre + Turf.js (all modules) + React | Draw, analyze, export results |
 | <sup>🆕</sup> Buffer/intersect tool | MapLibre + Leaflet-Geoman + Turf.js | Create buffers, find intersections |
 | <sup>🆕</sup> Voronoi service area tool | MapLibre + Turf.js (voronoi, convex, area) | Generate service areas from points |
-| <sup>🆕</sup> Hex grid analyzer | MapLibre + Turf.js (hex-grid, collect) + React | Aggregate data into hex cells |
 | <sup>🆕</sup> Route impact analyzer | MapLibre + Turf.js (buffer, intersect, tag) + OSRM | Find features affected by route |
 | <sup>🆕</sup> Coverage gap finder | MapLibre + Turf.js (hex-grid, boolean-point-in-polygon) | Find unserved areas |
 | <sup>🆕</sup> Isochrone builder | MapLibre + Valhalla/OSRM + Turf.js (boolean-point-in-polygon) | Drive-time polygons |
@@ -1127,13 +1076,9 @@ Real-world interactive map applications rarely use a single library. Below are p
 
 | Example | Libraries | Description |
 |---------|-----------|-------------|
-| <sup>🆕</sup> Fleet tracking dashboard | MapLibre + WebSocket + Turf.js + React | Live vehicle positions + nearest vehicle |
 | <sup>🆕</sup> GPS trace replay | MapLibre + Leaflet.Marker.SlideTo + Turf.js (along) | Animate historical GPS trace |
-| <sup>🆕</sup> Live crowd density | MapLibre + deck.gl (HeatmapLayer) + WebSocket | Real-time crowd density heatmap |
 | <sup>🆕</sup> Weather radar overlay | MapLibre + OpenWeatherMap tiles + Turf.js | Live weather + spatial filtering |
 | <sup>🆕</sup> Traffic flow monitor | MapLibre + TomTom tiles + Turf.js (buffer) | Traffic + incident proximity alerts |
-| <sup>🆕</sup> Animal tracking map | MapLibre + deck.gl (TripsLayer) + Turf.js | Wildlife migration visualization |
-| <sup>🆕</sup| Ship AIS tracker | MapLibre + deck.gl (ArcLayer) + WebSocket | Live vessel movement |
 | <sup>🆕</sup> Earthquake monitor | MapLibre + USGS feed + Turf.js (buffer) | Real-time seismic activity |
 
 ### Offline & Progressive Web App
@@ -1158,18 +1103,91 @@ Real-world interactive map applications rarely use a single library. Below are p
 | <sup>🆕</sup> KML/GPX exporter | MapLibre + tokml + Turf.js | Export to Google Earth format |
 | <sup>🆕</sup> Map series generator | MapLibre + Puppeteer + Turf.js | Batch generate maps for multiple regions |
 
-### Mobile & Framework-Specific
+### Geo Calculation & Algorithms
 
 | Example | Libraries | Description |
 |---------|-----------|-------------|
-| <sup>🆕</sup> React Native map app | react-native-maps + Turf.js | Cross-platform mobile geo app |
-| <sup>🆕</sup> Flutter map app | flutter_map + Turf (port) | Flutter cross-platform mapping |
-| <sup>🆕</sup> Vue 3 geo dashboard | vue-maplibre-gl + Turf.js + Vue composables | Vue 3 reactive map components |
-| <sup>🆕</sup> Svelte map app | svelte-maplibre + Turf.js | Svelte reactive map |
-| <sup>🆕</sup> Angular geo tool | angular-mapboxgl + Turf.js | Angular map components |
-| <sup>🆕</sup> Next.js map SSR | Next.js + MapLibre + Turf.js | Server-side rendered map pages |
-| <sup>🆕</sup> Electron desktop GIS | Electron + MapLibre + Turf.js + terra-draw | Desktop GIS application |
-| <sup>🆕</sup| Tauri desktop GIS | Tauri + MapLibre + Rust (geo crate) | Lightweight desktop GIS |
+| <sup>🆕</sup> Convex hull computation | Turf.js (convex) | Smallest convex polygon enclosing points |
+| <sup>NECT</sup> Concave hull computation | Turf.js (concave) | Tight-fitting boundary around point clusters |
+| <sup>🆕</sup> Voronoi diagram generation | Turf.js (voronoi) | Service areas from seed points |
+| <sup>🆕</sup> Delaunay triangulation | Turf.js (voronoi dual) | Triangulate point sets for mesh generation |
+| <sup>🆕</sup> Hex grid tessellation | Turf.js (hex-grid) | Generate hexagonal bins for analysis |
+| <sup>🆕</sup> Point grid sampling | Turf.js (point-grid) | Regular grid of sample points |
+| <sup>🆕</sup> Rectangle grid overlay | Turf.js (rectangle-grid) | Grid cells for spatial aggregation |
+| <sup>🆕</sup> K-Means spatial clustering | Turf.js (clusters-kmeans) | Partition points into k groups |
+| <sup>🆕</sup> DBSCAN density clustering | Turf.js (clusters-dbscan) | Density-based spatial clustering |
+| <sup>🆕</sup> Nearest neighbor analysis | Turf.js (nearest-neighbor-analysis) | Clark-Evans index of point pattern |
+| <sup>🆕</sup> Moran's I autocorrelation | Turf.js (moran-index) | Spatial autocorrelation statistic |
+| <sup>🆕</sup> Quadrat analysis | Turf.js (quadrat-analysis) | Grid-based density distribution test |
+| <sup>🆕</sup> Directional mean | Turf.js (directional-mean) | Average orientation of line features |
+| <sup>🆕</sup> Distance weight matrix | Turf.js (distance-weight) | Spatial weight matrix from distances |
+| <sup>🆕</sup> IDW interpolation | Turf.js (interpolate) | Inverse distance weighted surface |
+| <sup>🆕</sup> Isoline contour generation | Turf.js (isolines) | Contour lines from point values |
+| <sup>🆕</sup> Isoband generation | Turf.js (isobands) | Filled contour bands from point values |
+| <sup>🆕</sup> Buffer zone generation | Turf.js (buffer) | Proximity zones around features |
+| <sup>🆕</sup> Multi-ring buffer | Turf.js (buffer x3) | Concentric proximity rings |
+| <sup>🆕</sup> Polygon union | Turf.js (union) | Merge overlapping polygons |
+| <sup>🆕</sup> Polygon difference | Turf.js (difference) | Subtract one polygon from another |
+| <sup>🆕</sup> Polygon intersection | Turf.js (intersect) | Find overlapping area |
+| <sup>🆕</sup> Polygon dissolve | Turf.js (dissolve) | Merge touching polygons |
+| <sup>🆕</sup> Polygon mask | Turf.js (mask) | Invert polygon for exclusion zone |
+| <sup>🆕</sup> Centroid computation | Turf.js (centroid, center-of-mass) | Geometric center of features |
+| <sup>🆕</sup> Weighted center median | Turf.js (center-median) | Optimal facility location |
+| <sup>🆕</sup> Center of mean position | Turf.js (center-mean) | Average coordinate position |
+| <sup>🆕</sup> Midpoint calculation | Turf.js (midpoint) | Exact midpoint between two points |
+| <sup>🆕</sup> Point-on-line snapping | Turf.js (nearest-point-on-line) | Snap point to nearest line position |
+| <sup>🆕</sup> Line intersection detection | Turf.js (line-intersect) | Find all crossing points |
+| <sup>🆕</sup> Self-intersection detection | Turf.js (kinks) | Find polygon/line self-crossings |
+| <sup>🆕</sup> Polygon area calculation | Turf.js (area) | Geodesic area in square meters |
+| <sup>🆕</sup> Line length calculation | Turf.js (length) | Geodesic length in meters/km |
+| <sup>🆕</sup> Distance matrix | Turf.js (distance) | Pairwise distance between all points |
+| <sup>🆕</sup> Bearing calculation | Turf.js (bearing) | Initial bearing between two points |
+| <sup>🆕</sup> Destination point | Turf.js (destination) | Point at bearing + distance |
+| <sup>🆕</sup> Great circle path | Turf.js (great-circle) | Shortest path on sphere |
+| <sup>🆕</sup> Rhumb line path | Turf.js (rhumb-*) | Constant bearing path |
+| <sup>🆕</sup> Polygon simplification | Turf.js (simplify) | Douglas-Peucker vertex reduction |
+| <sup>🆕</sup> Coordinate cleanup | Turf.js (clean-coords) | Remove duplicate vertices |
+| <sup>🆕</sup> Winding order correction | Turf.js (rewind) | Fix polygon winding for rendering |
+| <sup>🆕</sup> Point-in-polygon test | Turf.js (boolean-point-in-polygon) | Ray casting containment test |
+| <sup>🆕</sup> Point-on-line test | Turf.js (boolean-point-on-line) | Check if point lies on line |
+| <sup>🆕</sup> Boolean contains | Turf.js (boolean-contains) | Full containment test |
+| <sup>🆕</sup> Boolean overlaps | Turf.js (boolean-overlap) | Partial overlap test |
+| <sup>🆕</sup> Boolean crosses | Turf.js (boolean-crosses) | Line-polygon crossing test |
+| <sup>🆕</sup> Boolean disjoint | Turf.js (boolean-disjoint) | No-contact test |
+| <sup>🆕</sup> Boolean touches | Turf.js (boolean-touches) | Boundary contact test |
+| <sup>🆕</sup> Boolean parallel | Turf.js (boolean-parallel) | Line parallelism test |
+| <sup>🆕</sup> Spatial join | Turf.js (tag, collect, points-within-polygon) | Join datasets by spatial relationship |
+| <sup>🆕</sup> Nearest feature lookup | Turf.js (nearest-point) | Find closest feature to query point |
+| <sup>🆕</sup> Point-to-line distance | Turf.js (point-to-line-distance) | Shortest distance to line |
+| <sup>🆕</sup> Point-to-polygon distance | Turf.js (point-to-polygon-distance) | Shortest distance to polygon edge |
+| <sup>🆕</sup> Route distance calculation | Turf.js (along, length) | Cumulative distance along polyline |
+| <sup>🆕</sup> Route segment extraction | Turf.js (line-slice-along) | Extract portion between distances |
+| <sup>🆕</sup> Route splitting at point | Turf.js (line-split) | Divide line at intersection |
+| <sup>🆕</sup> Equal-interval sampling | Turf.js (line-chunk) | Divide line into equal segments |
+| <sup>🆕</sup> Bezier spline smoothing | Turf.js (bezier-spline) | Smooth curve through waypoints |
+| <sup>🆕</sup> Polygon smoothing | Turf.js (polygon-smooth) | Smooth jagged polygon edges |
+| <sup>🆕</sup> Line offset (parallel) | Turf.js (line-offset) | Create parallel offset line |
+| <sup>🆕</sup> Line-to-polygon conversion | Turf.js (line-to-polygon) | Close line into polygon |
+| <sup>🆕</sup> Polygon-to-line extraction | Turf.js (polygon-to-line) | Extract boundary as line |
+| <sup>🆕</sup> Polygonize from lines | Turf.js (polygonize) | Create polygons from line network |
+| <sup>🆕</sup> Explode multi-geometry | Turf.js (explode) | Split MultiPolygon into parts |
+| <sup>🆕</sup> Random point generation | Turf.js (random) | Random points within bounds |
+| <sup>🆕</sup> Random polygon generation | Turf.js (random) | Random polygon features |
+| <sup>🆕</sup> Envelope bounding box | Turf.js (envelope) | Bounding box of feature collection |
+| <sup>🆕</sup> Bounding box | Turf.js (bbox) | [minX, minY, maxX, maxY] |
+| <sup>NECT</sup> Sector generation | Turf.js (sector) | Pie/wedge shape from center |
+| <sup>🆕</sup> Circle polygon generation | Turf.js (circle) | Circle from center + radius |
+| <sup>🆕</sup> Ellipse generation | Turf.js (ellipse) | Ellipse from center + axes |
+| <sup>🆕</sup> Line arc generation | Turf.js (line-arc) | Arc segment from center + angles |
+| <sup>🆕</sup> Tangent lines to polygon | Turf.js (polygon-tangents) | Tangent lines from external point |
+| <sup>🆕</sup> Point on surface | Turf.js (point-on-feature) | Guaranteed interior point |
+| <sup>🆕</sup> Sample random subset | Turf.js (sample) | Random sample of feature collection |
+| <sup>🆕</sup> Planar interpolation | Turf.js (planepoint) | Bilinear interpolation on grid |
+| <sup>🆕</sup> Area-weighted interpolation | Turf.js (tobler/Python) | Transfer values between zones |
+| <sup>🆕</sup> GeoJSON validation | Turf.js (boolean-valid) | Check geometry validity |
+| <sup>🆕</sup> Coordinate projection | Turf.js (projection) | Convert lat/lng to flat plane |
+| <sup>🆕</sup> Coordinate flip | Turf.js (flip) | Swap lat/lng coordinates |
+| <sup>🆕</sup> Feature cloning | Turf.js (clone) | Deep copy GeoJSON feature |
 
 ### Data Pipeline & ETL
 
@@ -1189,10 +1207,7 @@ Real-world interactive map applications rarely use a single library. Below are p
 |---------|-----------|-------------|
 | <sup>🆕</sup> Generative map art | MapLibre + D3-geo + Turf.js + Canvas API | Algorithmic map patterns |
 | <sup>🆕</sup> Sound map | MapLibre + Tone.js + Turf.js | Audio visualization on map |
-| <sup>🆕</sup> Particle simulation on map | MapLibre + deck.gl (PointCloudLayer) + Turf.js | Particle effects following geography |
-| <sup>🆕</sup> Map quiz game | MapLibre + Turf.js (nearest-point) + React | Geography trivia with spatial scoring |
 | <sup>🆕</sup> Maze generator on map | MapLibre + Terra-draw + Turf.js | Generate and solve mazes from streets |
-| <sup>🆕</sup> Route puzzle | MapLibre + OSRM + Turf.js + React | Solve routing challenges |
 | <sup>🆕</sup> Timezone visualizer | MapLibre + D3-geo + Turf.js | Interactive timezone boundaries |
 | <sup>🆕</sup> Compass rose generator | MapLibre + Turf.js (bearing, destination) + SVG | Beautiful compass overlays |
 | <sup>🆕</sup> Historical map overlay | MapLibre + Mapbox Compare + Old Maps API | Compare historical vs modern maps |
@@ -1204,21 +1219,21 @@ Real-world interactive map applications rarely use a single library. Below are p
 
 | Combination | Use Case |
 |-------------|----------|
-| **MapLibre + Turf.js + terra-draw** | Geometry editor with analysis |
-| **MapLibre + deck.gl + React** | High-performance data viz dashboard |
-| **MapLibre + Three.js + Threebox** | 3D building/scene placement |
-| **MapLibre + CesiumJS** | 2D map + 3D globe hybrid |
+| **MapLibre + Turf.js + terra-draw** | Geometry editor with spatial analysis |
 | **Leaflet + Leaflet-Geoman + Turf.js** | Lightweight geo editor |
-| **MapLibre + D3 + React** | Data journalism interactive |
+| **MapLibre + Turf.js (voronoi + convex)** | Service area computation |
+| **MapLibre + Turf.js (hex-grid + collect)** | Hex binning and aggregation |
+| **MapLibre + Turf.js (buffer + intersect)** | Proximity and overlap analysis |
 | **MapLibre + OSRM + Turf.js** | Routing + spatial analysis |
-| **MapLibre + PMTiles + Martin + PostGIS** | Full self-hosted tile stack |
+| **MapLibre + Turf.js (clusters-kmeans)** | Point clustering analysis |
+| **MapLibre + Turf.js (isobands + isolines)** | Elevation/temperature contours |
+| **MapLibre + PMTiles + Martin + PostGIS** | Self-hosted vector tile stack |
 | **MapLibre + Yjs + WebSocket** | Collaborative real-time editing |
-| **MapLibre + Service Worker + IndexedDB** | Offline-first PWA |
+| **MapLibre + Service Worker + IndexedDB** | Offline-first map app |
 | **MapLibre + jsPDF + canvas** | Print/export workflow |
 | **MapLibre + Kepler.gl** | Exploratory data analysis |
-| **React Native + MapLibre + Turf.js** | Mobile cross-platform geo app |
-| **Electron + MapLibre + Turf.js + terra-draw** | Desktop GIS application |
 | **Node.js + Turf.js + GDAL + Martin** | Server-side ETL pipeline |
+| **PostGIS + Martin + TileServer GL** | Database to vector tiles |
 
 ---
 
@@ -1235,7 +1250,6 @@ A comprehensive reference of maps/geo libraries across every major programming l
 | [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/) | WebGL vector map rendering (fork of Mapbox GL JS) |
 | [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/) | WebGL-powered vector maps (proprietary) |
 | [OpenLayers](https://openlayers.org/) | High-performance maps with raster + vector support |
-| [CesiumJS](https://cesium.com/cesiumjs/) | 3D globes, terrain, and volumetric tiles |
 | [Leaflet.VectorGrid](https://github.com/Leaflet/Leaflet.VectorGrid) | Efficient vector tile rendering for Leaflet |
 | [ESRI ArcGIS JS API](https://developers.arcgis.com/javascript/) | Enterprise GIS mapping SDK |
 | [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript) | Google Maps embedding and interaction |
@@ -1244,71 +1258,6 @@ A comprehensive reference of maps/geo libraries across every major programming l
 #### Map Component Frameworks
 | Library | Description |
 |---------|-------------|
-| [react-leaflet](https://react-leaflet.js.org/) | React components for Leaflet |
-| [react-map-gl](https://visgl.github.io/react-map-gl/) | React components for MapLibre/Mapbox |
-| [azure-maps-react](https://github.com/Azure-Samples/azure-maps-react) | React components for Azure Maps |
-| [vue-maplibre-gl](https://github.com/razorness/vue-maplibre-gl) | Vue 3 components for MapLibre |
-| [angular-mapboxgl](https://github.com/Wykks/angular-mapboxgl) | Angular components for Mapbox/MapLibre |
-| [svelte-maplibre](https://github.com/watergis/svelte-maplibre) | Svelte components for MapLibre |
-
-#### Geospatial Analysis
-| Library | Description |
-|---------|-------------|
-| [Turf.js](https://turfjs.org/) | Client-side geospatial analysis (buffer, Voronoi, union, etc.) |
-| [deck.gl](https://deck.gl/) | Large-scale data visualization layers |
-| [MapboxGL Heatmap](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#heatmap) | Built-in heatmap layer |
-| [rbush](https://github.com/mourner/rbush) | Fast spatial indexing (R-tree) |
-
-#### Drawing & Editing
-| Library | Description |
-|---------|-------------|
-| [Leaflet-Geoman](https://github.com/geoman-io/leaflet-geoman) | Draw & edit geometries for Leaflet |
-| [mapbox-gl-draw](https://github.com/mapbox/mapbox-gl-draw) | Draw & edit for Mapbox/MapLibre |
-| [terra-draw](https://github.com/terra-draw/terra-draw) | Multi-shape drawing (framework agnostic) |
-
-#### Tiles & Data Formats
-| Library | Description |
-|---------|-------------|
-| [PMTiles](https://protomaps.com/) | Single-file tile archives (cloud-native) |
-| [Protomaps](https://protomaps.com/) | Open-source vector tile hosting |
-| [osmtogeojson](https://github.com/tyrasd/osmtogeojson) | OSM XML to GeoJSON converter |
-| [osm2geojson](https://github.com/aspectumapp/osm2geojson) | OSM/Overpass XML/JSON to GeoJSON |
-| [shpwrite](https://github.com/calvinmetcalf/shapefile-js) | Write Shapefiles in the browser |
-| [tokml](https://github.com/mapbox/tokml) | GeoJSON to KML converter |
-| [togeojson](https://github.com/mapbox/togeojson) | KML/GPX to GeoJSON converter |
-| [geojson-validation](https://github.com/rclark/geojson-validation) | GeoJSON validation |
-| [wellknown](https://github.com/mapbox/wellknown) | WKT parser/serializer |
-
-#### Routing & Navigation
-| Library | Description |
-|---------|-------------|
-| [Leaflet.Routing.Machine](https://github.com/perliedman/leaflet-routing-machine) | Client-side routing for Leaflet |
-| [Mapbox GL Directions](https://github.com/mapbox/mapbox-gl-directions) | Directions plugin for Mapbox GL |
-| [OSRM JS](https://github.com/Project-OSRM/osrm-frontend) | OSRM frontend bindings |
-
-#### Geocoding
-| Library | Description |
-|---------|-------------|
-| [leaflet-control-geocoder](https://github.com/perliedman/leaflet-control-geocoder) | Geocoder control for Leaflet |
-| [Nominatim](https://nominatim.org/) | OpenStreetMap forward/reverse geocoder |
-| [Pelias](https://github.com/pelias/pelias) | Open-source geocoder (geocode.earth) |
-
-#### OSM Data & API
-| Library | Description |
-|---------|-------------|
-| [osm-api-js](https://github.com/k-yle/osm-api-js) | TypeScript OSM API wrapper |
-| [osm-request](https://github.com/osmlab/osm-request) | OSM API wrapper |
-| [overpy](https://pypi.org/project/overpy/) | Overpass API client (JS/Python) |
-
-#### 3D & WebGL
-| Library | Description |
-|---------|-------------|
-| [three.js](https://threejs.org/) | 3D rendering (used with MapLibre/Azure custom layers) |
-| [babylon.js](https://www.babylonjs.com/) | 3D engine (used with MapLibre/Azure custom layers) |
-| [Threebox](https://github.com/arjunrn/threebox) | Three.js + Mapbox/Azure integration |
-| [Flowmap.gl](https://github.com/FlowmapBlue/flowmap.gl/) | Flow visualization |
-| [Cesium for React](https://github.com/reearth/react-cesium) | CesiumJS React wrapper |
-
 ---
 
 ### Python
@@ -1319,7 +1268,6 @@ A comprehensive reference of maps/geo libraries across every major programming l
 | [Folium](https://python-visualization.github.io/folium/) | Leaflet maps in Python (Jupyter friendly) |
 | [Kepler.gl](https://kepler.gl/) | Geospatial data exploration (Jupyter) |
 | [IPyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | Leaflet for Jupyter widgets |
-| [Pydeck](https://pydeck.gl/) | Python bindings for deck.gl |
 | [Mapwidget](https://github.com/innogeo/mapwidget) | Interactive map widgets for Jupyter |
 
 #### Geospatial Analysis (Core)
@@ -1368,13 +1316,6 @@ A comprehensive reference of maps/geo libraries across every major programming l
 | [Martin](https://github.com/maplibre/martin) | PostGIS/MBTiles vector tile server |
 | [Kartograph](https://github.com/kartograph/kartograph.py) | Map rendering framework |
 
-#### 3D & Visualization
-| Library | Description |
-|---------|-------------|
-| [Cesium for Python](https://github.com/CesiumGS/cesium-native) | CesiumJS Python bindings |
-| [pyvista](https://pyvista.org/) | 3D geospatial visualization |
-| [geoviews](https://geoviews.org/) | Geographic data visualization (HoloViz) |
-
 ---
 
 ### Java / Kotlin
@@ -1395,12 +1336,10 @@ A comprehensive reference of maps/geo libraries across every major programming l
 |---------|-------------|
 | [MapLibre Native](https://github.com/maplibre/maplibre-native) | Cross-platform vector/raster tile rendering (Android/iOS/desktop) |
 | [Tangram ES](https://github.com/tangrams/tangram-es) | OpenGL ES 2D/3D map renderer |
-| [Tangram NG](https://github.com/styluslabs/tangram-ng) | Fork of Tangram ES with 3D terrain |
 | [mapsforge](https://github.com/mapsforge/mapsforge) | Android offline map rendering (OSM data) |
 | [CartoType](https://cartotype.github.io/cartotype/) | Offline vector map rendering + routing |
 | [libosmscout](https://github.com/Framstag/libosmscout) | Offline vector map rendering + routing |
 | [OSMSharp](https://github.com/xivk/osmsharp) | Offline vector map rendering (.NET/Java) |
-| [WhirlyGlobe-Maply](http://mousebird.github.io/WhirlyGlobe/) | OpenGL ES 2D map + 3D globe (iOS/Android) |
 | [GLMap](https://github.com/nickaknudson/android-glmap) | OpenGL ES vector map (Android/iOS) |
 
 #### Routing & Navigation
@@ -1456,7 +1395,6 @@ A comprehensive reference of maps/geo libraries across every major programming l
 | [Mapbox iOS SDK](https://github.com/mapbox/mapbox-gl-native-ios) | Vector tile rendering with OpenGL ES |
 | [MapLibre Native iOS](https://github.com/maplibre/maplibre-native) | Open-source fork of Mapbox iOS SDK |
 | [Apple MapKit](https://developer.apple.com/mapkit/) | Native Apple Maps embedding |
-| [WhirlyGlobe-Maply](http://mousebird.github.io/WhirlyGlobe/) | OpenGL ES 2D map + 3D globe |
 | [CartoType iOS](https://cartotype.github.io/cartotype/) | Offline vector maps + routing |
 
 #### Routing & Navigation
@@ -1532,7 +1470,6 @@ A comprehensive reference of maps/geo libraries across every major programming l
 | [Tangram ES](https://github.com/tangrams/tangram-es) | OpenGL ES 2D/3D map renderer |
 | [libosmscout](https://github.com/Framstag/libosmscout) | Offline vector maps + routing |
 | [CartoType](https://cartotype.github.io/cartotype/) | Offline vector maps + routing |
-| [Marble](https://marble.kde.org/) | KDE Qt globe/map widget |
 
 #### Geospatial Libraries
 | Library | Description |
@@ -1624,16 +1561,6 @@ A comprehensive reference of maps/geo libraries across every major programming l
 | [graphhopper](https://github.com/graphhopper/graphhopper) | Go routing engine port |
 
 ---
-
-### Dart / Flutter
-
-#### Interactive Maps
-| Library | Description |
-|---------|-------------|
-| [flutter_map](https://github.com/fleaflet/flutter_map) | Leaflet-inspired map for Flutter |
-| [flutter_osm_plugin](https://github.com/liodali/osm_flutter) | OpenStreetMap widget for Flutter |
-| [google_maps_flutter](https://pub.dev/packages/google_maps_flutter) | Google Maps for Flutter |
-| [mapbox_gl](https://github.com/nickaknudson/mapbox-gl-flutter) | Mapbox GL for Flutter |
 
 ---
 
