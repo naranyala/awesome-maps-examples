@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-contextmenu@2.0.1/dist/leaflet.contextmenu.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-contextmenu@1.4.0/dist/leaflet.contextmenu.css" />
     <style>
         body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
         #map { height: 100%; width: 100%; }
@@ -17,7 +17,40 @@
     <div class="output" id="output">Right-click on the map</div>
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-contextmenu@2.0.1/dist/leaflet.contextmenu.js"></script>
+    <script src="https://unpkg.com/leaflet-contextmenu@1.4.0/dist/leaflet.contextmenu.js"></script>
     <script src="context-menu.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library; 
+        
+        if (action === 'zoom_in') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250});
+        }
+        else if (action === 'zoom_out') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250});
+        }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0;
+            const dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') {
+                const view = map.getView();
+                const center = view.getCenter();
+                const res = view.getResolution();
+                view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250});
+            }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
 </body>
 </html>

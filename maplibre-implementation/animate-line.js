@@ -1,5 +1,5 @@
 const route = [[-0.09,51.505],[-0.08,51.51],[-0.07,51.515],[-0.05,51.52],[-0.03,51.518],[-0.01,51.525],[0.01,51.52],[0.03,51.515],[0.05,51.51],[0.07,51.505],[0.09,51.5],[0.11,51.495]];
-        const map = new maplibregl.Map({ container: 'map', style: 'https://demotiles.maplibre.org/style.json', center: [0.01, 51.51], zoom: 13 });
+        const map = new maplibregl.Map({ container: 'map', style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json', center: [0.01, 51.51], zoom: 13 });
         map.addControl(new maplibregl.NavigationControl());
 
         map.on('load', () => {

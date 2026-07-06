@@ -17,5 +17,38 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-fullscreen@1.6.0/dist/Leaflet.fullscreen.js"></script>
     <script src="fullscreen.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library; 
+        
+        if (action === 'zoom_in') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250});
+        }
+        else if (action === 'zoom_out') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250});
+        }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0;
+            const dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') {
+                const view = map.getView();
+                const center = view.getCenter();
+                const res = view.getResolution();
+                view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250});
+            }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
 </body>
 </html>

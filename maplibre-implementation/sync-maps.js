@@ -1,8 +1,8 @@
 const center = [-0.09, 51.505];
         const zoom = 13;
 
-        const map1 = new maplibregl.Map({ container: 'map1', style: 'https://demotiles.maplibre.org/style.json', center, zoom, attributionControl: false });
-        const map2 = new maplibregl.Map({ container: 'map2', style: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', center, zoom, attributionControl: false });
+        const map1 = new maplibregl.Map({ container: 'map1', style: { version: 8, sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256, attribution: '© OpenStreetMap' } }, layers: [{ id: 'osm', type: 'raster', source: 'osm' }] }, center, zoom, attributionControl: false });
+        const map2 = new maplibregl.Map({ container: 'map2', style: { version: 8, sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256, attribution: '© OpenStreetMap' } }, layers: [{ id: 'osm', type: 'raster', source: 'osm' }] }, center, zoom, attributionControl: false });
 
         function sync(src, tgt) {
             tgt.setCenter(src.getCenter());

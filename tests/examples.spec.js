@@ -27,6 +27,8 @@ const MAP_READY = {
   },
 };
 
+const MAP_SELECTOR = { leaflet: '.leaflet-container', maplibre: '.maplibregl-map', openlayers: '.ol-viewport' };
+
 for (const ex of examples) {
   test(`Comprehensive Validation: ${ex.library} - ${ex.name}`, async ({ page }) => {
     const consoleErrors = [];
@@ -36,7 +38,6 @@ for (const ex of examples) {
     // 1. Catch Console Errors
     page.on('console', msg => {
       if (msg.type() === 'error') {
-        // Ignore known map tile 404s/403s which happen frequently due to API limits
         if (!msg.text().includes('403') && !msg.text().includes('404')) {
           consoleErrors.push(msg.text());
         }
@@ -48,7 +49,7 @@ for (const ex of examples) {
       pageErrors.push(err.message);
     });
 
-    // 3. Catch Network Failures (Ignoring 3rd party tile servers which can be flaky)
+    // 3. Catch Network Failures (local assets only)
     page.on('response', response => {
       const status = response.status();
       const url = response.url();
@@ -62,21 +63,57 @@ for (const ex of examples) {
 
     // 4. Verify Map Container, Canvas Size, and Global Library Objects
     const readyFn = MAP_READY[ex.library];
+    const sel = MAP_SELECTOR[ex.library];
     await expect(async () => {
       const isReady = await page.evaluate(readyFn);
       expect(isReady).toBe(true);
     }).toPass({ timeout: 15000 });
 
-    // 5. Verify the postMessage Middleware Injection (from serve.py)
-    // Send a mock postMessage to zoom in, ensuring it doesn't throw errors
-    await page.evaluate((lib) => {
-      window.postMessage({ action: 'zoom_in', library: lib }, '*');
-    }, ex.library);
+    // Give map a beat for tile layer initialization
+    await page.waitForTimeout(1000);
 
-    // Give the map a moment to process the postMessage
-    await page.waitForTimeout(500);
+    // 5. UNIVERSAL INTERACTIONS — exercise click, scroll, keyboard on every page
+    // Click at map center
+    const box = await page.locator(sel).boundingBox();
+    if (box) {
+      const cx = box.x + box.width / 2;
+      const cy = box.y + box.height / 2;
 
-    // 6. Final Assertions - Exposing every corner of failure!
+      // Left-click
+      await page.mouse.click(cx, cy);
+      await page.waitForTimeout(200);
+
+      // Mouse scroll (zoom)
+      await page.mouse.move(cx, cy);
+      await page.mouse.wheel(0, -120);
+      await page.waitForTimeout(200);
+
+      // Double-click
+      await page.mouse.dblclick(cx, cy);
+      await page.waitForTimeout(200);
+
+      // Right-click
+      await page.mouse.click(cx, cy, { button: 'right' });
+      await page.waitForTimeout(200);
+    }
+
+    // Keyboard: press WASD keys
+    for (const key of ['w', 'a', 's', 'd']) {
+      await page.keyboard.down(key);
+      await page.waitForTimeout(50);
+      await page.keyboard.up(key);
+      await page.waitForTimeout(50);
+    }
+
+    // 6. postMessage Middleware — exercise all remote-control actions
+    for (const action of ['zoom_in', 'zoom_out', 'pan_north', 'pan_south', 'pan_east', 'pan_west']) {
+      await page.evaluate(({ action, lib }) => {
+        window.postMessage({ action, library: lib }, '*');
+      }, { action, lib: ex.library });
+      await page.waitForTimeout(200);
+    }
+
+    // 7. Final Assertions
     expect(pageErrors, `Uncaught JS Exceptions found: ${pageErrors.join(', ')}`).toHaveLength(0);
     expect(consoleErrors, `Console Errors found: ${consoleErrors.join(', ')}`).toHaveLength(0);
     expect(failedRequests, `Local Asset Network Failures: ${failedRequests.join(', ')}`).toHaveLength(0);

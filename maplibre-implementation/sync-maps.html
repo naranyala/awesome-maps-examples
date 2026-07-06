@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; display: flex; font-family: sans-serif; overflow: hidden; }
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; display: flex; font-family: sans-serif; overflow: hidden; }
         .map-container { flex: 1; height: 100%; border-right: 2px solid #ccc; }
         .map-container:last-child { border-right: none; }
         .controls { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2); font-family: sans-serif; text-align: center; }
@@ -18,5 +18,38 @@
     <div id="map2" class="map-container"></div>
     <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
     <script src="sync-maps.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library; 
+        
+        if (action === 'zoom_in') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250});
+        }
+        else if (action === 'zoom_out') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250});
+        }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0;
+            const dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') {
+                const view = map.getView();
+                const center = view.getCenter();
+                const res = view.getResolution();
+                view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250});
+            }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet + Turf.js - Simplify</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .panel { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15,23,42,0.9); color: #fff; padding: 14px 18px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.15); min-width: 200px; }
+        .panel label { font-size: 13px; color: #94a3b8; display: block; margin-bottom: 4px; }
+        .panel input[type=range] { width: 100%; }
+        .panel .stat { font-size: 12px; color: #64748b; margin-top: 4px; }
+        .panel .value { color: #60a5fa; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <label>Tolerance: <span class="value" id="tolerance-val">0.01</span></label>
+        <input type="range" id="tolerance" min="0.001" max="0.1" step="0.001" value="0.01" oninput="updateSimplify(this.value)">
+        <div class="stat">Vertices: <span class="value" id="vert-count">0</span></div>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script src="turf-simplify.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library;
+        if (action === 'zoom_in') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250}); }
+        else if (action === 'zoom_out') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250}); }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0, dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') { const view = map.getView(), center = view.getCenter(), res = view.getResolution(); view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250}); }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
+</body>
+</html>

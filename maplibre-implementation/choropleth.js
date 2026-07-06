@@ -6,7 +6,7 @@ const countries = { type: 'FeatureCollection', features: [
             { type:'Feature', properties:{ name:'Australia', density:3 }, geometry:{ type:'Polygon', coordinates:[[[113,-10],[154,-10],[154,-44],[113,-44],[113,-10]]] } }
         ]};
 
-        const map = new maplibregl.Map({ container: 'map', style: 'https://demotiles.maplibre.org/style.json', center: [-20, 20], zoom: 1.5 });
+        const map = new maplibregl.Map({ container: 'map', style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json', center: [-20, 20], zoom: 1.5 });
         map.addControl(new maplibregl.NavigationControl());
 
         function getColor(d) { return d > 300 ? '#800026' : d > 200 ? '#BD0026' : d > 100 ? '#E31A1C' : d > 50 ? '#FC4E2A' : '#FED976'; }

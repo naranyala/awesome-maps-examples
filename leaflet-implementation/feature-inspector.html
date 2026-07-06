@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet - Feature Inspector</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .inspector { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(15,23,42,0.95); color: #fff; padding: 12px 18px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.15); max-width: 400px; min-width: 250px; pointer-events: none; display: none; font-size: 13px; }
+        .inspector .name { font-weight: bold; color: #60a5fa; margin-bottom: 4px; }
+        .inspector .prop { color: #94a3b8; }
+        .inspector .prop span { color: #e2e8f0; }
+        .hint { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15,23,42,0.85); color: #94a3b8; padding: 8px 16px; border-radius: 6px; font-size: 13px; pointer-events: none; }
+        .highlight { position: absolute; top: 48px; right: 10px; z-index: 1000; display: flex; gap: 4px; }
+        .highlight button { padding: 4px 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; color: #fff; }
+        .highlight .street { background: #ef4444; }
+        .highlight .water { background: #3b82f6; }
+        .highlight .park { background: #10b981; }
+    </style>
+</head>
+<body>
+    <div class="hint">Click any colored region to inspect its properties</div>
+    <div class="highlight">
+        <button class="street" onclick="window.filterBy('highway')">Roads</button>
+        <button class="water" onclick="window.filterBy('water')">Water</button>
+        <button class="park" onclick="window.filterBy('park')">Parks</button>
+        <button style="background:#64748b" onclick="window.filterBy('all')">All</button>
+    </div>
+    <div class="inspector" id="inspector"></div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="feature-inspector.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library;
+        if (action === 'zoom_in') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250}); }
+        else if (action === 'zoom_out') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250}); }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0, dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') { const view = map.getView(), center = view.getCenter(), res = view.getResolution(); view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250}); }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
+</body>
+</html>

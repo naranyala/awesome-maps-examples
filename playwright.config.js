@@ -28,6 +28,6 @@ module.exports = defineConfig({
   webServer: {
     command: 'python3 serve.py',
     port: 8000,
-    reuseExistingServer: false,
+    reuseExistingServer: true,
   },
 });

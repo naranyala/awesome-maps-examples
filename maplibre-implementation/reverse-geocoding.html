@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre - Reverse Geocoding</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .info { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15,23,42,0.9); color: #fff; padding: 14px 18px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.15); max-width: 320px; pointer-events: none; }
+        .info .address { font-size: 13px; color: #94a3b8; margin-top: 4px; }
+        .info .coords { font-size: 12px; color: #64748b; }
+        .hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(15,23,42,0.85); color: #94a3b8; padding: 8px 16px; border-radius: 6px; font-size: 13px; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <div id="address-name">Click the map</div>
+        <div class="address" id="address-detail">to see the nearest address</div>
+        <div class="coords" id="address-coords"></div>
+    </div>
+    <div class="hint">Click anywhere on the map to reverse-geocode</div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script src="reverse-geocoding.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library;
+        if (action === 'zoom_in') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250}); }
+        else if (action === 'zoom_out') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250}); }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0, dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') { const view = map.getView(), center = view.getCenter(), res = view.getResolution(); view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250}); }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
+</body>
+</html>

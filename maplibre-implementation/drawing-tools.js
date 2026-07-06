@@ -3,6 +3,7 @@ const map = new maplibregl.Map({ container: 'map', style: 'https://demotiles.map
 
         const draw = new MapboxDraw({ displayControlsDefault: false, controls: { polygon: true, line_string: true, point: true, trash: true } });
         map.addControl(draw);
+        window.draw = draw;
 
         function updateStats() {
             const features = draw.getAll().features;

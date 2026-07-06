@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers + Turf.js - Dissolve</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>
+        body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+        .panel { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15,23,42,0.9); color: #fff; padding: 14px 18px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.15); min-width: 180px; }
+        .panel button { background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 13px; margin-right: 6px; }
+        .panel button:hover { background: #2563eb; }
+        .panel button.reset { background: #64748b; }
+        .panel button.reset:hover { background: #475569; }
+        .stat { font-size: 12px; color: #94a3b8; margin-top: 6px; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <button onclick="window.dissolve()">Dissolve</button>
+        <button class="reset" onclick="window.resetPolys()">Reset</button>
+        <div class="stat" id="poly-count">2 separate polygons</div>
+    </div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script src="turf-dissolve.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library;
+        if (action === 'zoom_in') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250}); }
+        else if (action === 'zoom_out') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250}); }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0, dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') { const view = map.getView(), center = view.getCenter(), res = view.getResolution(); view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250}); }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
+</body>
+</html>

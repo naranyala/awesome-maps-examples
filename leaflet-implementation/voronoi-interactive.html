@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Voronoi Generator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }</style>
+</head>
+<body>
+    <div id="map" style="width:100%;height:100%"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Include Turf.js for spatial math -->
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+    <script>
+    const map = L.map('map').setView([51.505, -0.09], 13);
+    
+    // Add a beautiful dark base map to make the colorful voronoi pop!
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { 
+        maxZoom: 19, 
+        attribution: '© CartoDB' 
+    }).addTo(map);
+
+    let points = []; // Array of turf point features
+    let voronoiLayer = L.geoJSON(null, {
+        style: function(feature) {
+            return {
+                color: '#fff',
+                weight: 2,
+                fillColor: feature.properties.color,
+                fillOpacity: 0.4
+            };
+        }
+    }).addTo(map);
+    
+    let markerLayer = L.layerGroup().addTo(map);
+
+    // Color palette for regions
+    const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999', '#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3', '#a6d854'];
+    let colorIndex = 0;
+
+    // Pre-populate with 3 random points in London to show the effect immediately
+    const initialCoords = [
+        [51.505, -0.09],
+        [51.51, -0.1],
+        [51.49, -0.08]
+    ];
+    
+    function addPoint(latlng) {
+        const color = colors[colorIndex % colors.length];
+        colorIndex++;
+        
+        // Add Leaflet Marker
+        const marker = L.circleMarker(latlng, {
+            radius: 8,
+            fillColor: color,
+            color: '#fff',
+            weight: 2,
+            fillOpacity: 1
+        }).addTo(markerLayer);
+
+        // Add Turf Point
+        const turfPoint = turf.point([latlng.lng, latlng.lat], { color: color });
+        points.push(turfPoint);
+        updateVoronoi();
+    }
+
+    function updateVoronoi() {
+        if (points.length < 2) return;
+
+        // Get the current map bounds to calculate the Voronoi within
+        const bounds = map.getBounds();
+        const bbox = [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
+        
+        // Turf.js Voronoi calculation
+        const collection = turf.featureCollection(points);
+        // Add a slight buffer to the bbox so polygons don't cut off abruptly
+        const bufferedBbox = [bbox[0]-0.1, bbox[1]-0.1, bbox[2]+0.1, bbox[3]+0.1];
+        
+        try {
+            const voronoiPolygons = turf.voronoi(collection, { bbox: bufferedBbox });
+            
+            // Transfer colors from the original points to the generated polygons
+            voronoiPolygons.features.forEach((poly, i) => {
+                if(poly) {
+                    poly.properties = { color: points[i].properties.color };
+                }
+            });
+
+            // Update map
+            voronoiLayer.clearLayers();
+            voronoiLayer.addData(voronoiPolygons);
+        } catch(e) {
+            console.warn("Voronoi calculation skipped due to collinear points");
+        }
+    }
+
+    // Add points on click
+    map.on('click', function(e) {
+        addPoint(e.latlng);
+    });
+
+    // Recalculate on move/zoom so the bounding box expands seamlessly
+    map.on('moveend', updateVoronoi);
+
+    // Initialize the first few points
+    initialCoords.forEach(c => addPoint(L.latLng(c[0], c[1])));
+    
+    // Listen for control updates from parent
+    window.addEventListener('message', (e) => {
+        if (e.data && e.data.type === 'control') {
+            console.log('Control:', e.data.id, '=', e.data.value);
+            // Example-specific control handlers can be added here
+        }
+    });
+    </script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library; 
+        
+        if (action === 'zoom_in') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250});
+        }
+        else if (action === 'zoom_out') {
+            if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut();
+            else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250});
+        }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0;
+            const dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') {
+                const view = map.getView();
+                const center = view.getCenter();
+                const res = view.getResolution();
+                view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250});
+            }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
+</body>
+</html>

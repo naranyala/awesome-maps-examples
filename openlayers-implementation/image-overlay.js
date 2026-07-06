@@ -1,6 +1,6 @@
 const extent = ol.proj.transformExtent([-10, 48, 5, 56], 'EPSG:4326', 'EPSG:3857');
         const overlay = new ol.layer.Image({
-            source: new ol.source.ImageStatic({ url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/British_Isles_satellite_orthographic_NASA.jpg/800px-British_Isles_satellite_orthographic_NASA.jpg', projection: 'EPSG:3857', imageExtent: extent }),
+            source: new ol.source.ImageStatic({ url: 'https://via.placeholder.com/1024x768.png?text=Image+Overlay', projection: 'EPSG:3857', imageExtent: extent }),
             opacity: 0.7
         });
         const map = new ol.Map({

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Reverse Geocoding</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>
+        body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+        .info { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15,23,42,0.9); color: #fff; padding: 14px 18px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.15); max-width: 320px; pointer-events: none; }
+        .info .address { font-size: 13px; color: #94a3b8; margin-top: 4px; }
+        .info .coords { font-size: 12px; color: #64748b; }
+        .hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(15,23,42,0.85); color: #94a3b8; padding: 8px 16px; border-radius: 6px; font-size: 13px; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <div id="address-name">Click the map</div>
+        <div class="address" id="address-detail">to see the nearest address</div>
+        <div class="coords" id="address-coords"></div>
+    </div>
+    <div class="hint">Click anywhere on the map to reverse-geocode</div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="reverse-geocoding.js"></script>
+
+<!-- INJECTED MAP CONTROL SCRIPT -->
+<script>
+window.addEventListener('message', function(e) {
+    if(!e.data || typeof map === 'undefined') return;
+    try {
+        const action = e.data.action;
+        const lib = e.data.library;
+        if (action === 'zoom_in') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomIn(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() + 1, duration: 250}); }
+        else if (action === 'zoom_out') { if (lib === 'leaflet' || lib === 'maplibre') map.zoomOut(); else if (lib === 'openlayers') map.getView().animate({zoom: map.getView().getZoom() - 1, duration: 250}); }
+        else if (action === 'pan') {
+            const dx = e.data.dx || 0, dy = e.data.dy || 0;
+            if (lib === 'leaflet') map.panBy([dx, dy]);
+            else if (lib === 'maplibre') map.panBy([dx, dy], {duration: 250});
+            else if (lib === 'openlayers') { const view = map.getView(), center = view.getCenter(), res = view.getResolution(); view.animate({center: [center[0] + dx * res, center[1] - dy * res], duration: 250}); }
+        }
+    } catch(err) { console.warn('Map control injection failed:', err); }
+});
+</script>
+
+</body>
+</html>

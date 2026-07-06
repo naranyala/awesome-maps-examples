@@ -2199,5 +2199,524 @@
         "default": 0.5
       }
     ]
+  },
+  {
+    "id": "openlayers-custom-projection",
+    "library": "openlayers",
+    "file": "openlayers-implementation/custom-projection.html",
+    "name": "Custom Projection",
+    "description": "Render map in a non-Web-Mercator projection using proj4js.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "openlayers-webgl-points",
+    "library": "openlayers",
+    "file": "openlayers-implementation/webgl-points.html",
+    "name": "WebGL Million Points",
+    "description": "Render massive datasets at 60FPS using WebGLPointsLayer.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "openlayers-map-export",
+    "library": "openlayers",
+    "file": "openlayers-implementation/map-export.html",
+    "name": "High-Res Map Exporter",
+    "description": "Export the map canvas to a high-resolution image or PDF.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "openlayers-graticule",
+    "library": "openlayers",
+    "file": "openlayers-implementation/graticule.html",
+    "name": "Graticule Overlay",
+    "description": "Dynamic coordinate grid overlay for latitude and longitude.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "leaflet-routing-machine",
+    "library": "leaflet",
+    "file": "leaflet-implementation/routing-machine.html",
+    "name": "Routing Machine",
+    "description": "Point-to-point GPS navigation interface with turn-by-turn instructions.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "leaflet-d3-integration",
+    "library": "leaflet",
+    "file": "leaflet-implementation/d3-integration.html",
+    "name": "D3.js SVG Integration",
+    "description": "Bind Leaflet zoom/pan events to raw D3.js animated overlays.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "leaflet-marker-clustering",
+    "library": "leaflet",
+    "file": "leaflet-implementation/marker-clustering.html",
+    "name": "Marker Clustering",
+    "description": "Handle massive amounts of overlapping pins using Leaflet.markercluster.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "leaflet-time-dimension",
+    "library": "leaflet",
+    "file": "leaflet-implementation/time-dimension.html",
+    "name": "Time-Dimension Player",
+    "description": "Timeline scrubber to play back historical spatial data over time.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "maplibre-3d-terrain",
+    "library": "maplibre",
+    "file": "maplibre-implementation/3d-terrain.html",
+    "name": "3D Terrain & Hillshading",
+    "description": "Interactive 3D mountains using an RGB DEM tile source.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "maplibre-indoor-mapping",
+    "library": "maplibre",
+    "file": "maplibre-implementation/indoor-mapping.html",
+    "name": "Indoor 3D Mapping",
+    "description": "Interactive multi-level building floor plans using fill-extrusion.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "maplibre-realtime-3d",
+    "library": "maplibre",
+    "file": "maplibre-implementation/realtime-3d.html",
+    "name": "Real-time 3D Object Tracking",
+    "description": "Smoothly animate a 3D glTF model moving along a path at 60FPS.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "maplibre-data-driven",
+    "library": "maplibre",
+    "file": "maplibre-implementation/data-driven.html",
+    "name": "Data-Driven Traffic Styling",
+    "description": "Dynamically color-code and style roads based on live-traffic property expressions.",
+    "category": "Advanced Mapping",
+    "controls": []
+  },
+  {
+    "id": "leaflet-measure-tool",
+    "library": "leaflet",
+    "file": "leaflet-implementation/measure-tool.html",
+    "name": "Measure Tool",
+    "description": "Click-to-measure distance using Turf.js",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Measure Tool",
+        "text": "Click points to measure accumulated distance."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-measure-tool",
+    "library": "maplibre",
+    "file": "maplibre-implementation/measure-tool.html",
+    "name": "Measure Tool",
+    "description": "Click-to-measure distance using Turf.js",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Measure Tool",
+        "text": "Click points to measure accumulated distance."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-measure-tool",
+    "library": "openlayers",
+    "file": "openlayers-implementation/measure-tool.html",
+    "name": "Measure Tool",
+    "description": "Click-to-measure distance using Turf.js",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Measure Tool",
+        "text": "Click points to measure accumulated distance."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-reverse-geocoding",
+    "library": "leaflet",
+    "file": "leaflet-implementation/reverse-geocoding.html",
+    "name": "Reverse Geocoding",
+    "description": "Click the map to find the nearest address via Nominatim",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Reverse Geocoding",
+        "text": "Click on the map to look up the address at that location."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-reverse-geocoding",
+    "library": "maplibre",
+    "file": "maplibre-implementation/reverse-geocoding.html",
+    "name": "Reverse Geocoding",
+    "description": "Click the map to find the nearest address via Nominatim",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Reverse Geocoding",
+        "text": "Click on the map to look up the address at that location."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-reverse-geocoding",
+    "library": "openlayers",
+    "file": "openlayers-implementation/reverse-geocoding.html",
+    "name": "Reverse Geocoding",
+    "description": "Click the map to find the nearest address via Nominatim",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Reverse Geocoding",
+        "text": "Click on the map to look up the address at that location."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-simplify",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-simplify.html",
+    "name": "Turf Simplify",
+    "description": "Simplify polygon geometry with adjustable tolerance using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Simplify",
+        "text": "Adjust the tolerance slider to see polygon simplification in real time."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-simplify",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-simplify.html",
+    "name": "Turf Simplify",
+    "description": "Simplify polygon geometry with adjustable tolerance using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Simplify",
+        "text": "Adjust the tolerance slider to see polygon simplification in real time."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-simplify",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-simplify.html",
+    "name": "Turf Simplify",
+    "description": "Simplify polygon geometry with adjustable tolerance using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Simplify",
+        "text": "Adjust the tolerance slider to see polygon simplification in real time."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-dissolve",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-dissolve.html",
+    "name": "Turf Dissolve",
+    "description": "Merge overlapping polygons using Turf.js union",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Dissolve",
+        "text": "Click Dissolve to merge two overlapping polygons into one."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-dissolve",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-dissolve.html",
+    "name": "Turf Dissolve",
+    "description": "Merge overlapping polygons using Turf.js union",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Dissolve",
+        "text": "Click Dissolve to merge two overlapping polygons into one."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-dissolve",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-dissolve.html",
+    "name": "Turf Dissolve",
+    "description": "Merge overlapping polygons using Turf.js union",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Dissolve",
+        "text": "Click Dissolve to merge two overlapping polygons into one."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-hexgrid",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-hexgrid.html",
+    "name": "Turf Hex Grid",
+    "description": "Generate hexagonal grid with adjustable cell size using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "range",
+        "id": "cellSize",
+        "label": "Cell Size (km)",
+        "min": 1,
+        "max": 15,
+        "step": 0.5,
+        "default": 5
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-hexgrid",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-hexgrid.html",
+    "name": "Turf Hex Grid",
+    "description": "Generate hexagonal grid with adjustable cell size using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "range",
+        "id": "cellSize",
+        "label": "Cell Size (km)",
+        "min": 1,
+        "max": 15,
+        "step": 0.5,
+        "default": 5
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-hexgrid",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-hexgrid.html",
+    "name": "Turf Hex Grid",
+    "description": "Generate hexagonal grid with adjustable cell size using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "range",
+        "id": "cellSize",
+        "label": "Cell Size (km)",
+        "min": 1,
+        "max": 15,
+        "step": 0.5,
+        "default": 5
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-smooth",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-smooth.html",
+    "name": "Turf Smooth",
+    "description": "Smooth jagged polygons using Chaikin smoothing via Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "range",
+        "id": "iterations",
+        "label": "Iterations",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 1
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-smooth",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-smooth.html",
+    "name": "Turf Smooth",
+    "description": "Smooth jagged polygons using Chaikin smoothing via Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "range",
+        "id": "iterations",
+        "label": "Iterations",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 1
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-smooth",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-smooth.html",
+    "name": "Turf Smooth",
+    "description": "Smooth jagged polygons using Chaikin smoothing via Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "range",
+        "id": "iterations",
+        "label": "Iterations",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 1
+      }
+    ]
+  },
+  {
+    "id": "leaflet-feature-inspector",
+    "library": "leaflet",
+    "file": "leaflet-implementation/feature-inspector.html",
+    "name": "Feature Inspector",
+    "description": "Click features to inspect properties \u2014 uses onEachFeature",
+    "category": "Interactivity",
+    "controls": []
+  },
+  {
+    "id": "maplibre-feature-inspector",
+    "library": "maplibre",
+    "file": "maplibre-implementation/feature-inspector.html",
+    "name": "Feature Inspector",
+    "description": "Click features to inspect properties \u2014 uses queryRenderedFeatures+setFilter",
+    "category": "Interactivity",
+    "controls": []
+  },
+  {
+    "id": "openlayers-feature-inspector",
+    "library": "openlayers",
+    "file": "openlayers-implementation/feature-inspector.html",
+    "name": "Feature Inspector",
+    "description": "Click features to inspect properties \u2014 uses forEachFeatureAtPixel",
+    "category": "Interactivity",
+    "controls": []
+  },
+  {
+    "id": "openlayers-spyglass",
+    "library": "openlayers",
+    "file": "openlayers-implementation/spyglass.html",
+    "name": "The Spyglass (Canvas Clip)",
+    "description": "Use Canvas postrender events to create a magnifying glass revealing a secondary layer.",
+    "category": "Controls & UI",
+    "controls": []
+  },
+  {
+    "id": "openlayers-geotiff",
+    "library": "openlayers",
+    "file": "openlayers-implementation/geotiff.html",
+    "name": "GeoTIFF WebGL Rendering",
+    "description": "Render and color-ramp raw scientific GeoTIFF files natively on the GPU.",
+    "category": "Layers & Sources",
+    "controls": []
+  },
+  {
+    "id": "openlayers-geofencing",
+    "library": "openlayers",
+    "file": "openlayers-implementation/geofencing-turf.html",
+    "name": "Turf.js Real-time Geofencing",
+    "description": "Simulate a vehicle and trigger alerts when it breaches a Turf.js polygon boundary.",
+    "category": "Turf.js Spatial",
+    "controls": []
+  },
+  {
+    "id": "leaflet-hexbin",
+    "library": "leaflet",
+    "file": "leaflet-implementation/hexbin-turf.html",
+    "name": "Turf.js Dynamic Hexbins",
+    "description": "Real-time hexagonal binning and density calculation of 5000 points using Turf.js.",
+    "category": "Turf.js Spatial",
+    "controls": []
+  },
+  {
+    "id": "leaflet-voronoi-interactive",
+    "library": "leaflet",
+    "file": "leaflet-implementation/voronoi-interactive.html",
+    "name": "Interactive Voronoi Generator",
+    "description": "Click to add points and instantly recalculate territorial boundaries using Turf.js.",
+    "category": "Turf.js Spatial",
+    "controls": []
+  },
+  {
+    "id": "leaflet-video-overlay",
+    "library": "leaflet",
+    "file": "leaflet-implementation/video-overlay.html",
+    "name": "Live Video Radar Overlay",
+    "description": "Map an MP4 video (like a hurricane radar loop) to exact geographical bounds.",
+    "category": "Layers & Sources",
+    "controls": []
+  },
+  {
+    "id": "leaflet-svg-dom",
+    "library": "leaflet",
+    "file": "leaflet-implementation/svg-dom.html",
+    "name": "Interactive SVG DOM",
+    "description": "Apply advanced CSS animations (pulsating, glowing) directly to SVG map elements.",
+    "category": "Animation & Camera",
+    "controls": []
+  },
+  {
+    "id": "maplibre-bezier-splines",
+    "library": "maplibre",
+    "file": "maplibre-implementation/bezier-splines.html",
+    "name": "Turf.js Bezier Flight Paths",
+    "description": "Smooth straight-line flight paths into beautiful curved arcs using Turf.js.",
+    "category": "Turf.js Spatial",
+    "controls": []
+  },
+  {
+    "id": "maplibre-dynamic-sun",
+    "library": "maplibre",
+    "file": "maplibre-implementation/dynamic-sun.html",
+    "name": "Dynamic Sun & Atmosphere",
+    "description": "Simulate a 24-hour day/night cycle with moving shadows across 3D terrain.",
+    "category": "3D & Visualization",
+    "controls": []
+  },
+  {
+    "id": "maplibre-animated-extrusion",
+    "library": "maplibre",
+    "file": "maplibre-implementation/animated-extrusion.html",
+    "name": "Animated 3D Route",
+    "description": "Use fill-extrusion and line-progress to create a glowing trail growing over a city.",
+    "category": "Animation & Camera",
+    "controls": []
   }
 ]
