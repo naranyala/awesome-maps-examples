@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre - Heatmap</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .controls { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 12px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.2); font-size: 13px; }
+        .controls label { display: block; margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+    
+    <div class="controls">
+        <label>Radius: <input type="range" id="radius" min="5" max="50" value="30" oninput="updateHeat()"></label>
+        <label>Intensity: <input type="range" id="intensity" min="1" max="10" value="5" oninput="updateHeat()"></label>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script src="heatmap.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet + Turf.js - Point in Polygon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .instructions { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15, 23, 42, 0.85); color: white; padding: 15px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); max-width: 280px; font-size: 13px; line-height: 1.5; }
+        .result { padding: 6px 10px; border-radius: 4px; margin-top: 8px; font-weight: bold; }
+        .result.inside { background: rgba(16,185,129,0.2); color: #10b981; }
+        .result.outside { background: rgba(239,68,68,0.2); color: #ef4444; }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <strong>🎯 Point in Polygon</strong><br>
+        Click anywhere to test if the point is inside the polygon.
+        <div id="result"></div>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script src="turf-point-in-polygon.js"></script>
+</body>
+</html>

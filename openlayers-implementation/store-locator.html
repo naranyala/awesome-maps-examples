@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Store Locator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .search-panel { position: absolute; top: 10px; left: 10px; background: white; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 100; width: 220px; }
+    .search-panel input { width: 100%; padding: 6px; margin-bottom: 6px; box-sizing: border-box; }
+    .search-panel select { width: 100%; padding: 6px; margin-bottom: 6px; }
+    .store-list { max-height: 300px; overflow-y: auto; }
+    .store-item { padding: 6px; border-bottom: 1px solid #eee; cursor: pointer; font-size: 13px; }
+    .store-item:hover { background: #f5f5f5; }</style>
+</head>
+<body>
+    <div class="search-panel">
+        <input type="text" id="search" placeholder="Search stores...">
+        <select id="category">
+            <option value="all">All Categories</option>
+            <option value="coffee">☕ Coffee</option>
+            <option value="restaurant">🍽️ Restaurant</option>
+            <option value="shop">🛍️ Shop</option>
+        </select>
+        <div class="store-list" id="storeList"></div>
+    </div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="store-locator.js"></script>
+</body>
+</html>

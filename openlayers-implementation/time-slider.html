@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Time Slider</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .slider-panel { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(15,23,42,.9); color: #fff; padding: 12px 20px; border-radius: 10px; text-align: center; min-width: 300px; }
+    .slider-panel input[type=range] { width: 100%; }
+    .slider-panel .time-label { font-size: 15px; font-weight: 700; margin-top: 4px; }</style>
+</head>
+<body>
+    <div class="slider-panel">
+        <input type="range" id="slider" min="0" max="23" value="12" oninput="updateTime(this.value)">
+        <div class="time-label" id="time-label">12:00</div>
+    </div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="time-slider.js"></script>
+</body>
+</html>

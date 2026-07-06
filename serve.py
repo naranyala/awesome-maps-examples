@@ -42,7 +42,7 @@ class MapExplorerHandler(http.server.SimpleHTTPRequestHandler):
                 return
 
         # Serve example HTML files as plain HTML (iframe content, no layout wrapping)
-        if parsed.endswith(".html") and any(f in parsed for f in ["azure-examples", "leaflet-examples", "maplibre-examples", "openlayers-examples"]):
+        if parsed.endswith(".html") and any(f in parsed for f in ["azure-examples", "leaflet-implementation", "maplibre-implementation", "openlayers-implementation"]):
             filepath = os.path.join(BASE_DIR, "." + parsed)
             if os.path.exists(filepath):
                 with open(filepath, "r") as f:

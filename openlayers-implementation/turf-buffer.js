@@ -1,0 +1,4 @@
+const source = new ol.source.Vector();
+        const vectorLayer = new ol.layer.Vector({ source: source, style: new ol.style.Style({ fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.2)' }), stroke: new ol.style.Stroke({ color: '#ff0000', width: 2 }) }) });
+        const map = new ol.Map({ target: 'map', layers: [new ol.layer.Tile({ source: new ol.source.OSM() }), vectorLayer], view: new ol.View({ center: ol.proj.fromLonLat([-0.1275, 51.507222]), zoom: 4 }) });
+        map.on('click', function(evt) { source.clear(); const pt = turf.point(ol.proj.toLonLat(evt.coordinate)); const buffered = turf.buffer(pt, 500, { units: 'kilometers' }); source.addFeatures(new ol.format.GeoJSON().readFeatures(buffered, { featureProjection: 'EPSG:3857' })); });

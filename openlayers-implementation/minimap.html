@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Mini Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html { margin: 0; height: 100%; width: 100%; font-family: sans-serif; display: flex; }
+    #mainMap { flex: 1; }
+    #miniMap { width: 200px; height: 150px; position: absolute; bottom: 10px; right: 10px; border: 2px solid #333; border-radius: 4px; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }</style>
+</head>
+<body>
+    <div id="mainMap"></div>
+    <div id="miniMap"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="minimap.js"></script>
+</body>
+</html>

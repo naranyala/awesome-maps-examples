@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Animate Line</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .controls { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 12px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+    .controls button { padding: 8px 16px; border: none; border-radius: 4px; background: #3b82f6; color: white; cursor: pointer; font-size: 13px; }
+    .controls button:hover { background: #2563eb; }</style>
+</head>
+<body>
+    <div class="controls"><button onclick="animateLine()">▶ Play Animation</button></div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="animate-line.js"></script>
+</body>
+</html>

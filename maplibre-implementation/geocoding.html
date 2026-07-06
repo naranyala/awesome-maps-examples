@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre - Geocode with Nominatim</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .search-box { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 12px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+        .search-box input { width: 250px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
+        .search-box button { padding: 8px 12px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer; margin-left: 4px; }
+        #results { position: absolute; top: 60px; right: 10px; z-index: 1000; background: white; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.2); max-height: 300px; overflow-y: auto; display: none; width: 260px; }
+        .result-item { padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #eee; font-size: 13px; }
+        .result-item:hover { background: #f0f4ff; }
+    </style>
+</head>
+<body>
+    
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search location..." />
+        <button onclick="search()">Search</button>
+    </div>
+    <div id="results"></div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script src="geocoding.js"></script>
+</body>
+</html>

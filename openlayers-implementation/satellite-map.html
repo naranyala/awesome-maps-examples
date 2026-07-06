@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Satellite Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .style-picker { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
+    .style-btn { display: block; width: 100%; margin-bottom: 4px; padding: 6px 12px; border: 1px solid #ddd; border-radius: 4px; background: white; cursor: pointer; font-size: 13px; }
+    .style-btn.active { background: #3b82f6; color: white; border-color: #3b82f6; }</style>
+</head>
+<body>
+    <div class="style-picker">
+        <button class="style-btn active" onclick="setLayer('osm', this)">🗺️ Streets</button>
+        <button class="style-btn" onclick="setLayer('satellite', this)">🛰️ Satellite</button>
+        <button class="style-btn" onclick="setLayer('dark', this)">🌙 Dark</button>
+    </div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="satellite-map.js"></script>
+</body>
+</html>

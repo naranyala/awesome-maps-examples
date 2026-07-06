@@ -18,143 +18,415 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 
 ---
 
-## Table of Contents
+## 📂 Local Implementations Index
 
-- [Animation & Camera](#animation-camera)
-- [Controls & UI](#controls-ui)
-- [Data Visualization](#data-visualization)
-- [Geometry, Drawing & Data](#geometry-drawing-data)
-- [Getting Started & Basic Maps](#getting-started-basic-maps)
-- [Layers, Tiles & Sources](#layers-tiles-sources)
-- [Markers, Icons & Clusters](#markers-icons-clusters)
-- [Popups & Tooltips](#popups-tooltips)
-- [Routing & Directions](#routing-directions)
-- [Search & Geocoding](#search-geocoding)
-- [Spatial Analysis & Math](#spatial-analysis-math)
-- [Traffic & Navigation](#traffic-navigation)
-- [Weather & Sensors](#weather-sensors)
-- [Potential Turf.js Examples](#potential-turfjs-examples-advanced-spatial-analysis)
-- [Core Geospatial Algorithms & Math](#core-geospatial-algorithms--math)
-- [Advanced Cross-Library Integrations](#advanced-cross-library-integrations-interactive-apps--editors)
-- [Global Geospatial Ecosystem](#global-geospatial-ecosystem-across-languages)
-- [Plugins Reference](#plugins-reference)
-- [Turf.js Examples (Cross-Library)](#turfjs-examples-cross-library)
-  - [Measurement & Distance](#measurement--distance)
-  - [Buffer & Zone Analysis](#buffer--zone-analysis)
-  - [Spatial Queries & Boolean Operations](#spatial-queries--boolean-operations)
-  - [Voronoi, Hex Grids & Tessellation](#voronoi-hex-grids--tessellation)
-  - [Interpolation & Surface Analysis](#interpolation--surface-analysis)
-  - [Clustering & Classification](#clustering--classification)
-  - [Route & Path Analysis](#route--path-analysis)
-  - [Geofencing & Proximity](#geofencing--proximity)
-  - [Geometry Generation & Manipulation](#geometry-generation--manipulation)
-  - [Line & Edge Analysis](#line--edge-analysis)
-  - [Complex Multi-Module Workflows](#complex-multi-module-workflows)
-  - [Standalone (No Map Renderer)](#standalone-no-map-renderer)
-- [Multi-Library Combinations](#multi-library-combinations)
-  - [Interactive Geometry Editor](#interactive-geometry-editor)
-  - [Data Visualization Dashboard](#data-visualization-dashboard)
-  - [Story Map & Narrative](#story-map--narrative)
-  - [Geospatial Analysis Tool](#geospatial-analysis-tool)
-  - [Real-Time & Live Tracking](#real-time--live-tracking)
-  - [Offline & Progressive Web App](#offline--progressive-web-app)
-  - [Print & Export](#print--export)
-  - [Geo Calculation & Algorithms](#geo-calculation--algorithms)
-  - [Data Pipeline & ETL](#data-pipeline--etl)
-  - [Creative & Experimental](#creative--experimental)
-  - [Multi-Library Quick Reference](#multi-library-quick-reference)
-- [Libraries by Language](#libraries-by-language)
-  - [JavaScript / TypeScript](#javascript--typescript)
-  - [Python](#python)
-  - [Java / Kotlin](#java--kotlin)
-  - [Swift / Objective-C](#swift--objective-c)
-  - [C# / .NET](#c--net)
-  - [C / C++](#c--c)
-  - [Rust](#rust)
-  - [Go](#go)
-  - [Ruby](#ruby)
-  - [PHP](#php)
-  - [R](#r)
-  - [Scala](#scala)
-  - [Other Languages](#other-languages)
-  - [Data & Service APIs](#data--service-apis)
-  - [Spatial Databases & Backend Tools](#spatial-databases--backend-tools)
-  - [Relational Spatial Databases](#relational-spatial-databases)
-  - [PostgreSQL Extensions & Plugins](#postgresql-extensions--plugins)
-  - [SQLite Extensions & Plugins](#sqlite-extensions--plugins)
-  - [SpatiaLite Spatial Functions](#spatialite-spatial-functions-key-operations)
-  - [PostGIS Extension Comparison](#postgis-extension-comparison)
-  - [NoSQL & Document Spatial Databases](#nosql--document-spatial-databases)
-  - [Vector Tile Databases & Servers](#vector-tile-databases--servers)
-  - [Spatial Indexing Structures](#spatial-indexing-structures)
-  - [PostGIS Spatial Functions](#postgis-spatial-functions-key-operations)
-  - [Django GIS (GeoDjango)](#django-gis-geodjango)
-  - [MySQL Spatial Functions](#mysql-spatial-functions-key-operations)
-  - [MongoDB Geospatial Queries](#mongodb-geospatial-queries)
-  - [Elasticsearch Spatial Queries](#elasticsearch-spatial-queries)
-  - [Redis Geospatial Commands](#redis-geospatial-commands)
-  - [Tile Pipeline Tools](#tile-pipeline-tools)
-  - [Geocoding & Routing Backends](#geocoding--routing-backends)
-- [Core GIS Libraries](#core-gis-libraries-language-agnostic)
-- [Missing OpenLayers Examples (Inspired by Leaflet)](#missing-openlayers-maps-examples-inspired-by-leaflet)
-  - [Controls & UI](#controls--ui)
-  - [Markers, Icons & Clusters](#markers-icons--clusters)
-  - [Popups & Tooltips](#popups--tooltips)
-  - [Geometry, Drawing & Data](#geometry-drawing--data)
-  - [Layers, Tiles & Sources](#layers-tiles--sources)
-  - [Routing & Directions](#routing--directions)
-  - [Animation & Camera](#animation--camera)
-  - [Data Visualization](#data-visualization)
-  - [Device & Sensors](#device--sensors)
-  - [Map Comparison](#map-comparison)
-  - [OpenLayers Specific](#openlayers-maps-specific)
-- [Missing Leaflet Examples (Inspired by OpenLayers)](#missing-leaflet-examples-inspired-by-openlayers-maps)
-  - [Getting Started & Basic Maps](#getting-started--basic-maps)
-  - [Controls & UI](#controls--ui-1)
-  - [Markers, Icons & Clusters](#markers-icons--clusters-1)
-  - [Popups & Tooltips](#popups--tooltips-1)
-  - [Data Visualization](#data-visualization-1)
-  - [Layers, Tiles & Sources](#layers-tiles--sources-1)
-  - [Geometry, Drawing & Data](#geometry-drawing--data-1)
-  - [Routing & Directions](#routing--directions-1)
-  - [Animation & Camera](#animation--camera-1)
-  - [Spatial Analysis & Math](#spatial-analysis--math)
-  - [Search & Geocoding](#search--geocoding)
-  - [Traffic & Weather](#traffic--weather)
-  - [Spatial Data & I/O](#spatial-data--io)
-  - [Map Comparison](#map-comparison-1)
+This section provides a direct mapping to all **123** interactive examples implemented natively within this repository.
 
-- [Missing OpenLayers Examples (Inspired by MapLibre)](#missing-openlayers-examples-inspired-by-maplibre)
-- [Missing MapLibre Examples (Inspired by OpenLayers)](#missing-maplibre-examples-inspired-by-openlayers)
-  - [Animation & Camera](#animation--camera-2)
-  - [Markers & Icons](#markers--icons)
-  - [Search & Geocoding](#search--geocoding-1)
-  - [Layers & Sources](#layers--sources)
-  - [Interactivity](#interactivity)
-  - [Data Visualization](#data-visualization-2)
-  - [Geometry, Drawing & Data](#geometry-drawing--data-2)
-  - [Controls & UI](#controls--ui-2)
-  - [Popups & Tooltips](#popups--tooltips-2)
-  - [Spatial Analysis](#spatial-analysis)
-  - [Traffic & Weather](#traffic--weather-1)
-  - [Map Comparison & Sync](#map-comparison--sync)
-- [Contributing](#contributing)
+### 🍃 Leaflet Examples
+| Example Name | File Path | Description |
+|--------------|-----------|-------------|
+| **3D Building** | [`leaflet-implementation/3d-building.html`](leaflet-implementation/3d-building.html) | Simulate 3D extruded building footprints using the OSMBuildings plugin. |
+| **Animate Line** | [`leaflet-implementation/animate-line.html`](leaflet-implementation/animate-line.html) | Progressive line drawing animation with play/reset |
+| **Basic Map** | [`leaflet-implementation/basic-map.html`](leaflet-implementation/basic-map.html) | Minimal Leaflet map setup |
+| **Choropleth** | [`leaflet-implementation/choropleth.html`](leaflet-implementation/choropleth.html) | Data-driven polygon coloring |
+| **Click Coordinates** | [`leaflet-implementation/click-coordinates.html`](leaflet-implementation/click-coordinates.html) | Capture click coordinates |
+| **Context Menu** | [`leaflet-implementation/context-menu.html`](leaflet-implementation/context-menu.html) | Right-click context menu |
+| **Custom Controls** | [`leaflet-implementation/custom-controls.html`](leaflet-implementation/custom-controls.html) | Custom zoom + rotate-north controls |
+| **Custom Marker** | [`leaflet-implementation/custom-marker.html`](leaflet-implementation/custom-marker.html) | Custom HTML marker with popup |
+| **Draw GeoJSON** | [`leaflet-implementation/drawing-tools.html`](leaflet-implementation/drawing-tools.html) | Draw and export GeoJSON features |
+| **External Layer Control** | [`leaflet-implementation/external-layer-control.html`](leaflet-implementation/external-layer-control.html) | Build an external HTML UI to programmatically drive the map layers. |
+| **Fly To Animation** | [`leaflet-implementation/fly-to-animation.html`](leaflet-implementation/fly-to-animation.html) | Animated fly-to with easing |
+| **Fullscreen** | [`leaflet-implementation/fullscreen.html`](leaflet-implementation/fullscreen.html) | Fullscreen toggle control |
+| **GeoJSON Upload** | [`leaflet-implementation/geojson-upload.html`](leaflet-implementation/geojson-upload.html) | Drag and drop GeoJSON files to render |
+| **Geocoding** | [`leaflet-implementation/geocoding.html`](leaflet-implementation/geocoding.html) | Search locations with Nominatim |
+| **Geofence** | [`leaflet-implementation/geofence.html`](leaflet-implementation/geofence.html) | Geofence detection using Turf.js |
+| **Geolocation** | [`leaflet-implementation/geolocation.html`](leaflet-implementation/geolocation.html) | User position tracking with accuracy |
+| **Heatmap** | [`leaflet-implementation/heatmap.html`](leaflet-implementation/heatmap.html) | Heat map density visualization |
+| **Hover Effect** | [`leaflet-implementation/hover-effect.html`](leaflet-implementation/hover-effect.html) | Interactive hover highlighting on polygons with tooltip |
+| **Image Overlay** | [`leaflet-implementation/image-overlay.html`](leaflet-implementation/image-overlay.html) | Overlay an image on the map with opacity control |
+| **Layer Toggle** | [`leaflet-implementation/layer-toggle.html`](leaflet-implementation/layer-toggle.html) | Switch between multiple tile layers |
+| **Marker Clustering** | [`leaflet-implementation/cluster-markers.html`](leaflet-implementation/cluster-markers.html) | Cluster nearby markers together |
+| **Mini Map** | [`leaflet-implementation/minimap.html`](leaflet-implementation/minimap.html) | Overview minimap synced to main view |
+| **Mouse Follow** | [`leaflet-implementation/mouse-follow.html`](leaflet-implementation/mouse-follow.html) | Marker that follows the mouse cursor |
+| **Popup & Tooltip** | [`leaflet-implementation/popup-tooltip.html`](leaflet-implementation/popup-tooltip.html) | Rich popups with images and hover tooltips |
+| **Realtime Data** | [`leaflet-implementation/realtime-data.html`](leaflet-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`leaflet-implementation/satellite-map.html`](leaflet-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`leaflet-implementation/scale-bar.html`](leaflet-implementation/scale-bar.html) | Metric and imperial scale bar |
+| **Store Locator** | [`leaflet-implementation/store-locator.html`](leaflet-implementation/store-locator.html) | Store locator with search and category filtering |
+| **Sync Maps** | [`leaflet-implementation/sync-maps.html`](leaflet-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`leaflet-implementation/sync-maps-comparison.html`](leaflet-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`leaflet-implementation/time-slider.html`](leaflet-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`leaflet-implementation/turf-area-measurement.html`](leaflet-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`leaflet-implementation/turf-buffer.html`](leaflet-implementation/turf-buffer.html) | Calculate 10km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`leaflet-implementation/turf-convex-hull.html`](leaflet-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`leaflet-implementation/turf-great-circle.html`](leaflet-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`leaflet-implementation/turf-intersection.html`](leaflet-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`leaflet-implementation/turf-nearest-point.html`](leaflet-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`leaflet-implementation/turf-point-in-polygon.html`](leaflet-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`leaflet-implementation/turf-voronoi.html`](leaflet-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`leaflet-implementation/wasd-navigation.html`](leaflet-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`leaflet-implementation/weather.html`](leaflet-implementation/weather.html) | Weather overlay with NOAA radar data |
 
-> **Legend:** Rows marked with are **potential examples** that could be contributed to fill cross-library gaps.
+### 🚀 Maplibre Examples
+| Example Name | File Path | Description |
+|--------------|-----------|-------------|
+| **3D Building** | [`maplibre-implementation/3d-building.html`](maplibre-implementation/3d-building.html) | 3D building extrusion with pitch/bearing |
+| **Animate Line** | [`maplibre-implementation/animate-line.html`](maplibre-implementation/animate-line.html) | Progressive line drawing animation |
+| **Basic Map** | [`maplibre-implementation/basic-map.html`](maplibre-implementation/basic-map.html) | Minimal MapLibre GL JS setup |
+| **Choropleth** | [`maplibre-implementation/choropleth.html`](maplibre-implementation/choropleth.html) | Choropleth with data-driven styling |
+| **Click Coordinates** | [`maplibre-implementation/click-coordinates.html`](maplibre-implementation/click-coordinates.html) | Capture click coordinates |
+| **Cluster Markers** | [`maplibre-implementation/cluster-markers.html`](maplibre-implementation/cluster-markers.html) | Supercluster-based marker clustering |
+| **Context Menu** | [`maplibre-implementation/context-menu.html`](maplibre-implementation/context-menu.html) | Right-click context menu with zoom-to and add marker actions |
+| **Custom Controls** | [`maplibre-implementation/custom-controls.html`](maplibre-implementation/custom-controls.html) | Custom rotate-north control button |
+| **Custom Marker** | [`maplibre-implementation/custom-marker.html`](maplibre-implementation/custom-marker.html) | Custom HTML marker with popup |
+| **Draw Polygon** | [`maplibre-implementation/drawing-tools.html`](maplibre-implementation/drawing-tools.html) | Draw and edit polygons with mapbox-gl-draw |
+| **External Layer Control** | [`maplibre-implementation/external-layer-control.html`](maplibre-implementation/external-layer-control.html) | Control layers from outside the map |
+| **Fly To Animation** | [`maplibre-implementation/fly-to-animation.html`](maplibre-implementation/fly-to-animation.html) | Animate camera movement combining panning and zooming smoothly. |
+| **Fullscreen** | [`maplibre-implementation/fullscreen.html`](maplibre-implementation/fullscreen.html) | Fullscreen control |
+| **GeoJSON Upload** | [`maplibre-implementation/geojson-upload.html`](maplibre-implementation/geojson-upload.html) | Drag and drop GeoJSON files |
+| **Geocode Nominatim** | [`maplibre-implementation/geocoding.html`](maplibre-implementation/geocoding.html) | Search locations with Nominatim API |
+| **Geofence** | [`maplibre-implementation/geofence.html`](maplibre-implementation/geofence.html) | Geofence detection using Turf.js |
+| **Geolocation** | [`maplibre-implementation/geolocation.html`](maplibre-implementation/geolocation.html) | User position tracking with accuracy circle |
+| **Heatmap** | [`maplibre-implementation/heatmap.html`](maplibre-implementation/heatmap.html) | WebGL-accelerated heatmap layer |
+| **Hover Effect** | [`maplibre-implementation/hover-effect.html`](maplibre-implementation/hover-effect.html) | Interactive hover highlighting on polygons |
+| **Image Overlay** | [`maplibre-implementation/image-overlay.html`](maplibre-implementation/image-overlay.html) | Static image overlay with opacity control |
+| **Layer Toggle** | [`maplibre-implementation/layer-toggle.html`](maplibre-implementation/layer-toggle.html) | Switch between different base styles such as street and satellite imagery. |
+| **Mini Map** | [`maplibre-implementation/minimap.html`](maplibre-implementation/minimap.html) | Overview minimap synced to main view |
+| **Mouse Follow** | [`maplibre-implementation/mouse-follow.html`](maplibre-implementation/mouse-follow.html) | Dynamically update a marker position to track the mouse cursor over the canvas. |
+| **Popup & Tooltip** | [`maplibre-implementation/popup-tooltip.html`](maplibre-implementation/popup-tooltip.html) | Rich popups with images and hover tooltips |
+| **Realtime Data** | [`maplibre-implementation/realtime-data.html`](maplibre-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`maplibre-implementation/satellite-map.html`](maplibre-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`maplibre-implementation/scale-bar.html`](maplibre-implementation/scale-bar.html) | Metric scale bar control |
+| **Store Locator** | [`maplibre-implementation/store-locator.html`](maplibre-implementation/store-locator.html) | Store locator with search and category filtering |
+| **Sync Maps** | [`maplibre-implementation/sync-maps.html`](maplibre-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`maplibre-implementation/sync-maps-comparison.html`](maplibre-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`maplibre-implementation/time-slider.html`](maplibre-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`maplibre-implementation/turf-area-measurement.html`](maplibre-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`maplibre-implementation/turf-buffer.html`](maplibre-implementation/turf-buffer.html) | Calculate 10km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`maplibre-implementation/turf-convex-hull.html`](maplibre-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`maplibre-implementation/turf-great-circle.html`](maplibre-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`maplibre-implementation/turf-intersection.html`](maplibre-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`maplibre-implementation/turf-nearest-point.html`](maplibre-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`maplibre-implementation/turf-point-in-polygon.html`](maplibre-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`maplibre-implementation/turf-voronoi.html`](maplibre-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`maplibre-implementation/wasd-navigation.html`](maplibre-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`maplibre-implementation/weather.html`](maplibre-implementation/weather.html) | Weather overlay with NOAA radar data |
+
+### ☁️ Openlayers Examples
+| Example Name | File Path | Description |
+|--------------|-----------|-------------|
+| **3D Building** | [`openlayers-implementation/3d-building.html`](openlayers-implementation/3d-building.html) | Styled polygons with rotation control |
+| **Animate Line** | [`openlayers-implementation/animate-line.html`](openlayers-implementation/animate-line.html) | Progressive line drawing animation |
+| **Basic Map** | [`openlayers-implementation/basic-map.html`](openlayers-implementation/basic-map.html) | Minimal map setup with OpenLayers |
+| **Choropleth Map** | [`openlayers-implementation/choropleth.html`](openlayers-implementation/choropleth.html) | Thematic area shading by data values |
+| **Click Coordinates** | [`openlayers-implementation/click-coordinates.html`](openlayers-implementation/click-coordinates.html) | Capture click coordinates on the map |
+| **Cluster Markers** | [`openlayers-implementation/cluster-markers.html`](openlayers-implementation/cluster-markers.html) | Supercluster-based marker clustering |
+| **Context Menu** | [`openlayers-implementation/context-menu.html`](openlayers-implementation/context-menu.html) | Right-click context menu with actions |
+| **Custom Controls** | [`openlayers-implementation/custom-controls.html`](openlayers-implementation/custom-controls.html) | Custom rotate-north control button |
+| **Custom Marker** | [`openlayers-implementation/custom-marker.html`](openlayers-implementation/custom-marker.html) | Pulsing animated marker with popup |
+| **Drawing Tools** | [`openlayers-implementation/drawing-tools.html`](openlayers-implementation/drawing-tools.html) | Draw points, lines, and polygons on the map |
+| **External Layer Control** | [`openlayers-implementation/external-layer-control.html`](openlayers-implementation/external-layer-control.html) | Use external HTML buttons to toggle the visibility properties of map layers. |
+| **Fly-To Animation** | [`openlayers-implementation/fly-to-animation.html`](openlayers-implementation/fly-to-animation.html) | Smooth animated fly-to with easing |
+| **Fullscreen** | [`openlayers-implementation/fullscreen.html`](openlayers-implementation/fullscreen.html) | Fullscreen toggle control |
+| **GeoJSON Upload** | [`openlayers-implementation/geojson-upload.html`](openlayers-implementation/geojson-upload.html) | Drag and drop GeoJSON files |
+| **Geocode Nominatim** | [`openlayers-implementation/geocoding.html`](openlayers-implementation/geocoding.html) | Search locations with Nominatim API |
+| **Geofence** | [`openlayers-implementation/geofence.html`](openlayers-implementation/geofence.html) | Geofence detection with moving marker |
+| **Geolocation** | [`openlayers-implementation/geolocation.html`](openlayers-implementation/geolocation.html) | User position tracking with accuracy circle |
+| **Heatmap** | [`openlayers-implementation/heatmap.html`](openlayers-implementation/heatmap.html) | Heat map density visualization |
+| **Hover Effect** | [`openlayers-implementation/hover-effect.html`](openlayers-implementation/hover-effect.html) | Interactive hover highlighting on polygons |
+| **Image Overlay** | [`openlayers-implementation/image-overlay.html`](openlayers-implementation/image-overlay.html) | Overlay an image on the map |
+| **Layer Toggle** | [`openlayers-implementation/layer-toggle.html`](openlayers-implementation/layer-toggle.html) | Switch between multiple tile layers |
+| **Mini Map** | [`openlayers-implementation/minimap.html`](openlayers-implementation/minimap.html) | Overview minimap synced to main view |
+| **Mouse Follow** | [`openlayers-implementation/mouse-follow.html`](openlayers-implementation/mouse-follow.html) | Marker that follows the mouse cursor |
+| **Popup & Tooltip** | [`openlayers-implementation/popup-tooltip.html`](openlayers-implementation/popup-tooltip.html) | Rich popups with hover tooltips |
+| **Realtime Data** | [`openlayers-implementation/realtime-data.html`](openlayers-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`openlayers-implementation/satellite-map.html`](openlayers-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`openlayers-implementation/scale-bar.html`](openlayers-implementation/scale-bar.html) | Scale bar with imperial/metric units |
+| **Store Locator** | [`openlayers-implementation/store-locator.html`](openlayers-implementation/store-locator.html) | Store locator with search and filtering |
+| **Sync Maps** | [`openlayers-implementation/sync-maps.html`](openlayers-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`openlayers-implementation/sync-maps-comparison.html`](openlayers-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`openlayers-implementation/time-slider.html`](openlayers-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`openlayers-implementation/turf-area-measurement.html`](openlayers-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`openlayers-implementation/turf-buffer.html`](openlayers-implementation/turf-buffer.html) | Calculate 500km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`openlayers-implementation/turf-convex-hull.html`](openlayers-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`openlayers-implementation/turf-great-circle.html`](openlayers-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`openlayers-implementation/turf-intersection.html`](openlayers-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`openlayers-implementation/turf-nearest-point.html`](openlayers-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`openlayers-implementation/turf-point-in-polygon.html`](openlayers-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`openlayers-implementation/turf-voronoi.html`](openlayers-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`openlayers-implementation/wasd-navigation.html`](openlayers-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`openlayers-implementation/weather.html`](openlayers-implementation/weather.html) | Weather overlay with radar data |
+
+---
+-----------|-----------|-------------|
+| **Animate Line** | [`leaflet-implementation/animate-line.html`](leaflet-implementation/animate-line.html) | Progressive line drawing animation with play/reset |
+| **Basic Map** | [`leaflet-implementation/basic-map.html`](leaflet-implementation/basic-map.html) | Minimal Leaflet map setup |
+| **Choropleth** | [`leaflet-implementation/choropleth.html`](leaflet-implementation/choropleth.html) | Data-driven polygon coloring |
+| **Click Coordinates** | [`leaflet-implementation/click-coordinates.html`](leaflet-implementation/click-coordinates.html) | Capture click coordinates |
+| **Context Menu** | [`leaflet-implementation/context-menu.html`](leaflet-implementation/context-menu.html) | Right-click context menu |
+| **Custom Controls** | [`leaflet-implementation/custom-controls.html`](leaflet-implementation/custom-controls.html) | Custom zoom + rotate-north controls |
+| **Custom Marker** | [`leaflet-implementation/custom-marker.html`](leaflet-implementation/custom-marker.html) | Custom HTML marker with popup |
+| **Draw GeoJSON** | [`leaflet-implementation/drawing-tools.html`](leaflet-implementation/drawing-tools.html) | Draw and export GeoJSON features |
+| **Fly To Animation** | [`leaflet-implementation/fly-to-animation.html`](leaflet-implementation/fly-to-animation.html) | Animated fly-to with easing |
+| **Fullscreen** | [`leaflet-implementation/fullscreen.html`](leaflet-implementation/fullscreen.html) | Fullscreen toggle control |
+| **GeoJSON Upload** | [`leaflet-implementation/geojson-upload.html`](leaflet-implementation/geojson-upload.html) | Drag and drop GeoJSON files to render |
+| **Geocoding** | [`leaflet-implementation/geocoding.html`](leaflet-implementation/geocoding.html) | Search locations with Nominatim |
+| **Geofence** | [`leaflet-implementation/geofence.html`](leaflet-implementation/geofence.html) | Geofence detection using Turf.js |
+| **Geolocation** | [`leaflet-implementation/geolocation.html`](leaflet-implementation/geolocation.html) | User position tracking with accuracy |
+| **Heatmap** | [`leaflet-implementation/heatmap.html`](leaflet-implementation/heatmap.html) | Heat map density visualization |
+| **Hover Effect** | [`leaflet-implementation/hover-effect.html`](leaflet-implementation/hover-effect.html) | Interactive hover highlighting on polygons with tooltip |
+| **Image Overlay** | [`leaflet-implementation/image-overlay.html`](leaflet-implementation/image-overlay.html) | Overlay an image on the map with opacity control |
+| **Layer Toggle** | [`leaflet-implementation/layer-toggle.html`](leaflet-implementation/layer-toggle.html) | Switch between multiple tile layers |
+| **Marker Clustering** | [`leaflet-implementation/cluster-markers.html`](leaflet-implementation/cluster-markers.html) | Cluster nearby markers together |
+| **Mini Map** | [`leaflet-implementation/minimap.html`](leaflet-implementation/minimap.html) | Overview minimap synced to main view |
+| **Mouse Follow** | [`leaflet-implementation/mouse-follow.html`](leaflet-implementation/mouse-follow.html) | Marker that follows the mouse cursor |
+| **Popup & Tooltip** | [`leaflet-implementation/popup-tooltip.html`](leaflet-implementation/popup-tooltip.html) | Rich popups with images and hover tooltips |
+| **Realtime Data** | [`leaflet-implementation/realtime-data.html`](leaflet-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`leaflet-implementation/satellite-map.html`](leaflet-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`leaflet-implementation/scale-bar.html`](leaflet-implementation/scale-bar.html) | Metric and imperial scale bar |
+| **Store Locator** | [`leaflet-implementation/store-locator.html`](leaflet-implementation/store-locator.html) | Store locator with search and category filtering |
+| **Sync Maps** | [`leaflet-implementation/sync-maps.html`](leaflet-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`leaflet-implementation/sync-maps-comparison.html`](leaflet-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`leaflet-implementation/time-slider.html`](leaflet-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`leaflet-implementation/turf-area-measurement.html`](leaflet-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`leaflet-implementation/turf-buffer.html`](leaflet-implementation/turf-buffer.html) | Calculate 10km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`leaflet-implementation/turf-convex-hull.html`](leaflet-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`leaflet-implementation/turf-great-circle.html`](leaflet-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`leaflet-implementation/turf-intersection.html`](leaflet-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`leaflet-implementation/turf-nearest-point.html`](leaflet-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`leaflet-implementation/turf-point-in-polygon.html`](leaflet-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`leaflet-implementation/turf-voronoi.html`](leaflet-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`leaflet-implementation/wasd-navigation.html`](leaflet-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`leaflet-implementation/weather.html`](leaflet-implementation/weather.html) | Weather overlay with NOAA radar data |
+
+### 🚀 Maplibre Examples
+| Example Name | File Path | Description |
+|--------------|-----------|-------------|
+| **3D Building** | [`maplibre-implementation/3d-building.html`](maplibre-implementation/3d-building.html) | 3D building extrusion with pitch/bearing |
+| **Animate Line** | [`maplibre-implementation/animate-line.html`](maplibre-implementation/animate-line.html) | Progressive line drawing animation |
+| **Basic Map** | [`maplibre-implementation/basic-map.html`](maplibre-implementation/basic-map.html) | Minimal MapLibre GL JS setup |
+| **Choropleth** | [`maplibre-implementation/choropleth.html`](maplibre-implementation/choropleth.html) | Choropleth with data-driven styling |
+| **Click Coordinates** | [`maplibre-implementation/click-coordinates.html`](maplibre-implementation/click-coordinates.html) | Capture click coordinates |
+| **Cluster Markers** | [`maplibre-implementation/cluster-markers.html`](maplibre-implementation/cluster-markers.html) | Supercluster-based marker clustering |
+| **Context Menu** | [`maplibre-implementation/context-menu.html`](maplibre-implementation/context-menu.html) | Right-click context menu with zoom-to and add marker actions |
+| **Custom Controls** | [`maplibre-implementation/custom-controls.html`](maplibre-implementation/custom-controls.html) | Custom rotate-north control button |
+| **Custom Marker** | [`maplibre-implementation/custom-marker.html`](maplibre-implementation/custom-marker.html) | Custom HTML marker with popup |
+| **Draw Polygon** | [`maplibre-implementation/drawing-tools.html`](maplibre-implementation/drawing-tools.html) | Draw and edit polygons with mapbox-gl-draw |
+| **External Layer Control** | [`maplibre-implementation/external-layer-control.html`](maplibre-implementation/external-layer-control.html) | Control layers from outside the map |
+| **Fullscreen** | [`maplibre-implementation/fullscreen.html`](maplibre-implementation/fullscreen.html) | Fullscreen control |
+| **GeoJSON Upload** | [`maplibre-implementation/geojson-upload.html`](maplibre-implementation/geojson-upload.html) | Drag and drop GeoJSON files |
+| **Geocode Nominatim** | [`maplibre-implementation/geocoding.html`](maplibre-implementation/geocoding.html) | Search locations with Nominatim API |
+| **Geofence** | [`maplibre-implementation/geofence.html`](maplibre-implementation/geofence.html) | Geofence detection using Turf.js |
+| **Geolocation** | [`maplibre-implementation/geolocation.html`](maplibre-implementation/geolocation.html) | User position tracking with accuracy circle |
+| **Heatmap** | [`maplibre-implementation/heatmap.html`](maplibre-implementation/heatmap.html) | WebGL-accelerated heatmap layer |
+| **Hover Effect** | [`maplibre-implementation/hover-effect.html`](maplibre-implementation/hover-effect.html) | Interactive hover highlighting on polygons |
+| **Image Overlay** | [`maplibre-implementation/image-overlay.html`](maplibre-implementation/image-overlay.html) | Static image overlay with opacity control |
+| **Mini Map** | [`maplibre-implementation/minimap.html`](maplibre-implementation/minimap.html) | Overview minimap synced to main view |
+| **Popup & Tooltip** | [`maplibre-implementation/popup-tooltip.html`](maplibre-implementation/popup-tooltip.html) | Rich popups with images and hover tooltips |
+| **Realtime Data** | [`maplibre-implementation/realtime-data.html`](maplibre-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`maplibre-implementation/satellite-map.html`](maplibre-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`maplibre-implementation/scale-bar.html`](maplibre-implementation/scale-bar.html) | Metric scale bar control |
+| **Store Locator** | [`maplibre-implementation/store-locator.html`](maplibre-implementation/store-locator.html) | Store locator with search and category filtering |
+| **Sync Maps** | [`maplibre-implementation/sync-maps.html`](maplibre-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`maplibre-implementation/sync-maps-comparison.html`](maplibre-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`maplibre-implementation/time-slider.html`](maplibre-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`maplibre-implementation/turf-area-measurement.html`](maplibre-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`maplibre-implementation/turf-buffer.html`](maplibre-implementation/turf-buffer.html) | Calculate 10km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`maplibre-implementation/turf-convex-hull.html`](maplibre-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`maplibre-implementation/turf-great-circle.html`](maplibre-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`maplibre-implementation/turf-intersection.html`](maplibre-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`maplibre-implementation/turf-nearest-point.html`](maplibre-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`maplibre-implementation/turf-point-in-polygon.html`](maplibre-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`maplibre-implementation/turf-voronoi.html`](maplibre-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`maplibre-implementation/wasd-navigation.html`](maplibre-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`maplibre-implementation/weather.html`](maplibre-implementation/weather.html) | Weather overlay with NOAA radar data |
+
+### ☁️ Openlayers Examples
+| Example Name | File Path | Description |
+|--------------|-----------|-------------|
+| **3D Building** | [`openlayers-implementation/3d-building.html`](openlayers-implementation/3d-building.html) | Styled polygons with rotation control |
+| **Animate Line** | [`openlayers-implementation/animate-line.html`](openlayers-implementation/animate-line.html) | Progressive line drawing animation |
+| **Basic Map** | [`openlayers-implementation/basic-map.html`](openlayers-implementation/basic-map.html) | Minimal map setup with OpenLayers |
+| **Choropleth Map** | [`openlayers-implementation/choropleth.html`](openlayers-implementation/choropleth.html) | Thematic area shading by data values |
+| **Click Coordinates** | [`openlayers-implementation/click-coordinates.html`](openlayers-implementation/click-coordinates.html) | Capture click coordinates on the map |
+| **Cluster Markers** | [`openlayers-implementation/cluster-markers.html`](openlayers-implementation/cluster-markers.html) | Supercluster-based marker clustering |
+| **Context Menu** | [`openlayers-implementation/context-menu.html`](openlayers-implementation/context-menu.html) | Right-click context menu with actions |
+| **Custom Controls** | [`openlayers-implementation/custom-controls.html`](openlayers-implementation/custom-controls.html) | Custom rotate-north control button |
+| **Custom Marker** | [`openlayers-implementation/custom-marker.html`](openlayers-implementation/custom-marker.html) | Pulsing animated marker with popup |
+| **Drawing Tools** | [`openlayers-implementation/drawing-tools.html`](openlayers-implementation/drawing-tools.html) | Draw points, lines, and polygons on the map |
+| **Fly-To Animation** | [`openlayers-implementation/fly-to-animation.html`](openlayers-implementation/fly-to-animation.html) | Smooth animated fly-to with easing |
+| **Fullscreen** | [`openlayers-implementation/fullscreen.html`](openlayers-implementation/fullscreen.html) | Fullscreen toggle control |
+| **GeoJSON Upload** | [`openlayers-implementation/geojson-upload.html`](openlayers-implementation/geojson-upload.html) | Drag and drop GeoJSON files |
+| **Geocode Nominatim** | [`openlayers-implementation/geocoding.html`](openlayers-implementation/geocoding.html) | Search locations with Nominatim API |
+| **Geofence** | [`openlayers-implementation/geofence.html`](openlayers-implementation/geofence.html) | Geofence detection with moving marker |
+| **Geolocation** | [`openlayers-implementation/geolocation.html`](openlayers-implementation/geolocation.html) | User position tracking with accuracy circle |
+| **Heatmap** | [`openlayers-implementation/heatmap.html`](openlayers-implementation/heatmap.html) | Heat map density visualization |
+| **Hover Effect** | [`openlayers-implementation/hover-effect.html`](openlayers-implementation/hover-effect.html) | Interactive hover highlighting on polygons |
+| **Image Overlay** | [`openlayers-implementation/image-overlay.html`](openlayers-implementation/image-overlay.html) | Overlay an image on the map |
+| **Layer Toggle** | [`openlayers-implementation/layer-toggle.html`](openlayers-implementation/layer-toggle.html) | Switch between multiple tile layers |
+| **Mini Map** | [`openlayers-implementation/minimap.html`](openlayers-implementation/minimap.html) | Overview minimap synced to main view |
+| **Mouse Follow** | [`openlayers-implementation/mouse-follow.html`](openlayers-implementation/mouse-follow.html) | Marker that follows the mouse cursor |
+| **Popup & Tooltip** | [`openlayers-implementation/popup-tooltip.html`](openlayers-implementation/popup-tooltip.html) | Rich popups with hover tooltips |
+| **Realtime Data** | [`openlayers-implementation/realtime-data.html`](openlayers-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`openlayers-implementation/satellite-map.html`](openlayers-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`openlayers-implementation/scale-bar.html`](openlayers-implementation/scale-bar.html) | Scale bar with imperial/metric units |
+| **Store Locator** | [`openlayers-implementation/store-locator.html`](openlayers-implementation/store-locator.html) | Store locator with search and filtering |
+| **Sync Maps** | [`openlayers-implementation/sync-maps.html`](openlayers-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`openlayers-implementation/sync-maps-comparison.html`](openlayers-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`openlayers-implementation/time-slider.html`](openlayers-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`openlayers-implementation/turf-area-measurement.html`](openlayers-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`openlayers-implementation/turf-buffer.html`](openlayers-implementation/turf-buffer.html) | Calculate 500km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`openlayers-implementation/turf-convex-hull.html`](openlayers-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`openlayers-implementation/turf-great-circle.html`](openlayers-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`openlayers-implementation/turf-intersection.html`](openlayers-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`openlayers-implementation/turf-nearest-point.html`](openlayers-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`openlayers-implementation/turf-point-in-polygon.html`](openlayers-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`openlayers-implementation/turf-voronoi.html`](openlayers-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`openlayers-implementation/wasd-navigation.html`](openlayers-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`openlayers-implementation/weather.html`](openlayers-implementation/weather.html) | Weather overlay with radar data |
+
+---
+-----------|-----------|-------------|
+| **Animate Line** | [`leaflet-implementation/animate-line.html`](leaflet-implementation/animate-line.html) | Progressive line drawing animation with play/reset |
+| **Basic Map** | [`leaflet-implementation/basic-map.html`](leaflet-implementation/basic-map.html) | Minimal Leaflet map setup |
+| **Choropleth** | [`leaflet-implementation/choropleth.html`](leaflet-implementation/choropleth.html) | Data-driven polygon coloring |
+| **Click Coordinates** | [`leaflet-implementation/click-coordinates.html`](leaflet-implementation/click-coordinates.html) | Capture click coordinates |
+| **Context Menu** | [`leaflet-implementation/context-menu.html`](leaflet-implementation/context-menu.html) | Right-click context menu |
+| **Custom Controls** | [`leaflet-implementation/custom-controls.html`](leaflet-implementation/custom-controls.html) | Custom zoom + rotate-north controls |
+| **Custom Marker** | [`leaflet-implementation/custom-marker.html`](leaflet-implementation/custom-marker.html) | Custom HTML marker with popup |
+| **Draw GeoJSON** | [`leaflet-implementation/drawing-tools.html`](leaflet-implementation/drawing-tools.html) | Draw and export GeoJSON features |
+| **Fly To Animation** | [`leaflet-implementation/fly-to-animation.html`](leaflet-implementation/fly-to-animation.html) | Animated fly-to with easing |
+| **Fullscreen** | [`leaflet-implementation/fullscreen.html`](leaflet-implementation/fullscreen.html) | Fullscreen toggle control |
+| **GeoJSON Upload** | [`leaflet-implementation/geojson-upload.html`](leaflet-implementation/geojson-upload.html) | Drag and drop GeoJSON files to render |
+| **Geocoding** | [`leaflet-implementation/geocoding.html`](leaflet-implementation/geocoding.html) | Search locations with Nominatim |
+| **Geofence** | [`leaflet-implementation/geofence.html`](leaflet-implementation/geofence.html) | Geofence detection using Turf.js |
+| **Geolocation** | [`leaflet-implementation/geolocation.html`](leaflet-implementation/geolocation.html) | User position tracking with accuracy |
+| **Heatmap** | [`leaflet-implementation/heatmap.html`](leaflet-implementation/heatmap.html) | Heat map density visualization |
+| **Hover Effect** | [`leaflet-implementation/hover-effect.html`](leaflet-implementation/hover-effect.html) | Interactive hover highlighting on polygons with tooltip |
+| **Image Overlay** | [`leaflet-implementation/image-overlay.html`](leaflet-implementation/image-overlay.html) | Overlay an image on the map with opacity control |
+| **Layer Toggle** | [`leaflet-implementation/layer-toggle.html`](leaflet-implementation/layer-toggle.html) | Switch between multiple tile layers |
+| **Marker Clustering** | [`leaflet-implementation/cluster-markers.html`](leaflet-implementation/cluster-markers.html) | Cluster nearby markers together |
+| **Mini Map** | [`leaflet-implementation/minimap.html`](leaflet-implementation/minimap.html) | Overview minimap synced to main view |
+| **Mouse Follow** | [`leaflet-implementation/mouse-follow.html`](leaflet-implementation/mouse-follow.html) | Marker that follows the mouse cursor |
+| **Popup & Tooltip** | [`leaflet-implementation/popup-tooltip.html`](leaflet-implementation/popup-tooltip.html) | Rich popups with images and hover tooltips |
+| **Realtime Data** | [`leaflet-implementation/realtime-data.html`](leaflet-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`leaflet-implementation/satellite-map.html`](leaflet-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`leaflet-implementation/scale-bar.html`](leaflet-implementation/scale-bar.html) | Metric and imperial scale bar |
+| **Store Locator** | [`leaflet-implementation/store-locator.html`](leaflet-implementation/store-locator.html) | Store locator with search and category filtering |
+| **Sync Maps** | [`leaflet-implementation/sync-maps.html`](leaflet-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`leaflet-implementation/sync-maps-comparison.html`](leaflet-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`leaflet-implementation/time-slider.html`](leaflet-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`leaflet-implementation/turf-area-measurement.html`](leaflet-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`leaflet-implementation/turf-buffer.html`](leaflet-implementation/turf-buffer.html) | Calculate 10km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`leaflet-implementation/turf-convex-hull.html`](leaflet-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`leaflet-implementation/turf-great-circle.html`](leaflet-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`leaflet-implementation/turf-intersection.html`](leaflet-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`leaflet-implementation/turf-nearest-point.html`](leaflet-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`leaflet-implementation/turf-point-in-polygon.html`](leaflet-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`leaflet-implementation/turf-voronoi.html`](leaflet-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`leaflet-implementation/wasd-navigation.html`](leaflet-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`leaflet-implementation/weather.html`](leaflet-implementation/weather.html) | Weather overlay with NOAA radar data |
+
+### 🚀 Maplibre Examples
+| Example Name | File Path | Description |
+|--------------|-----------|-------------|
+| **3D Building** | [`maplibre-implementation/3d-building.html`](maplibre-implementation/3d-building.html) | 3D building extrusion with pitch/bearing |
+| **Animate Line** | [`maplibre-implementation/animate-line.html`](maplibre-implementation/animate-line.html) | Progressive line drawing animation |
+| **Basic Map** | [`maplibre-implementation/basic-map.html`](maplibre-implementation/basic-map.html) | Minimal MapLibre GL JS setup |
+| **Choropleth** | [`maplibre-implementation/choropleth.html`](maplibre-implementation/choropleth.html) | Choropleth with data-driven styling |
+| **Click Coordinates** | [`maplibre-implementation/click-coordinates.html`](maplibre-implementation/click-coordinates.html) | Capture click coordinates |
+| **Cluster Markers** | [`maplibre-implementation/cluster-markers.html`](maplibre-implementation/cluster-markers.html) | Supercluster-based marker clustering |
+| **Context Menu** | [`maplibre-implementation/context-menu.html`](maplibre-implementation/context-menu.html) | Right-click context menu with zoom-to and add marker actions |
+| **Custom Controls** | [`maplibre-implementation/custom-controls.html`](maplibre-implementation/custom-controls.html) | Custom rotate-north control button |
+| **Custom Marker** | [`maplibre-implementation/custom-marker.html`](maplibre-implementation/custom-marker.html) | Custom HTML marker with popup |
+| **Draw Polygon** | [`maplibre-implementation/drawing-tools.html`](maplibre-implementation/drawing-tools.html) | Draw and edit polygons with mapbox-gl-draw |
+| **External Layer Control** | [`maplibre-implementation/external-layer-control.html`](maplibre-implementation/external-layer-control.html) | Control layers from outside the map |
+| **Fullscreen** | [`maplibre-implementation/fullscreen.html`](maplibre-implementation/fullscreen.html) | Fullscreen control |
+| **GeoJSON Upload** | [`maplibre-implementation/geojson-upload.html`](maplibre-implementation/geojson-upload.html) | Drag and drop GeoJSON files |
+| **Geocode Nominatim** | [`maplibre-implementation/geocoding.html`](maplibre-implementation/geocoding.html) | Search locations with Nominatim API |
+| **Geofence** | [`maplibre-implementation/geofence.html`](maplibre-implementation/geofence.html) | Geofence detection using Turf.js |
+| **Geolocation** | [`maplibre-implementation/geolocation.html`](maplibre-implementation/geolocation.html) | User position tracking with accuracy circle |
+| **Heatmap** | [`maplibre-implementation/heatmap.html`](maplibre-implementation/heatmap.html) | WebGL-accelerated heatmap layer |
+| **Hover Effect** | [`maplibre-implementation/hover-effect.html`](maplibre-implementation/hover-effect.html) | Interactive hover highlighting on polygons |
+| **Image Overlay** | [`maplibre-implementation/image-overlay.html`](maplibre-implementation/image-overlay.html) | Static image overlay with opacity control |
+| **Mini Map** | [`maplibre-implementation/minimap.html`](maplibre-implementation/minimap.html) | Overview minimap synced to main view |
+| **Popup & Tooltip** | [`maplibre-implementation/popup-tooltip.html`](maplibre-implementation/popup-tooltip.html) | Rich popups with images and hover tooltips |
+| **Realtime Data** | [`maplibre-implementation/realtime-data.html`](maplibre-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`maplibre-implementation/satellite-map.html`](maplibre-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`maplibre-implementation/scale-bar.html`](maplibre-implementation/scale-bar.html) | Metric scale bar control |
+| **Store Locator** | [`maplibre-implementation/store-locator.html`](maplibre-implementation/store-locator.html) | Store locator with search and category filtering |
+| **Sync Maps** | [`maplibre-implementation/sync-maps.html`](maplibre-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`maplibre-implementation/sync-maps-comparison.html`](maplibre-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`maplibre-implementation/time-slider.html`](maplibre-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`maplibre-implementation/turf-area-measurement.html`](maplibre-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`maplibre-implementation/turf-buffer.html`](maplibre-implementation/turf-buffer.html) | Calculate 10km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`maplibre-implementation/turf-convex-hull.html`](maplibre-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`maplibre-implementation/turf-great-circle.html`](maplibre-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`maplibre-implementation/turf-intersection.html`](maplibre-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`maplibre-implementation/turf-nearest-point.html`](maplibre-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`maplibre-implementation/turf-point-in-polygon.html`](maplibre-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`maplibre-implementation/turf-voronoi.html`](maplibre-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`maplibre-implementation/wasd-navigation.html`](maplibre-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`maplibre-implementation/weather.html`](maplibre-implementation/weather.html) | Weather overlay with NOAA radar data |
+
+### ☁️ Openlayers Examples
+| Example Name | File Path | Description |
+|--------------|-----------|-------------|
+| **Animate Line** | [`openlayers-implementation/animate-line.html`](openlayers-implementation/animate-line.html) | Progressive line drawing animation |
+| **Basic Map** | [`openlayers-implementation/basic-map.html`](openlayers-implementation/basic-map.html) | Minimal map setup with OpenLayers |
+| **Choropleth Map** | [`openlayers-implementation/choropleth.html`](openlayers-implementation/choropleth.html) | Thematic area shading by data values |
+| **Click Coordinates** | [`openlayers-implementation/click-coordinates.html`](openlayers-implementation/click-coordinates.html) | Capture click coordinates on the map |
+| **Cluster Markers** | [`openlayers-implementation/cluster-markers.html`](openlayers-implementation/cluster-markers.html) | Supercluster-based marker clustering |
+| **Colored Polygons with Rotation** | [`openlayers-implementation/polygon-extrusion.html`](openlayers-implementation/polygon-extrusion.html) | Styled polygons with rotation control |
+| **Context Menu** | [`openlayers-implementation/context-menu.html`](openlayers-implementation/context-menu.html) | Right-click context menu with actions |
+| **Custom Controls** | [`openlayers-implementation/custom-controls.html`](openlayers-implementation/custom-controls.html) | Custom rotate-north control button |
+| **Custom Marker** | [`openlayers-implementation/custom-marker.html`](openlayers-implementation/custom-marker.html) | Pulsing animated marker with popup |
+| **Drawing Tools** | [`openlayers-implementation/drawing-tools.html`](openlayers-implementation/drawing-tools.html) | Draw points, lines, and polygons on the map |
+| **Fly-To Animation** | [`openlayers-implementation/fly-to-animation.html`](openlayers-implementation/fly-to-animation.html) | Smooth animated fly-to with easing |
+| **Fullscreen** | [`openlayers-implementation/fullscreen.html`](openlayers-implementation/fullscreen.html) | Fullscreen toggle control |
+| **GeoJSON Upload** | [`openlayers-implementation/geojson-upload.html`](openlayers-implementation/geojson-upload.html) | Drag and drop GeoJSON files |
+| **Geocode Nominatim** | [`openlayers-implementation/geocoding.html`](openlayers-implementation/geocoding.html) | Search locations with Nominatim API |
+| **Geofence** | [`openlayers-implementation/geofence.html`](openlayers-implementation/geofence.html) | Geofence detection with moving marker |
+| **Geolocation** | [`openlayers-implementation/geolocation.html`](openlayers-implementation/geolocation.html) | User position tracking with accuracy circle |
+| **Heatmap** | [`openlayers-implementation/heatmap.html`](openlayers-implementation/heatmap.html) | Heat map density visualization |
+| **Hover Effect** | [`openlayers-implementation/hover-effect.html`](openlayers-implementation/hover-effect.html) | Interactive hover highlighting on polygons |
+| **Image Overlay** | [`openlayers-implementation/image-overlay.html`](openlayers-implementation/image-overlay.html) | Overlay an image on the map |
+| **Layer Toggle** | [`openlayers-implementation/layer-toggle.html`](openlayers-implementation/layer-toggle.html) | Switch between multiple tile layers |
+| **Mini Map** | [`openlayers-implementation/minimap.html`](openlayers-implementation/minimap.html) | Overview minimap synced to main view |
+| **Mouse Follow** | [`openlayers-implementation/mouse-follow.html`](openlayers-implementation/mouse-follow.html) | Marker that follows the mouse cursor |
+| **Popup & Tooltip** | [`openlayers-implementation/popup-tooltip.html`](openlayers-implementation/popup-tooltip.html) | Rich popups with hover tooltips |
+| **Realtime Data** | [`openlayers-implementation/realtime-data.html`](openlayers-implementation/realtime-data.html) | Live-updating point data stream |
+| **Satellite Map** | [`openlayers-implementation/satellite-map.html`](openlayers-implementation/satellite-map.html) | Style switcher with satellite imagery |
+| **Scale Bar** | [`openlayers-implementation/scale-bar.html`](openlayers-implementation/scale-bar.html) | Scale bar with imperial/metric units |
+| **Store Locator** | [`openlayers-implementation/store-locator.html`](openlayers-implementation/store-locator.html) | Store locator with search and filtering |
+| **Sync Maps** | [`openlayers-implementation/sync-maps.html`](openlayers-implementation/sync-maps.html) | Multiple maps with synchronized movement |
+| **Sync Maps Comparison** | [`openlayers-implementation/sync-maps-comparison.html`](openlayers-implementation/sync-maps-comparison.html) | Side-by-side map comparison with synced views |
+| **Time Slider** | [`openlayers-implementation/time-slider.html`](openlayers-implementation/time-slider.html) | Temporal data visualization with time slider |
+| **Turf Area Measurement** | [`openlayers-implementation/turf-area-measurement.html`](openlayers-implementation/turf-area-measurement.html) | Measure area of drawn polygon using Turf.js |
+| **Turf Buffer** | [`openlayers-implementation/turf-buffer.html`](openlayers-implementation/turf-buffer.html) | Calculate 500km buffer around clicked point using Turf.js |
+| **Turf Convex Hull** | [`openlayers-implementation/turf-convex-hull.html`](openlayers-implementation/turf-convex-hull.html) | Create convex hull from points using Turf.js |
+| **Turf Great Circle** | [`openlayers-implementation/turf-great-circle.html`](openlayers-implementation/turf-great-circle.html) | Draw geodesic curves using Turf.js |
+| **Turf Intersection** | [`openlayers-implementation/turf-intersection.html`](openlayers-implementation/turf-intersection.html) | Find intersection of two overlapping polygons using Turf.js |
+| **Turf Nearest Point** | [`openlayers-implementation/turf-nearest-point.html`](openlayers-implementation/turf-nearest-point.html) | Find nearest point using Turf.js |
+| **Turf Point in Polygon** | [`openlayers-implementation/turf-point-in-polygon.html`](openlayers-implementation/turf-point-in-polygon.html) | Test point containment using Turf.js |
+| **Turf Voronoi** | [`openlayers-implementation/turf-voronoi.html`](openlayers-implementation/turf-voronoi.html) | Generate Voronoi polygons from points using Turf.js |
+| **WASD Navigation** | [`openlayers-implementation/wasd-navigation.html`](openlayers-implementation/wasd-navigation.html) | Game-like WASD keyboard navigation |
+| **Weather** | [`openlayers-implementation/weather.html`](openlayers-implementation/weather.html) | Weather overlay with radar data |
 
 ---
 
+
 ## Animation & Camera
 
-- **OpenLayers**: [Animate a choropleth map](https://samples.openlayersmaps.com/animations/animate-a-choropleth-map) - Animated choropleth over time
+- **OpenLayers**: [Animate a choropleth map](openlayers-implementation/choropleth.html) - Animated choropleth over time
 - **OpenLayers**: [Animate a GPS trace](https://samples.openlayersmaps.com/animations/animate-a-gps-trace) - Smooth GPS trace animation
 - **OpenLayers**: [Animation easings](https://samples.openlayersmaps.com/animations/animation-easings) - Built-in easing functions
 - **OpenLayers**: [Get map camera details](https://samples.openlayersmaps.com/map/get-map-camera-details) - Camera state access
 - **Leaflet**: [Fly to with easing](https://leafletjs.com/reference.html#map-flyto) - Animated flyTo with custom easing options
 - **Leaflet**: [Pan animation with hooks](https://leafletjs.com/reference.html#map-panes) - Custom pan/zoom animations via map events
 - **Leaflet**: [Scroll-driven fly-to](https://leafletjs.com/examples/scroll-driven-map/) - Fly map position based on scroll position
-- **Leaflet**: [Animate a line progressively](leaflet-examples/animate-line.html) - Progressive line drawing animation with play/reset controls
-- **MapLibre**: [Animate a line progressively](maplibre-examples/animate-line.html) - Progressive line drawing animation
+- **Leaflet**: [Animate a line progressively](leaflet-implementation/animate-line.html) - Progressive line drawing animation with play/reset controls
+- **MapLibre**: [Animate a line progressively](maplibre-implementation/animate-line.html) - Progressive line drawing animation
 - **MapLibre**: [Customize camera animations](https://maplibre.org/maplibre-gl-js/docs/examples/customize-camera-animations) - Custom easing curves
 - **MapLibre**: [Disable map rotation](https://maplibre.org/maplibre-gl-js/docs/examples/disable-map-rotation) - Lock bearing
 - **MapLibre**: [Fly to a location](https://maplibre.org/maplibre-gl-js/docs/examples/fly-to-a-location) - Animated fly-to
@@ -173,7 +445,7 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Create HTML legend](https://samples.openlayersmaps.com/controls/create-html-legend) - HTML-based legend
 - **OpenLayers**: [Custom navigation controls](https://samples.openlayersmaps.com/controls/custom-navigation-controls) - External nav controls
 - **OpenLayers**: [Custom styled legend](https://samples.openlayersmaps.com/controls/custom-styled-legend) - CSS-styled legend
-- **OpenLayers**: [Fullscreen control](https://samples.openlayersmaps.com/controls/fullscreen-control) - Fullscreen toggle
+- **OpenLayers**: [Fullscreen control](openlayers-implementation/fullscreen.html) - Fullscreen toggle
 - **OpenLayers**: [Fullscreen control options](https://samples.openlayersmaps.com/controls/fullscreen-control-options) - Fullscreen options
 - **OpenLayers**: [Geolocation control](https://samples.openlayersmaps.com/device-sensors/geolocation-control) - Custom geolocation UI
 - **OpenLayers**: [Geolocation control options](https://samples.openlayersmaps.com/device-sensors/geolocation-control-options) - Geolocation options
@@ -188,42 +460,42 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Spyglass map visualization](https://samples.openlayersmaps.com/controls/spyglass-map-visualization) - Spyglass data viewer
 - **OpenLayers**: [Spyglass module options](https://samples.openlayersmaps.com/controls/spyglass-module-options) - Spyglass options
 - **OpenLayers**: [Swipe map with fullscreen support](https://samples.openlayersmaps.com/map/swipe-map-with-fullscreen-support) - Swipe with fullscreen
-- **Leaflet**: [Changing locate zoom control](https://tomickigrzegorz.github.io/leaflet-examples/#02.changing-locate-zoom-control) - Custom zoom control positioning
-- **Leaflet**: [Controlling the map from outside](https://tomickigrzegorz.github.io/leaflet-examples/#11.controlling-the-map-from-outside-the-map) - External map controls
-- **Leaflet**: [Create additional control placeholders](https://tomickigrzegorz.github.io/leaflet-examples/#57.create-additional-control-placeholders) - Custom control positions
-- **Leaflet**: [Fullscreen](https://tomickigrzegorz.github.io/leaflet-examples/#27.fullscreen) - Fullscreen toggle
-- **Leaflet**: [Scale](https://tomickigrzegorz.github.io/leaflet-examples/#42.scale) - Map scale bar
+- **Leaflet**: [Changing locate zoom control](https://tomickigrzegorz.github.io/leaflet-implementation/#02.changing-locate-zoom-control) - Custom zoom control positioning
+- **Leaflet**: [Controlling the map from outside](https://tomickigrzegorz.github.io/leaflet-implementation/#11.controlling-the-map-from-outside-the-map) - External map controls
+- **Leaflet**: [Create additional control placeholders](https://tomickigrzegorz.github.io/leaflet-implementation/#57.create-additional-control-placeholders) - Custom control positions
+- **Leaflet**: [Fullscreen](leaflet-implementation/fullscreen.html) - Fullscreen toggle
+- **Leaflet**: [Scale](https://tomickigrzegorz.github.io/leaflet-implementation/#42.scale) - Map scale bar
 - **Leaflet**: [Custom legend control](https://leafletjs.com/examples/zoom-levels/) - HTML legend overlay with data classes
 - **Leaflet**: [Swipe comparison control](https://leafletjs.com/examples/layers-control/) - Side-by-side map swipe
-- **Leaflet**: [Custom navigation controls](leaflet-examples/custom-controls.html) - Custom zoom + rotate-north controls
-- **Leaflet**: [Mini overview map](leaflet-examples/minimap.html) - Synced minimap in the corner
+- **Leaflet**: [Custom navigation controls](leaflet-implementation/custom-controls.html) - Custom zoom + rotate-north controls
+- **Leaflet**: [Mini overview map](leaflet-implementation/minimap.html) - Synced minimap in the corner
 - **MapLibre**: [Change building color based on zoom level](https://maplibre.org/maplibre-gl-js/docs/examples/change-building-color-based-on-zoom-level) - Zoom-driven styling
-- **MapLibre**: [Context menu](maplibre-examples/context-menu.html) - Right-click context menu with zoom and marker actions
-- **MapLibre**: [Custom controls](maplibre-examples/custom-controls.html) - Custom rotate-north button
+- **MapLibre**: [Context menu](maplibre-implementation/context-menu.html) - Right-click context menu with zoom and marker actions
+- **MapLibre**: [Custom controls](maplibre-implementation/custom-controls.html) - Custom rotate-north button
 - **MapLibre**: [Display map navigation controls](https://maplibre.org/maplibre-gl-js/docs/examples/display-map-navigation-controls) - Standard zoom/rotate controls
 - **MapLibre**: [Level of Detail Control](https://maplibre.org/maplibre-gl-js/docs/examples/level-of-detail-control) - LOD management
 - **MapLibre**: [Navigate the map with game-like controls](https://maplibre.org/maplibre-gl-js/docs/examples/navigate-the-map-with-game-like-controls) - WASD navigation
-- **MapLibre**: [WASD navigation](maplibre-examples/wasd-navigation.html) - Keyboard navigation with accelerated movement
+- **MapLibre**: [WASD navigation](maplibre-implementation/wasd-navigation.html) - Keyboard navigation with accelerated movement
 - **MapLibre**: [Toggle interactions](https://maplibre.org/maplibre-gl-js/docs/examples/toggle-interactions) - Enable/disable controls
-- **MapLibre**: [View a fullscreen map](https://maplibre.org/maplibre-gl-js/docs/examples/view-a-fullscreen-map) - Fullscreen toggle
-- **MapLibre**: [Scale bar control](maplibre-examples/scale-bar.html) - Scale bar with metric units
-- **MapLibre**: [Mini overview map](maplibre-examples/minimap.html) - Overview minimap synced to main map
+- **MapLibre**: [View a fullscreen map](maplibre-implementation/fullscreen.html) - Fullscreen toggle
+- **MapLibre**: [Scale bar control](maplibre-implementation/scale-bar.html) - Scale bar with metric units
+- **MapLibre**: [Mini overview map](maplibre-implementation/minimap.html) - Overview minimap synced to main map
 
 ---
 
 ## Data Visualization
 
 - **OpenLayers**: [Bubble layer data viz](https://samples.openlayersmaps.com/bubble-layer/bubble-layer-options) - Bubble layer for point magnitude
-- **OpenLayers**: [Heat map data viz](https://samples.openlayersmaps.com/heat-map-layer/simple-heat-map-layer) - Heat map for density visualization
+- **OpenLayers**: [Heat map data viz](openlayers-implementation/heatmap.html) - Heat map for density visualization
 - **OpenLayers**: [Choropleth map](https://samples.openlayersmaps.com/demos/create-a-choropleth-map) - Thematic area shading
 - **Leaflet**: [Leaflet.heat for density maps](https://github.com/Leaflet/Leaflet.heat) - Heatmap plugin for point density
-- **Leaflet**: [Choropleth with GeoJSON](https://leafletjs.com/examples/choropleth/) - Data-driven polygon coloring
-- **Leaflet**: [Marker clustering density](https://github.com/Leaflet/Leaflet.markercluster) - Cluster-based density visualization
-- **Leaflet**: [Realtime data stream](leaflet-examples/realtime-data.html) - Live random point stream with counter
-- **Leaflet**: [Time slider data filter](leaflet-examples/time-slider.html) - Hourly data driven by time slider
+- **Leaflet**: [Choropleth with GeoJSON](leaflet-implementation/choropleth.html) - Data-driven polygon coloring
+- **Leaflet**: [Marker clustering density](leaflet-implementation/cluster-markers.html) - Cluster-based density visualization
+- **Leaflet**: [Realtime data stream](leaflet-implementation/realtime-data.html) - Live random point stream with counter
+- **Leaflet**: [Time slider data filter](leaflet-implementation/time-slider.html) - Hourly data driven by time slider
 - **MapLibre**: [Visualize population density](https://maplibre.org/maplibre-gl-js/docs/examples/visualize-population-density) - Choropleth visualization
-- **MapLibre**: [Create a heatmap layer](https://maplibre.org/maplibre-gl-js/docs/examples/create-a-heatmap-layer) - Heatmap density visualization
-- **MapLibre**: [Choropleth with data joins](https://maplibre.org/maplibre-gl-js/docs/examples/) - Join external CSV data to polygon features
+- **MapLibre**: [Create a heatmap layer](maplibre-implementation/heatmap.html) - Heatmap density visualization
+- **MapLibre**: [Choropleth with data joins](maplibre-implementation/choropleth.html) - Join external CSV data to polygon features
 
 ---
 
@@ -232,7 +504,7 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Add a GeoJSON LineString](https://samples.openlayersmaps.com/line-layer/add-a-geojson-linestring) - Basic line rendering
 - **OpenLayers**: [Add a GeoJSON polygon](https://samples.openlayersmaps.com/polygon-and-polygon-extrusion-layers/add-a-geojson-polygon) - Basic polygon fill
 - **OpenLayers**: [Add drawing toolbar to map](https://samples.openlayersmaps.com/drawing-tools-module/add-drawing-toolbar-to-map) - Basic drawing toolbar
-- **OpenLayers**: [Allow map panning with drawing tools](https://samples.openlayersmaps.com/drawing-tools-module/allow-map-panning-with-drawing-tools) - Pan while drawing
+- **OpenLayers**: [Allow map panning with drawing tools](openlayers-implementation/drawing-tools.html) - Pan while drawing
 - **OpenLayers**: [Animate a line](https://samples.openlayersmaps.com/animations/animate-a-line) - Line position animation
 - **OpenLayers**: [Animate a snakeline](https://samples.openlayersmaps.com/animations/animate-a-snakeline) - Snake-like line drawing
 - **OpenLayers**: [Calculate a convex hull](https://samples.openlayersmaps.com/spatial-math/calculate-a-convex-hull) - Convex hull from array of shapes
@@ -275,25 +547,25 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Simplify polygon](https://samples.openlayersmaps.com/spatial-math/simplify-polygon) - Polygon simplification
 - **OpenLayers**: [Snap drawn line to roads](https://samples.openlayersmaps.com/drawing-tools-module/snap-drawn-line-to-roads) - Road snapping
 - **OpenLayers**: [Use a snapping grid](https://samples.openlayersmaps.com/drawing-tools-module/use-a-snapping-grid) - Grid snapping
-- **Leaflet**: [Add rectangle over click tiles](https://tomickigrzegorz.github.io/leaflet-examples/#72.add-rectangle-over-click-tiles) - Draw on tile click
-- **Leaflet**: [Calculate area](https://tomickigrzegorz.github.io/leaflet-examples/#78.calculate-area) - Area calculation on polygon
-- **Leaflet**: [Controlling polygons](https://tomickigrzegorz.github.io/leaflet-examples/#12.controling-polygons) - Create and manage polygons
-- **Leaflet**: [Create and save GeoJSON](https://tomickigrzegorz.github.io/leaflet-examples/#53.create-and-save-geojson) - Draw and export GeoJSON
-- **Leaflet**: [Enlarge a polygon box by 5%](https://tomickigrzegorz.github.io/leaflet-examples/#37.enlarge-a-polygon-box-by-5-percent) - Buffer polygon with Turf.js
-- **Leaflet**: [GeoJSON extended action](https://tomickigrzegorz.github.io/leaflet-examples/#16.geoJson-extended-action) - Interactive GeoJSON features
-- **Leaflet**: [GeoJSON simple](https://tomickigrzegorz.github.io/leaflet-examples/#15.geoJson-simple) - Basic GeoJSON rendering
-- **Leaflet**: [Great circle](https://tomickigrzegorz.github.io/leaflet-examples/#60.great-circle) - Great circle arcs with Turf.js
-- **Leaflet**: [Leaflet-Geoman](https://tomickigrzegorz.github.io/leaflet-examples/#66.leaflet-geoman) - Full geometry editing toolkit
-- **Leaflet**: [Part of the common](https://tomickigrzegorz.github.io/leaflet-examples/#38.part-of-the-common) - Polygon intersection with Turf.js
-- **Leaflet**: [Polygon with gradient](https://tomickigrzegorz.github.io/leaflet-examples/#70.polygon-with-gradien) - Gradient-filled polygons
-- **Leaflet**: [Polyline](https://tomickigrzegorz.github.io/leaflet-examples/#24.polyline) - Draw polylines
-- **Leaflet**: [Hover effect on features](leaflet-examples/hover-effect.html) - Highlight polygons + tooltip on hover
-- **Leaflet**: [GeoJSON drag & drop upload](leaflet-examples/geojson-upload.html) - Drop GeoJSON files to render
+- **Leaflet**: [Add rectangle over click tiles](https://tomickigrzegorz.github.io/leaflet-implementation/#72.add-rectangle-over-click-tiles) - Draw on tile click
+- **Leaflet**: [Calculate area](https://tomickigrzegorz.github.io/leaflet-implementation/#78.calculate-area) - Area calculation on polygon
+- **Leaflet**: [Controlling polygons](https://tomickigrzegorz.github.io/leaflet-implementation/#12.controling-polygons) - Create and manage polygons
+- **Leaflet**: [Create and save GeoJSON](https://tomickigrzegorz.github.io/leaflet-implementation/#53.create-and-save-geojson) - Draw and export GeoJSON
+- **Leaflet**: [Enlarge a polygon box by 5%](https://tomickigrzegorz.github.io/leaflet-implementation/#37.enlarge-a-polygon-box-by-5-percent) - Buffer polygon with Turf.js
+- **Leaflet**: [GeoJSON extended action](https://tomickigrzegorz.github.io/leaflet-implementation/#16.geoJson-extended-action) - Interactive GeoJSON features
+- **Leaflet**: [GeoJSON simple](https://tomickigrzegorz.github.io/leaflet-implementation/#15.geoJson-simple) - Basic GeoJSON rendering
+- **Leaflet**: [Great circle](https://tomickigrzegorz.github.io/leaflet-implementation/#60.great-circle) - Great circle arcs with Turf.js
+- **Leaflet**: [Leaflet-Geoman](https://tomickigrzegorz.github.io/leaflet-implementation/#66.leaflet-geoman) - Full geometry editing toolkit
+- **Leaflet**: [Part of the common](https://tomickigrzegorz.github.io/leaflet-implementation/#38.part-of-the-common) - Polygon intersection with Turf.js
+- **Leaflet**: [Polygon with gradient](https://tomickigrzegorz.github.io/leaflet-implementation/#70.polygon-with-gradien) - Gradient-filled polygons
+- **Leaflet**: [Polyline](https://tomickigrzegorz.github.io/leaflet-implementation/#24.polyline) - Draw polylines
+- **Leaflet**: [Hover effect on features](leaflet-implementation/hover-effect.html) - Highlight polygons + tooltip on hover
+- **Leaflet**: [GeoJSON drag & drop upload](leaflet-implementation/geojson-upload.html) - Drop GeoJSON files to render
 - **MapLibre**: [Add a GeoJSON line](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-geojson-line) - GeoJSON LineString
 - **MapLibre**: [Add a GeoJSON polygon](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-geojson-polygon) - GeoJSON polygon fill
 - **MapLibre**: [Add a pattern to a polygon](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-pattern-to-a-polygon) - Repeating fill pattern
 - **MapLibre**: [Add Contour Lines](https://maplibre.org/maplibre-gl-js/docs/examples/add-contour-lines) - Contour lines from raster-dem
-- **MapLibre**: [Add live realtime data](https://maplibre.org/maplibre-gl-js/docs/examples/add-live-realtime-data) - Realtime GeoJSON streams
+- **MapLibre**: [Add live realtime data](maplibre-implementation/realtime-data.html) - Realtime GeoJSON streams
 - **MapLibre**: [Add multiple geometries from one GeoJSON source](https://maplibre.org/maplibre-gl-js/docs/examples/add-multiple-geometries-from-one-geojson-source) - Multi-geometry source
 - **MapLibre**: [Animate a line](https://maplibre.org/maplibre-gl-js/docs/examples/animate-a-line) - Line drawing animation
 - **MapLibre**: [Create a gradient line using an expression](https://maplibre.org/maplibre-gl-js/docs/examples/create-a-gradient-line-using-an-expression) - Gradient line styling
@@ -301,7 +573,7 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **MapLibre**: [Display line that crosses 180th meridian](https://maplibre.org/maplibre-gl-js/docs/examples/display-line-that-crosses-180th-meridian) - Antimeridian handling
 - **MapLibre**: [Draw a Circle](https://maplibre.org/maplibre-gl-js/docs/examples/draw-a-circle) - Circle drawing
 - **MapLibre**: [Draw geometries with terra-draw](https://maplibre.org/maplibre-gl-js/docs/examples/draw-geometries-with-terra-draw) - Geometry drawing with terra-draw
-- **MapLibre**: [Draw polygon with mapbox-gl-draw](https://maplibre.org/maplibre-gl-js/docs/examples/draw-polygon-with-mapbox-gl-draw) - Polygon drawing with draw plugin
+- **MapLibre**: [Drawing tools with mapbox-gl-draw](maplibre-implementation/drawing-tools.html) - Polygon drawing with draw plugin
 - **MapLibre**: [Fit to the bounds of a LineString](https://maplibre.org/maplibre-gl-js/docs/examples/fit-to-the-bounds-of-a-linestring) - Fit to line geometry
 - **MapLibre**: [Restrict map panning to an area](https://maplibre.org/maplibre-gl-js/docs/examples/restrict-map-panning-to-an-area) - Bounds constraint
 - **MapLibre**: [Style lines with a data-driven property](https://maplibre.org/maplibre-gl-js/docs/examples/style-lines-with-a-data-driven-property) - Data-driven line styling
@@ -313,7 +585,7 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 ## Getting Started & Basic Maps
 
 - **OpenLayers**: [Add a Context Menu to the Map](https://samples.openlayersmaps.com/map/add-a-context-menu-to-the-map) - Right-click context menu
-- **OpenLayers**: [Create a basic map](https://samples.openlayersmaps.com/map/create-a-basic-map) - Minimal map setup
+- **OpenLayers**: [Create a basic map](openlayers-implementation/basic-map.html) - Minimal map setup
 - **OpenLayers**: [Detect if browser is supported](https://samples.openlayersmaps.com/map/detect-if-browser-is-supported) - Browser support detection
 - **OpenLayers**: [Display map with different language](https://samples.openlayersmaps.com/map/display-map-with-different-language) - Language options
 - **OpenLayers**: [Display map with different projections](https://samples.openlayersmaps.com/map/display-map-with-different-projections) - Map projections
@@ -326,28 +598,28 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Simple Store Locator](https://samples.openlayersmaps.com/tutorials/simple-store-locator) - Store locator tutorial
 - **OpenLayers**: [Swipe between two maps](https://samples.openlayersmaps.com/map/swipe-between-two-maps) - Side-by-side map comparison
 - **OpenLayers**: [Synchronize map views](https://samples.openlayersmaps.com/map/synchronize-map-views) - Synced map views
-- **Leaflet**: [Back to home button](https://tomickigrzegorz.github.io/leaflet-examples/#41.back-to-home-button) - Reset view button
-- **Leaflet**: [Contextmenu](https://tomickigrzegorz.github.io/leaflet-examples/#54.contextmenu) - Right-click context menu
-- **Leaflet**: [Coordinates after clicking on the map](https://tomickigrzegorz.github.io/leaflet-examples/#05.coordinates-after-clicking-on-the-map) - Capture click coordinates
-- **Leaflet**: [Coordinates of the center of the visible map](https://tomickigrzegorz.github.io/leaflet-examples/#39.coordinates-of-the-center-of-the-visible-map) - Track map center in real-time
-- **Leaflet**: [Coordinates of the visible map](https://tomickigrzegorz.github.io/leaflet-examples/#06.coordinates-of-the-visible-map) - Get current viewport bounds
-- **Leaflet**: [Custom button](https://tomickigrzegorz.github.io/leaflet-examples/#19.custom-button) - Add custom map buttons
-- **Leaflet**: [FitBounds with padding](https://tomickigrzegorz.github.io/leaflet-examples/#25.fitBounds-with-padding) - Responsive bounds fitting
-- **Leaflet**: [Linked view](https://tomickigrzegorz.github.io/leaflet-examples/#29.linked-view) - Synchronized map views
-- **Leaflet**: [Location button](https://tomickigrzegorz.github.io/leaflet-examples/#49.location-button) - Geolocation button
-- **Leaflet**: [Map rotation](https://tomickigrzegorz.github.io/leaflet-examples/#82.map-rotation) - Rotate with right-click drag or pinch
-- **Leaflet**: [MaxBound map restricts the view](https://tomickigrzegorz.github.io/leaflet-examples/#20.maxBound-map-restricts-the-view) - Restrict panning to a region
-- **Leaflet**: [MiniMap plugin](https://tomickigrzegorz.github.io/leaflet-examples/#30.mini-map) - Overview minimap
-- **Leaflet**: [Simple map](https://tomickigrzegorz.github.io/leaflet-examples/#01.simple-map) - Minimal map setup
-- **Leaflet**: [Store locator with search](leaflet-examples/store-locator.html) - Filterable store list with category + text search
+- **Leaflet**: [Back to home button](https://tomickigrzegorz.github.io/leaflet-implementation/#41.back-to-home-button) - Reset view button
+- **Leaflet**: [Contextmenu](leaflet-implementation/context-menu.html) - Right-click context menu
+- **Leaflet**: [Coordinates after clicking on the map](https://tomickigrzegorz.github.io/leaflet-implementation/#05.coordinates-after-clicking-on-the-map) - Capture click coordinates
+- **Leaflet**: [Coordinates of the center of the visible map](https://tomickigrzegorz.github.io/leaflet-implementation/#39.coordinates-of-the-center-of-the-visible-map) - Track map center in real-time
+- **Leaflet**: [Coordinates of the visible map](https://tomickigrzegorz.github.io/leaflet-implementation/#06.coordinates-of-the-visible-map) - Get current viewport bounds
+- **Leaflet**: [Custom button](https://tomickigrzegorz.github.io/leaflet-implementation/#19.custom-button) - Add custom map buttons
+- **Leaflet**: [FitBounds with padding](https://tomickigrzegorz.github.io/leaflet-implementation/#25.fitBounds-with-padding) - Responsive bounds fitting
+- **Leaflet**: [Linked view](https://tomickigrzegorz.github.io/leaflet-implementation/#29.linked-view) - Synchronized map views
+- **Leaflet**: [Location button](https://tomickigrzegorz.github.io/leaflet-implementation/#49.location-button) - Geolocation button
+- **Leaflet**: [Map rotation](https://tomickigrzegorz.github.io/leaflet-implementation/#82.map-rotation) - Rotate with right-click drag or pinch
+- **Leaflet**: [MaxBound map restricts the view](https://tomickigrzegorz.github.io/leaflet-implementation/#20.maxBound-map-restricts-the-view) - Restrict panning to a region
+- **Leaflet**: [MiniMap plugin](https://tomickigrzegorz.github.io/leaflet-implementation/#30.mini-map) - Overview minimap
+- **Leaflet**: [Simple map](https://tomickigrzegorz.github.io/leaflet-implementation/#01.simple-map) - Minimal map setup
+- **Leaflet**: [Store locator with search](leaflet-implementation/store-locator.html) - Filterable store list with category + text search
 - **MapLibre**: [Add a video](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-video) - Video overlay on satellite
 - **MapLibre**: [Add support for right-to-left scripts](https://maplibre.org/maplibre-gl-js/docs/examples/add-support-for-right-to-left-scripts) - RTL text rendering
 - **MapLibre**: [Change a map's language](https://maplibre.org/maplibre-gl-js/docs/examples/change-a-maps-language) - Dynamic language switch
 - **MapLibre**: [Change the default position for attribution](https://maplibre.org/maplibre-gl-js/docs/examples/change-the-default-position-for-attribution) - Attribution positioning
 - **MapLibre**: [Check if WebGL is supported](https://maplibre.org/maplibre-gl-js/docs/examples/check-if-webgl-is-supported) - Feature detection
 - **MapLibre**: [Cooperative gestures](https://maplibre.org/maplibre-gl-js/docs/examples/cooperative-gestures) - Multi-finger scroll zoom
-- **MapLibre**: [Create a hover effect](https://maplibre.org/maplibre-gl-js/docs/examples/create-a-hover-effect) - Hover state styling
-- **MapLibre**: [Create a time slider](https://maplibre.org/maplibre-gl-js/docs/examples/create-a-time-slider) - Temporal data slider
+- **MapLibre**: [Create a hover effect](maplibre-implementation/hover-effect.html) - Hover state styling
+- **MapLibre**: [Create a time slider](maplibre-implementation/time-slider.html) - Temporal data slider
 - **MapLibre**: [Disable scroll zoom](https://maplibre.org/maplibre-gl-js/docs/examples/disable-scroll-zoom) - Disable wheel zoom
 - **MapLibre**: [Display a map](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-map) - Basic map initialization
 - **MapLibre**: [Display a non-interactive map](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-non-interactive-map) - Static, non-interactive map
@@ -358,10 +630,10 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **MapLibre**: [Sync movement of multiple maps](https://maplibre.org/maplibre-gl-js/docs/examples/sync-movement-of-multiple-maps) - Multi-map sync
 - **MapLibre**: [Update a feature in realtime](https://maplibre.org/maplibre-gl-js/docs/examples/update-a-feature-in-realtime) - Realtime feature updates
 - **MapLibre**: [Variable label placement](https://maplibre.org/maplibre-gl-js/docs/examples/variable-label-placement) - Smart label positioning
-- **MapLibre**: [Geolocation](maplibre-examples/geolocation.html) - Browser geolocation with accuracy circle and tracking
-- **MapLibre**: [Store locator](maplibre-examples/store-locator.html) - Filterable store list with category + text search
-- **MapLibre**: [Sync maps](maplibre-examples/sync-maps.html) - Two maps synchronized pan/zoom/bearing
-- **MapLibre**: [Sync maps comparison](maplibre-examples/sync-maps-comparison.html) - Side-by-side swipe comparison
+- **MapLibre**: [Geolocation](maplibre-implementation/geolocation.html) - Browser geolocation with accuracy circle and tracking
+- **MapLibre**: [Store locator](maplibre-implementation/store-locator.html) - Filterable store list with category + text search
+- **MapLibre**: [Sync maps](maplibre-implementation/sync-maps.html) - Two maps synchronized pan/zoom/bearing
+- **MapLibre**: [Sync maps comparison](maplibre-implementation/sync-maps-comparison.html) - Side-by-side swipe comparison
 
 ---
 
@@ -392,19 +664,19 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Video layer](https://samples.openlayersmaps.com/image-layer/video-layer) - Video on satellite basemap
 - **OpenLayers**: [Weighted heat map layer](https://samples.openlayersmaps.com/heat-map-layer/weighted-heat-map-layer) - Property-weighted intensity
 - **Leaflet**: [OpenLayers Leaflet options](https://samples.openlayersmaps.com/third-party-map-controls/openlayers-maps-leaflet-options) - OpenLayers tiles in Leaflet
-- **Leaflet**: [Change tile style when click](https://tomickigrzegorz.github.io/leaflet-examples/#73.change-tile-style-when-click) - Dynamic tile style switching
-- **Leaflet**: [Control layers outside the map](https://tomickigrzegorz.github.io/leaflet-examples/#58.control-layers-outside-the-map) - External layer controls
-- **Leaflet**: [Image instead of map](https://tomickigrzegorz.github.io/leaflet-examples/#07.image-instead-of-map) - Image overlay as base layer
-- **Leaflet**: [Image on map](https://tomickigrzegorz.github.io/leaflet-examples/#43.image-on-map) - Overlay images on the map
-- **Leaflet**: [Multiple tile layers](https://tomickigrzegorz.github.io/leaflet-examples/#34.multiple-tile-layers) - Switch between tile providers
+- **Leaflet**: [Change tile style when click](https://tomickigrzegorz.github.io/leaflet-implementation/#73.change-tile-style-when-click) - Dynamic tile style switching
+- **Leaflet**: [Control layers outside the map](https://tomickigrzegorz.github.io/leaflet-implementation/#58.control-layers-outside-the-map) - External layer controls
+- **Leaflet**: [Image instead of map](https://tomickigrzegorz.github.io/leaflet-implementation/#07.image-instead-of-map) - Image overlay as base layer
+- **Leaflet**: [Image on map](https://tomickigrzegorz.github.io/leaflet-implementation/#43.image-on-map) - Overlay images on the map
+- **Leaflet**: [Multiple tile layers](https://tomickigrzegorz.github.io/leaflet-implementation/#34.multiple-tile-layers) - Switch between tile providers
 - **Leaflet**: [Render OpenLayers in Leaflet](https://samples.openlayersmaps.com/third-party-map-controls/render-openlayers-maps-in-leaflet) - OpenLayers raster in Leaflet
-- **Leaflet**: [Store plan - full project](https://tomickigrzegorz.github.io/leaflet-examples/#52.full-project) - OSM + image overlay combination
-- **Leaflet**: [TileLayer](https://tomickigrzegorz.github.io/leaflet-examples/#17.TileLayer) - Custom tile layer configuration
-- **Leaflet**: [Tiles gray](https://tomickigrzegorz.github.io/leaflet-examples/#48.tiles-gray) - Grayscale tile style
+- **Leaflet**: [Store plan - full project](https://tomickigrzegorz.github.io/leaflet-implementation/#52.full-project) - OSM + image overlay combination
+- **Leaflet**: [TileLayer](https://tomickigrzegorz.github.io/leaflet-implementation/#17.TileLayer) - Custom tile layer configuration
+- **Leaflet**: [Tiles gray](https://tomickigrzegorz.github.io/leaflet-implementation/#48.tiles-gray) - Grayscale tile style
 - **Leaflet**: [PMTiles protocol in Leaflet](https://protomaps.com/) - PMTiles single-file archive support
 - **Leaflet**: [WMS source integration](https://leafletjs.com/reference.html#tilelayer-wms) - Web Map Service tile layer
-- **Leaflet**: [Image overlay](leaflet-examples/image-overlay.html) - Static image overlay with opacity control
-- **Leaflet**: [Satellite / Streets / Dark layer switcher](leaflet-examples/satellite-map.html) - Toggle between basemap styles
+- **Leaflet**: [Image overlay](leaflet-implementation/image-overlay.html) - Static image overlay with opacity control
+- **Leaflet**: [Satellite / Streets / Dark layer switcher](leaflet-implementation/satellite-map.html) - Toggle between basemap styles
 - **MapLibre**: [Add a canvas source](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-canvas-source) - HTML canvas as source
 - **MapLibre**: [Add a COG raster source](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-cog-raster-source) - Cloud Optimized GeoTIFF
 - **MapLibre**: [Add a custom style layer](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-custom-style-layer) - Custom WebGL rendering
@@ -418,12 +690,12 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **MapLibre**: [Change a layer's color with buttons](https://maplibre.org/maplibre-gl-js/docs/examples/change-a-layers-color-with-buttons) - Button-driven color change
 - **MapLibre**: [Create a heatmap layer](https://maplibre.org/maplibre-gl-js/docs/examples/create-a-heatmap-layer) - Heatmap visualization
 - **MapLibre**: [Display a map with MLT](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-map-with-mlt) - MapLibre Tiles format
-- **MapLibre**: [Display a satellite map](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-satellite-map) - Satellite imagery basemap
+- **MapLibre**: [Display a satellite map](maplibre-implementation/satellite-map.html) - Satellite imagery basemap
 - **MapLibre**: [Display Map Performance Metrics](https://maplibre.org/maplibre-gl-js/docs/examples/display-performance-metrics) - FPS and tile stats
 - **MapLibre**: [Filter within a Layer](https://maplibre.org/maplibre-gl-js/docs/examples/filter-within-a-layer) - Layer-based filtering
 - **MapLibre**: [PMTiles source and protocol](https://maplibre.org/maplibre-gl-js/docs/examples/pmtiles-source-and-protocol) - PMTiles single-file archives
 - **MapLibre**: [Use a fallback image](https://maplibre.org/maplibre-gl-js/docs/examples/use-a-fallback-image) - Error handling for tiles
-- **MapLibre**: [Image overlay](maplibre-examples/image-overlay.html) - Static image overlay with opacity control
+- **MapLibre**: [Image overlay](maplibre-implementation/image-overlay.html) - Static image overlay with opacity control
 
 ---
 
@@ -451,24 +723,24 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Simple HTML Marker](https://samples.openlayersmaps.com/html-markers/simple-html-marker) - Basic HTML marker
 - **OpenLayers**: [Simple HTML marker animation](https://samples.openlayersmaps.com/animations/simple-html-marker-animation) - Basic marker movement
 - **OpenLayers**: [Symbol layer options](https://samples.openlayersmaps.com/symbol-layer/symbol-layer-options) - All symbol options
-- **Leaflet**: [Add data attribute to marker](https://tomickigrzegorz.github.io/leaflet-examples/#67.add-data-attribute-to-marker) - Custom data-* attributes
-- **Leaflet**: [Add, move and delete marker](https://tomickigrzegorz.github.io/leaflet-examples/#18.add-move-and-delete-marker) - Full marker CRUD operations
-- **Leaflet**: [Adding one marker](https://tomickigrzegorz.github.io/leaflet-examples/#03.adding-one-marker) - Place a single marker
-- **Leaflet**: [Awesome markers plugin](https://tomickigrzegorz.github.io/leaflet-examples/#31.Leaflet.awesome-markers) - Font Awesome icon markers
-- **Leaflet**: [Center map when click marker](https://tomickigrzegorz.github.io/leaflet-examples/#22.center-map-when-click-marker) - Pan to marker on click
-- **Leaflet**: [Checking if the marker is in viewport](https://tomickigrzegorz.github.io/leaflet-examples/#46.checking-if-the-marker-is-in-viewport) - Viewport-based filtering
-- **Leaflet**: [Controlling different groups of markers](https://tomickigrzegorz.github.io/leaflet-examples/#08.controlling-different-groups-of-markers) - Toggle marker groups
-- **Leaflet**: [Count markers](https://tomickigrzegorz.github.io/leaflet-examples/#62.count-markers) - Display marker count
-- **Leaflet**: [Custom marker and popup](https://tomickigrzegorz.github.io/leaflet-examples/#23.custom-marker-and-popup) - Styled popups with custom content
-- **Leaflet**: [Draggable markers](https://tomickigrzegorz.github.io/leaflet-examples/#14.dragable-markers) - Drag markers to reposition
-- **Leaflet**: [Many markers](https://tomickigrzegorz.github.io/leaflet-examples/#04.many-markers) - Render multiple markers
-- **Leaflet**: [Many markers (100K) with Web Worker](https://tomickigrzegorz.github.io/leaflet-examples/#80.many-markers-with-web-worker-1000000) - Web Worker + IndexedDB + RBush
-- **Leaflet**: [Marker slide to](https://tomickigrzegorz.github.io/leaflet-examples/#65.marker-slide-to) - Smooth marker transitions
-- **Leaflet**: [Markers 60K](https://tomickigrzegorz.github.io/leaflet-examples/#26.markers-60K) - 60K markers with canvas + clustering
-- **Leaflet**: [Open popup markercluster from outside](https://tomickigrzegorz.github.io/leaflet-examples/#74.open-popup-markercluster-from-outside) - Trigger cluster popups externally
-- **Leaflet**: [Random marker in map bounds](https://tomickigrzegorz.github.io/leaflet-examples/#47.random-marker-in-map-bounds) - Generate markers randomly
-- **Leaflet**: [SVG markers with legends](https://tomickigrzegorz.github.io/leaflet-examples/#13.svg-markers-width-legends) - Custom SVG marker icons
-- **Leaflet**: [Text below a marker](https://tomickigrzegorz.github.io/leaflet-examples/#71.text-below-a-marker) - Label markers with text
+- **Leaflet**: [Add data attribute to marker](https://tomickigrzegorz.github.io/leaflet-implementation/#67.add-data-attribute-to-marker) - Custom data-* attributes
+- **Leaflet**: [Add, move and delete marker](https://tomickigrzegorz.github.io/leaflet-implementation/#18.add-move-and-delete-marker) - Full marker CRUD operations
+- **Leaflet**: [Adding one marker](https://tomickigrzegorz.github.io/leaflet-implementation/#03.adding-one-marker) - Place a single marker
+- **Leaflet**: [Awesome markers plugin](https://tomickigrzegorz.github.io/leaflet-implementation/#31.Leaflet.awesome-markers) - Font Awesome icon markers
+- **Leaflet**: [Center map when click marker](https://tomickigrzegorz.github.io/leaflet-implementation/#22.center-map-when-click-marker) - Pan to marker on click
+- **Leaflet**: [Checking if the marker is in viewport](https://tomickigrzegorz.github.io/leaflet-implementation/#46.checking-if-the-marker-is-in-viewport) - Viewport-based filtering
+- **Leaflet**: [Controlling different groups of markers](https://tomickigrzegorz.github.io/leaflet-implementation/#08.controlling-different-groups-of-markers) - Toggle marker groups
+- **Leaflet**: [Count markers](https://tomickigrzegorz.github.io/leaflet-implementation/#62.count-markers) - Display marker count
+- **Leaflet**: [Custom marker and popup](leaflet-implementation/custom-marker.html) - Styled popups with custom content
+- **Leaflet**: [Draggable markers](https://tomickigrzegorz.github.io/leaflet-implementation/#14.dragable-markers) - Drag markers to reposition
+- **Leaflet**: [Many markers](https://tomickigrzegorz.github.io/leaflet-implementation/#04.many-markers) - Render multiple markers
+- **Leaflet**: [Many markers (100K) with Web Worker](https://tomickigrzegorz.github.io/leaflet-implementation/#80.many-markers-with-web-worker-1000000) - Web Worker + IndexedDB + RBush
+- **Leaflet**: [Marker slide to](https://tomickigrzegorz.github.io/leaflet-implementation/#65.marker-slide-to) - Smooth marker transitions
+- **Leaflet**: [Markers 60K](https://tomickigrzegorz.github.io/leaflet-implementation/#26.markers-60K) - 60K markers with canvas + clustering
+- **Leaflet**: [Open popup markercluster from outside](https://tomickigrzegorz.github.io/leaflet-implementation/#74.open-popup-markercluster-from-outside) - Trigger cluster popups externally
+- **Leaflet**: [Random marker in map bounds](https://tomickigrzegorz.github.io/leaflet-implementation/#47.random-marker-in-map-bounds) - Generate markers randomly
+- **Leaflet**: [SVG markers with legends](https://tomickigrzegorz.github.io/leaflet-implementation/#13.svg-markers-width-legends) - Custom SVG marker icons
+- **Leaflet**: [Text below a marker](https://tomickigrzegorz.github.io/leaflet-implementation/#71.text-below-a-marker) - Label markers with text
 - **MapLibre**: [Add a default marker](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-default-marker) - Basic marker
 - **MapLibre**: [Add a generated icon to the map](https://maplibre.org/maplibre-gl-js/docs/examples/add-a-generated-icon-to-the-map) - Runtime-generated icon
 - **MapLibre**: [Add an animated icon to the map](https://maplibre.org/maplibre-gl-js/docs/examples/add-an-animated-icon-to-the-map) - Canvas API animated icon
@@ -506,13 +778,13 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Reuse a popup template](https://samples.openlayersmaps.com/popups/reuse-a-popup-template) - Reusable popup template
 - **OpenLayers**: [Show popup on hover](https://samples.openlayersmaps.com/popups/show-popup-on-hover) - Hover-triggered popup
 - **OpenLayers**: [Simple popup](https://samples.openlayersmaps.com/popups/simple-popup) - Basic popup
-- **Leaflet**: [Data on sidebar](https://tomickigrzegorz.github.io/leaflet-examples/#44.data-on-sidebar) - Display data in sidebar
-- **Leaflet**: [Dynamic data on sidebar](https://tomickigrzegorz.github.io/leaflet-examples/#75.dynamic-data-on-sidebar) - Live-updating sidebar data
-- **Leaflet**: [Follow mouse](https://tomickigrzegorz.github.io/leaflet-examples/#55.follow-mouse) - Tooltip follows cursor
-- **Leaflet**: [Popup in a fixed position](https://tomickigrzegorz.github.io/leaflet-examples/#68.popup-in-a-fixed-position) - Fixed-position popup overlay
-- **Leaflet**: [Sidebar](https://tomickigrzegorz.github.io/leaflet-examples/#56.sidebar) - Sidebar component
-- **Leaflet**: [Sidebar replacing popup](https://tomickigrzegorz.github.io/leaflet-examples/#59.sidebar-replacing-popup) - Sidebar as popup alternative
-- **Leaflet**: [Tabs in popup](https://tomickigrzegorz.github.io/leaflet-examples/#51.tabs-in-popup) - Tabbed popup content
+- **Leaflet**: [Data on sidebar](https://tomickigrzegorz.github.io/leaflet-implementation/#44.data-on-sidebar) - Display data in sidebar
+- **Leaflet**: [Dynamic data on sidebar](https://tomickigrzegorz.github.io/leaflet-implementation/#75.dynamic-data-on-sidebar) - Live-updating sidebar data
+- **Leaflet**: [Follow mouse](https://tomickigrzegorz.github.io/leaflet-implementation/#55.follow-mouse) - Tooltip follows cursor
+- **Leaflet**: [Popup in a fixed position](https://tomickigrzegorz.github.io/leaflet-implementation/#68.popup-in-a-fixed-position) - Fixed-position popup overlay
+- **Leaflet**: [Sidebar](https://tomickigrzegorz.github.io/leaflet-implementation/#56.sidebar) - Sidebar component
+- **Leaflet**: [Sidebar replacing popup](https://tomickigrzegorz.github.io/leaflet-implementation/#59.sidebar-replacing-popup) - Sidebar as popup alternative
+- **Leaflet**: [Tabs in popup](https://tomickigrzegorz.github.io/leaflet-implementation/#51.tabs-in-popup) - Tabbed popup content
 - **MapLibre**: [Display a popup](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-popup) - Basic popup
 - **MapLibre**: [Display a popup on click](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-popup-on-click) - Click-triggered popup
 - **MapLibre**: [Display a popup on hover](https://maplibre.org/maplibre-gl-js/docs/examples/display-a-popup-on-hover) - Hover-triggered popup
@@ -520,7 +792,7 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **MapLibre**: [Popup with custom HTML layout](https://maplibre.org/maplibre-gl-js/docs/examples/) - Rich HTML popup with tabs/media
 - **MapLibre**: [Popup with leader line](https://maplibre.org/maplibre-gl-js/docs/examples/) - Pointer line from popup to feature
 - **MapLibre**: [Sidebar panel alongside map](https://maplibre.org/maplibre-gl-js/docs/examples/) - Sidebar as info panel alternative
-- **MapLibre**: [Popup & tooltip](maplibre-examples/popup-tooltip.html) - Rich popup with images and hover tooltip
+- **MapLibre**: [Popup & tooltip](maplibre-implementation/popup-tooltip.html) - Rich popup with images and hover tooltip
 
 ---
 
@@ -549,10 +821,10 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Search for POIs along route](https://samples.openlayersmaps.com/services-module/search-for-pois-along-route) - POIs along a route
 - **OpenLayers**: [Simple REST Directions](https://samples.openlayersmaps.com/rest-services/simple-rest-directions) - Basic directions between two points
 - **OpenLayers**: [Snap points to logical route path](https://samples.openlayersmaps.com/services-module/snap-points-to-logical-route-path) - Snap to road network
-- **Leaflet**: [Arrow marked lines](https://tomickigrzegorz.github.io/leaflet-examples/#77.arrow-marked-lines) - Directional polyline arrows
-- **Leaflet**: [Distance between cities](https://tomickigrzegorz.github.io/leaflet-examples/#40.distance-between-cities-on-map) - Distance measurement with autocomplete
-- **Leaflet**: [Leaflet Routing Machine](https://tomickigrzegorz.github.io/leaflet-examples/#63.leaflet-routing-machine) - Turn-by-turn routing with OSRM
-- **Leaflet**: [Marker tracking with direction indicator](https://tomickigrzegorz.github.io/leaflet-examples/#81.marker-tracking-with-direction-indicator) - Real-time marker tracking
+- **Leaflet**: [Arrow marked lines](https://tomickigrzegorz.github.io/leaflet-implementation/#77.arrow-marked-lines) - Directional polyline arrows
+- **Leaflet**: [Distance between cities](https://tomickigrzegorz.github.io/leaflet-implementation/#40.distance-between-cities-on-map) - Distance measurement with autocomplete
+- **Leaflet**: [Leaflet Routing Machine](https://tomickigrzegorz.github.io/leaflet-implementation/#63.leaflet-routing-machine) - Turn-by-turn routing with OSRM
+- **Leaflet**: [Marker tracking with direction indicator](https://tomickigrzegorz.github.io/leaflet-implementation/#81.marker-tracking-with-direction-indicator) - Real-time marker tracking
 - **Leaflet**: [Isochrone with Turf.js](https://turfjs.org/) - Drive time polygon with Turf.js
 - **Leaflet**: [Multi-modal transit routing](https://www.openrouteservice.org/) - Public transit routing via ORS
 - **MapLibre**: [Animate a point along a route](https://maplibre.org/maplibre-gl-js/docs/examples/animate-a-point-along-a-route) - Turf.js route animation
@@ -580,10 +852,10 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Search for points of interest](https://samples.openlayersmaps.com/tutorials/search) - POI search tutorial
 - **OpenLayers**: [Simple REST Geocoding Request](https://samples.openlayersmaps.com/rest-services/simple-rest-geocoding-request) - Basic geocoding
 - **OpenLayers**: [Voronoi diagram analysis](https://samples.openlayersmaps.com/spatial-analysis/voronoi-diagram-analysis) - Voronoi from point set
-- **Leaflet**: [Autocomplete on map - button](https://tomickigrzegorz.github.io/leaflet-examples/#50.autocomplete-on-map-button) - Search with autocomplete
-- **Leaflet**: [Autocomplete with GeoJSON](https://tomickigrzegorz.github.io/leaflet-examples/#64.autocomplete-with-geojson) - Search within GeoJSON data
-- **Leaflet**: [Geocoding addresses (search engine outside map)](https://tomickigrzegorz.github.io/leaflet-examples/#21.geocoding-addresses-search-engine-outside-the-map) - Autocomplete geocoding
-- **Leaflet**: [Multi layer search](https://tomickigrzegorz.github.io/leaflet-examples/#45.multi-layer-search) - Search across multiple layers
+- **Leaflet**: [Autocomplete on map - button](https://tomickigrzegorz.github.io/leaflet-implementation/#50.autocomplete-on-map-button) - Search with autocomplete
+- **Leaflet**: [Autocomplete with GeoJSON](https://tomickigrzegorz.github.io/leaflet-implementation/#64.autocomplete-with-geojson) - Search within GeoJSON data
+- **Leaflet**: [Geocoding addresses (search engine outside map)](https://tomickigrzegorz.github.io/leaflet-implementation/#21.geocoding-addresses-search-engine-outside-the-map) - Autocomplete geocoding
+- **Leaflet**: [Multi layer search](https://tomickigrzegorz.github.io/leaflet-implementation/#45.multi-layer-search) - Search across multiple layers
 - **Leaflet**: [Nominatim geocoding](https://nominatim.org/) - OpenStreetMap geocoding
 - **Leaflet**: [Pelias geocoding](https://www.elastic.co/guide/en/pelias/current/) - Open-source geocoder
 - **MapLibre**: [Geocode with Nominatim](https://maplibre.org/maplibre-gl-js/docs/examples/geocode-with-nominatim) - OpenStreetMap geocoding
@@ -609,19 +881,19 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Spatial data gallery](https://samples.openlayersmaps.com/spatial-io-module/spatial-data-gallery) - Spatial data file types
 - **OpenLayers**: [Visualize Excel data](https://samples.openlayersmaps.com/geospatial-files/visualize-excel-data) - Excel file visualization
 - **OpenLayers**: [WFS service explorer](https://samples.openlayersmaps.com/spatial-io-module/wfs-service-explorer) - WFS explorer tool
-- **Leaflet**: [Story map with IntersectionObserver](https://tomickigrzegorz.github.io/leaflet-examples/#36.story-maps-IntersectionObserver) - Scroll-driven story map
+- **Leaflet**: [Story map with IntersectionObserver](https://tomickigrzegorz.github.io/leaflet-implementation/#36.story-maps-IntersectionObserver) - Scroll-driven story map
 - **Leaflet**: [Buffer analysis with Turf.js](https://turfjs.org/) - Create buffer zones around features
 - **Leaflet**: [Voronoi diagram with Turf.js](https://turfjs.org/) - Voronoi polygons from points
 - **Leaflet**: [Point-in-polygon with Turf.js](https://turfjs.org/) - Spatial containment test
 - **Leaflet**: [Geofencing with Turf.js](https://turfjs.org/) - Real-time geofence monitoring
 - **Leaflet**: [Union/intersection with Turf.js](https://turfjs.org/) - Polygon boolean operations
-- **Leaflet**: [Geofence with Turf.js](leaflet-examples/geofence.html) - Click to test point-in-fence detection
+- **Leaflet**: [Geofence with Turf.js](leaflet-implementation/geofence.html) - Click to test point-in-fence detection
 - **MapLibre**: [Buffer analysis with Turf.js](https://turfjs.org/) - Create buffer zones around features
 - **MapLibre**: [Voronoi diagram with Turf.js](https://turfjs.org/) - Voronoi polygons from points
 - **MapLibre**: [Point-in-polygon with Turf.js](https://turfjs.org/) - Spatial containment test
 - **MapLibre**: [Union/intersection with Turf.js](https://turfjs.org/) - Polygon boolean operations
 - **MapLibre**: [Isoline from raster-dem](https://maplibre.org/maplibre-gl-js/docs/examples/add-contour-lines) - Contour/isoline extraction
-- **MapLibre**: [Geofence](maplibre-examples/geofence.html) - Interactive geofence detection using Turf.js
+- **MapLibre**: [Geofence](maplibre-implementation/geofence.html) - Interactive geofence detection using Turf.js
 
 ---
 
@@ -634,7 +906,7 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Traffic control options](https://samples.openlayersmaps.com/traffic/traffic-control-options) - Traffic toggle options
 - **OpenLayers**: [Traffic controls](https://samples.openlayersmaps.com/traffic/traffic-controls) - Traffic toggle + legend
 - **OpenLayers**: [Traffic flow](https://samples.openlayersmaps.com/rest-services/traffic-flow) - Live traffic data
-- **OpenLayers**: [Traffic Overlay](https://samples.openlayersmaps.com/traffic/traffic-overlay) - Traffic overlay
+- **OpenLayers**: [Popup & Tooltip](openlayers-implementation/popup-tooltip.html) - Rich popup with tooltip
 - **OpenLayers**: [Traffic Overlay Options](https://samples.openlayersmaps.com/traffic/traffic-overlay-options) - Traffic overlay options
 - **Leaflet**: [TomTom traffic tiles](https://developer.tomtom.com/) - Real-time traffic tile overlay
 - **Leaflet**: [HERE traffic flow layer](https://developer.here.com/) - Traffic flow visualization
@@ -657,12 +929,12 @@ We've also included advanced integration ideas, Turf.js architectures, and a com
 - **OpenLayers**: [Tropical Storm Locations](https://samples.openlayersmaps.com/weather/tropical-storm-locations) - Tropical storm tracking
 - **Leaflet**: [OpenWeatherMap tile layer](https://openweathermap.org/api) - Weather radar tile overlay
 - **Leaflet**: [Device orientation sensor](https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events) - Compass heading from device sensors
-- **Leaflet**: [Geolocation watch position](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition) - Continuous GPS tracking
-- **Leaflet**: [Weather radar overlay](leaflet-examples/weather.html) - NOAA weather radar with toggle + opacity
+- **Leaflet**: [Geolocation watch position](leaflet-implementation/geolocation.html) - Continuous GPS tracking
+- **Leaflet**: [Weather radar overlay](leaflet-implementation/weather.html) - NOAA weather radar with toggle + opacity
 - **MapLibre**: [OpenWeatherMap tile layer](https://openweathermap.org/api) - Weather radar tile overlay
 - **MapLibre**: [Device orientation sensor](https://developer.mozilla.org/en-US/docs/Web/API/Device_orientation_events) - Compass heading from device sensors
 - **MapLibre**: [Weather data as GeoJSON points](https://openweathermap.org/api) - Weather station markers with data
-- **MapLibre**: [Weather radar overlay](maplibre-examples/weather.html) - NOAA weather radar with toggle + opacity
+- **MapLibre**: [Weather radar overlay](maplibre-implementation/weather.html) - NOAA weather radar with toggle + opacity
 
 ---
 
@@ -1195,19 +1467,19 @@ Real-world interactive map applications rarely use a single library. Below are p
 
 ## Missing OpenLayers Examples (Inspired by Leaflet)
 
-The following OpenLayers examples were inspired by existing [Leaflet examples](https://leafletjs.com/examples.html). All 6 examples are now **implemented** in `openlayers-examples/`.
+The following OpenLayers examples were inspired by existing [Leaflet examples](https://leafletjs.com/examples.html). All 6 examples are now **implemented** in `openlayers-implementation/`.
 
 ### 🗺️ Map Controls & Syncing
-- ✅ **Layer Toggle** (`layer-toggle.html`) — A classic Leaflet `L.control.layers` style control to dynamically switch between base raster layers (e.g., Street, Satellite, Dark mode).
-- ✅ **Sync Maps Comparison** (`sync-maps-comparison.html`) — A split-screen slider (swipe control) to compare two different map layers side-by-side simultaneously.
-- ✅ **Sync Maps** (`sync-maps.html`) — Two separate map DOM elements placed side-by-side whose panning and zooming are perfectly synchronized.
+- ✅ **Layer Toggle** ([layer-toggle.html](leaflet-implementation/layer-toggle.html)) — A classic Leaflet `L.control.layers` style control to dynamically switch between base raster layers (e.g., Street, Satellite, Dark mode).
+- ✅ **Sync Maps Comparison** ([sync-maps-comparison.html](openlayers-implementation/sync-maps-comparison.html)) — A split-screen slider (swipe control) to compare two different map layers side-by-side simultaneously.
+- ✅ **Sync Maps** ([sync-maps.html](openlayers-implementation/sync-maps.html)) — Two separate map DOM elements placed side-by-side whose panning and zooming are perfectly synchronized.
 
 ### 🎬 Animation & Effects
-- ✅ **Fly-To Animation** (`fly-to-animation.html`) — Emulate Leaflet's beautiful `map.flyTo()` method, combining zooming and panning into a smooth, curved parabolic flight path.
-- ✅ **Mouse Follow** (`mouse-follow.html`) — An interactive marker or overlay that constantly updates its position to follow the user's cursor across the map.
+- ✅ **Fly-To Animation** ([fly-to-animation.html](leaflet-implementation/fly-to-animation.html)) — Emulate Leaflet's beautiful `map.flyTo()` method, combining zooming and panning into a smooth, curved parabolic flight path.
+- ✅ **Mouse Follow** ([mouse-follow.html](openlayers-implementation/mouse-follow.html)) — An interactive marker or overlay that constantly updates its position to follow the user's cursor across the map.
 
 ### 💬 UI & Interaction
-- ✅ **Popup & Tooltip** (`popup-tooltip.html`) — Replicate Leaflet's rich popup (clickable) and tooltip (hoverable) behaviors bound directly to vector features.
+- ✅ **Popup & Tooltip** ([popup-tooltip.html](leaflet-implementation/popup-tooltip.html)) — Replicate Leaflet's rich popup (clickable) and tooltip (hoverable) behaviors bound directly to vector features.
 
 ---
 
@@ -1216,17 +1488,17 @@ The following OpenLayers examples were inspired by existing [Leaflet examples](h
 The following Leaflet examples are inspired by powerful features found in [OpenLayers](https://openlayers.org/en/latest/examples/). These represent advanced GIS use-cases that would make excellent additions to the Leaflet collection!
 
 ### 🌍 Advanced UI & Controls
-- 🔴 **Custom Controls** (`custom-controls.html`) — Build external HTML UI elements (like floating toolbars) that programmatically drive the map view and interact with map features.
-- 🔴 **Mini Map** (`minimap.html`) — Create a small overview map in the corner that perfectly tracks the viewport bounds of the main map to help with orientation.
+- 🔴 **Custom Controls** ([custom-controls.html](openlayers-implementation/custom-controls.html)) — Build external HTML UI elements (like floating toolbars) that programmatically drive the map view and interact with map features.
+- 🔴 **Mini Map** ([minimap.html](openlayers-implementation/minimap.html)) — Create a small overview map in the corner that perfectly tracks the viewport bounds of the main map to help with orientation.
 
 ### 📍 Applied Spatial Analysis
-- 🟡 **Geofence** (`geofence.html`) — Implement an interactive geofencing system that detects and alerts when a movable marker crosses a predefined polygon boundary.
-- 🟡 **Store Locator** (`store-locator.html`) — Build a classic store locator layout featuring a scrolling sidebar list of locations that dynamically interact with markers on the map.
+- 🟡 **Geofence** ([geofence.html](openlayers-implementation/geofence.html)) — Implement an interactive geofencing system that detects and alerts when a movable marker crosses a predefined polygon boundary.
+- 🟡 **Store Locator** ([store-locator.html](openlayers-implementation/store-locator.html)) — Build a classic store locator layout featuring a scrolling sidebar list of locations that dynamically interact with markers on the map.
 
 ### 🌧️ Data & Overlays
-- 🟡 **Weather Mapping** (`weather.html`) — Overlay real-time weather or radar tile layers over the base map to visualize meteorological data.
-- 🟢 **Image Overlay** (`image-overlay.html`) — Perfectly stretch and lock a static image (like a historical map or floor plan) over a specific set of geographical coordinate bounds.
-- 🟢 **Polygon Extrusion (3D)** (`polygon-extrusion.html`) — While Leaflet is strictly 2D, this challenges you to use faux-3D plugins (like `leaflet-polygon-fillPattern`) or CSS tricks to simulate 3D building height data.
+- 🟡 **Weather Mapping** ([weather.html](openlayers-implementation/weather.html)) — Overlay real-time weather or radar tile layers over the base map to visualize meteorological data.
+- 🟢 **Image Overlay** ([image-overlay.html](openlayers-implementation/image-overlay.html)) — Perfectly stretch and lock a static image (like a historical map or floor plan) over a specific set of geographical coordinate bounds.
+- 🟢 **Polygon Extrusion (3D)** ([polygon-extrusion.html](openlayers-implementation/polygon-extrusion.html)) — While Leaflet is strictly 2D, this challenges you to use faux-3D plugins (like `leaflet-polygon-fillPattern`) or CSS tricks to simulate 3D building height data.
 
 ---
 
@@ -1235,51 +1507,51 @@ The following Leaflet examples are inspired by powerful features found in [OpenL
 The following OpenLayers examples are inspired by existing [MapLibre GL JS examples](https://maplibre.org/maplibre-gl-js/docs/examples/). These are fantastic opportunities for contribution to achieve full feature parity across the repository!
 
 ### 🌍 Core Capabilities to Port
-- 🔴 **3D Building** (`3d-building.html`) — Extrude polygon features with height based on data properties to create a 3D city view.
-- 🔴 **Marker Clustering** (`cluster-markers.html`) — Use Supercluster or native source clustering to group dense point data dynamically based on zoom level.
-- 🔴 **Geocoding Search** (`geocoding.html`) — Add a search box that queries the Nominatim API and flies the camera to the selected location.
+- 🔴 **3D Building** ([3d-building.html](maplibre-implementation/3d-building.html)) — Extrude polygon features with height based on data properties to create a 3D city view.
+- 🔴 **Marker Clustering** ([cluster-markers.html](openlayers-implementation/cluster-markers.html)) — Use Supercluster or native source clustering to group dense point data dynamically based on zoom level.
+- 🔴 **Geocoding Search** ([geocoding.html](leaflet-implementation/geocoding.html)) — Add a search box that queries the Nominatim API and flies the camera to the selected location.
 
 ### 🎬 Animation & Interactivity
-- 🟡 **Animate Line** (`animate-line.html`) — Progressively draw a GeoJSON LineString to simulate movement or route progress over time.
-- 🟡 **Hover Effect** (`hover-effect.html`) — Dynamically update feature styling or highlight polygons instantly when the mouse cursor enters them.
+- 🟡 **Animate Line** ([animate-line.html](openlayers-implementation/animate-line.html)) — Progressively draw a GeoJSON LineString to simulate movement or route progress over time.
+- 🟡 **Hover Effect** ([hover-effect.html](openlayers-implementation/hover-effect.html)) — Dynamically update feature styling or highlight polygons instantly when the mouse cursor enters them.
 
 ### 📊 Data & Sources
-- 🟡 **GeoJSON Upload** (`geojson-upload.html`) — Allow users to drag and drop or upload local GeoJSON files and render them client-side.
-- 🟡 **External Layer Control** (`external-layer-control.html`) — Build a custom HTML UI outside the map canvas to toggle map layers on and off.
-- 🟡 **Satellite Map** (`satellite-map.html`) — Add a raster satellite imagery base layer (e.g., from Esri or Mapbox) underneath vector data.
+- 🟡 **GeoJSON Upload** ([geojson-upload.html](openlayers-implementation/geojson-upload.html)) — Allow users to drag and drop or upload local GeoJSON files and render them client-side.
+- 🟡 **External Layer Control** ([external-layer-control.html](maplibre-implementation/external-layer-control.html)) — Build a custom HTML UI outside the map canvas to toggle map layers on and off.
+- 🟡 **Satellite Map** ([satellite-map.html](openlayers-implementation/satellite-map.html)) — Add a raster satellite imagery base layer (e.g., from Esri or Mapbox) underneath vector data.
 
 ### 📈 Advanced Data Viz
-- 🟢 **Realtime Data** (`realtime-data.html`) — Connect to a live GeoJSON stream (like the ISS tracker or live transit) and update marker positions using `requestAnimationFrame`.
-- 🟢 **Time Slider** (`time-slider.html`) — Filter temporal earthquake or historical data using a custom HTML range slider linked to map styling.
+- 🟢 **Realtime Data** ([realtime-data.html](openlayers-implementation/realtime-data.html)) — Connect to a live GeoJSON stream (like the ISS tracker or live transit) and update marker positions using `requestAnimationFrame`.
+- 🟢 **Time Slider** ([time-slider.html](openlayers-implementation/time-slider.html)) — Filter temporal earthquake or historical data using a custom HTML range slider linked to map styling.
 
 ---
 
 ## Missing MapLibre Examples (Inspired by OpenLayers) ✅
 
-All examples below have been implemented in `maplibre-examples/`.
+All examples below have been implemented in `maplibre-implementation/`.
 
 ### 🌍 Advanced UI & Controls
-- ✅ **Context Menu** (`context-menu.html`) — Right-click context menu with zoom and marker actions
-- ✅ **Custom Controls** (`custom-controls.html`) — Custom rotate-north button
-- ✅ **Mini Map** (`minimap.html`) — Small overview map synced to the main view
-- ✅ **Scale Bar** (`scale-bar.html`) — Metric scale bar overlay
+- ✅ **Context Menu** ([context-menu.html](openlayers-implementation/context-menu.html)) — Right-click context menu with zoom and marker actions
+- ✅ **Custom Controls** ([custom-controls.html](openlayers-implementation/custom-controls.html)) — Custom rotate-north button
+- ✅ **Mini Map** ([minimap.html](openlayers-implementation/minimap.html)) — Small overview map synced to the main view
+- ✅ **Scale Bar** ([scale-bar.html](openlayers-implementation/scale-bar.html)) — Metric scale bar overlay
 
 ### 📍 Applied Spatial Analysis
-- ✅ **Geofence** (`geofence.html`) — Interactive geofence detection with Turf.js
-- ✅ **Store Locator** (`store-locator.html`) — Filterable store list with category search
+- ✅ **Geofence** ([geofence.html](openlayers-implementation/geofence.html)) — Interactive geofence detection with Turf.js
+- ✅ **Store Locator** ([store-locator.html](openlayers-implementation/store-locator.html)) — Filterable store list with category search
 
 ### 🎮 Interactivity & Data
-- ✅ **WASD Navigation** (`wasd-navigation.html`) — Game-like keyboard navigation
-- ✅ **Weather Mapping** (`weather.html`) — NOAA weather radar overlay with opacity toggle
-- ✅ **Image Overlay** (`image-overlay.html`) — Static image overlay with opacity control
+- ✅ **WASD Navigation** ([wasd-navigation.html](openlayers-implementation/wasd-navigation.html)) — Game-like keyboard navigation
+- ✅ **Weather Mapping** ([weather.html](openlayers-implementation/weather.html)) — NOAA weather radar overlay with opacity toggle
+- ✅ **Image Overlay** ([image-overlay.html](openlayers-implementation/image-overlay.html)) — Static image overlay with opacity control
 
 ### 🗺️ Map Comparison & Syncing
-- ✅ **Sync Maps** (`sync-maps.html`) — Two maps with synchronized pan/zoom/bearing
-- ✅ **Sync Maps Comparison** (`sync-maps-comparison.html`) — Side-by-side swipe comparison
+- ✅ **Sync Maps** ([sync-maps.html](openlayers-implementation/sync-maps.html)) — Two maps with synchronized pan/zoom/bearing
+- ✅ **Sync Maps Comparison** ([sync-maps-comparison.html](openlayers-implementation/sync-maps-comparison.html)) — Side-by-side swipe comparison
 
 ### 💬 Popups & Geolocation
-- ✅ **Popup & Tooltip** (`popup-tooltip.html`) — Rich popup with images and hover tooltip
-- ✅ **Geolocation** (`geolocation.html`) — Browser geolocation with accuracy tracking
+- ✅ **Popup & Tooltip** ([popup-tooltip.html](openlayers-implementation/popup-tooltip.html)) — Rich popup with images and hover tooltip
+- ✅ **Geolocation** ([geolocation.html](openlayers-implementation/geolocation.html)) — Browser geolocation with accuracy tracking
 
 ---
 

@@ -1,120 +1,2203 @@
 [
-  {"id": "openlayers-basic-map", "library": "openlayers", "file": "openlayers-examples/basic-map.html", "name": "Basic Map", "description": "Minimal map setup with OpenLayers", "category": "Getting Started", "controls": [{"type": "info", "label": "Controls", "text": "Use mouse to pan. Scroll to zoom."}]},
-  {"id": "openlayers-choropleth", "library": "openlayers", "file": "openlayers-examples/choropleth.html", "name": "Choropleth Map", "description": "Thematic area shading by data values", "category": "Data Visualization", "controls": [{"type": "info", "label": "Choropleth", "text": "Polygons colored by population density. Hover to see details."}]},
-  {"id": "openlayers-click-coordinates", "library": "openlayers", "file": "openlayers-examples/click-coordinates.html", "name": "Click Coordinates", "description": "Capture click coordinates on the map", "category": "Getting Started", "controls": [{"type": "info", "label": "Instructions", "text": "Click anywhere on the map to see coordinates."}]},
-  {"id": "openlayers-context-menu", "library": "openlayers", "file": "openlayers-examples/context-menu.html", "name": "Context Menu", "description": "Right-click context menu with actions", "category": "Controls & UI", "controls": [{"type": "info", "label": "Instructions", "text": "Right-click on the map to open the context menu."}]},
-  {"id": "openlayers-custom-marker", "library": "openlayers", "file": "openlayers-examples/custom-marker.html", "name": "Custom Marker", "description": "Pulsing animated marker with popup", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Custom Marker", "text": "Animated pulsing marker with click popup."}]},
-  {"id": "openlayers-drawing-tools", "library": "openlayers", "file": "openlayers-examples/draw-features.html", "name": "Drawing Tools", "description": "Draw points, lines, and polygons on the map", "category": "Geometry & Drawing", "controls": [{"type": "info", "label": "Drawing Tools", "text": "Select geometry type and draw on the map."}]},
-  {"id": "openlayers-custom-controls", "library": "openlayers", "file": "openlayers-examples/custom-controls.html", "name": "Custom Controls", "description": "Custom rotate-north control button", "category": "Controls & UI", "controls": [{"type": "info", "label": "Custom Controls", "text": "A custom 'N' button that resets map rotation to north."}]},
-  {"id": "openlayers-fullscreen", "library": "openlayers", "file": "openlayers-examples/fullscreen.html", "name": "Fullscreen", "description": "Fullscreen toggle control", "category": "Controls & UI", "controls": [{"type": "info", "label": "Fullscreen", "text": "Click the fullscreen button to toggle fullscreen mode."}]},
-  {"id": "openlayers-geofence", "library": "openlayers", "file": "openlayers-examples/geofence.html", "name": "Geofence", "description": "Geofence detection with moving marker", "category": "Spatial Analysis", "controls": [{"type": "info", "label": "Geofence", "text": "Click to place the marker. It changes color when inside/outside the geofence."}, {"type": "range", "id": "fenceRadius", "label": "Fence Radius (km)", "min": 1, "max": 100, "step": 1, "default": 50}]},
-  {"id": "openlayers-geolocation", "library": "openlayers", "file": "openlayers-examples/geolocation.html", "name": "Geolocation", "description": "User position tracking with accuracy circle", "category": "Navigation", "controls": [{"type": "info", "label": "Geolocation", "text": "Tracks your current position using browser geolocation API."}]},
-  {"id": "openlayers-heatmap", "library": "openlayers", "file": "openlayers-examples/heatmap.html", "name": "Heatmap", "description": "Heat map density visualization", "category": "Data Visualization", "controls": [{"type": "info", "label": "Heatmap", "text": "Density visualization using heat gradient."}, {"type": "range", "id": "radius", "label": "Radius", "min": 5, "max": 50, "step": 1, "default": 20}]},
-  {"id": "openlayers-image-overlay", "library": "openlayers", "file": "openlayers-examples/image-overlay.html", "name": "Image Overlay", "description": "Overlay an image on the map", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Image Overlay", "text": "An image is overlaid on the map area."}, {"type": "range", "id": "opacity", "label": "Opacity", "min": 0, "max": 1, "step": 0.05, "default": 0.7}]},
-  {"id": "openlayers-minimap", "library": "openlayers", "file": "openlayers-examples/minimap.html", "name": "Mini Map", "description": "Overview minimap synced to main view", "category": "Controls & UI", "controls": [{"type": "info", "label": "Mini Map", "text": "Small overview map in the corner synced with the main view."}]},
-  {"id": "openlayers-overlay-popup", "library": "openlayers", "file": "openlayers-examples/overlay.html", "name": "Overlay / Popup", "description": "Click to show popup with coordinates", "category": "Popups & Tooltips", "controls": [{"type": "info", "label": "Overlay/Popup", "text": "Click anywhere on the map to show a popup with HDMS coordinates."}]},
-  {"id": "openlayers-polygon-extrusion", "library": "openlayers", "file": "openlayers-examples/polygon-extrusion.html", "name": "Colored Polygons with Rotation", "description": "Styled polygons with rotation control", "category": "Geometry & Drawing", "controls": [{"type": "info", "label": "Polygons", "text": "Colored polygons with rotation slider."}, {"type": "range", "id": "pitch", "label": "Pitch (°)", "min": 0, "max": 60, "step": 5, "default": 45}]},
-  {"id": "openlayers-scale-bar", "library": "openlayers", "file": "openlayers-examples/scale-bar.html", "name": "Scale Bar", "description": "Scale bar with imperial/metric units", "category": "Controls & UI", "controls": [{"type": "info", "label": "Scale Bar", "text": "Distance scale displayed in the corner."}]},
-  {"id": "openlayers-store-locator", "library": "openlayers", "file": "openlayers-examples/store-locator.html", "name": "Store Locator", "description": "Store locator with search and filtering", "category": "Search & Geocoding", "controls": [{"type": "info", "label": "Store Locator", "text": "Find stores by searching or filtering by category."}, {"type": "text", "id": "searchBox", "label": "Search Stores", "placeholder": "Search by name..."}, {"type": "select", "id": "category", "label": "Category", "options": [{"value": "all", "label": "All"}, {"value": "coffee", "label": "☕ Coffee"}, {"value": "restaurant", "label": "🍽️ Restaurant"}, {"value": "shop", "label": "🛍️ Shop"}]}]},
-  {"id": "openlayers-wasd-navigation", "library": "openlayers", "file": "openlayers-examples/wasd-navigation.html", "name": "WASD Navigation", "description": "Game-like WASD keyboard navigation", "category": "Navigation", "controls": [{"type": "info", "label": "WASD Navigation", "text": "Use W/A/S/D keys to pan the map. Use Q/E to zoom."}]},
-  {"id": "openlayers-weather", "library": "openlayers", "file": "openlayers-examples/weather.html", "name": "Weather", "description": "Weather overlay with radar data", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Weather Overlay", "text": "Weather radar and temperature data overlay."}, {"type": "checkbox", "id": "showRadar", "label": "Radar Layer", "default": true}, {"type": "range", "id": "radarOpacity", "label": "Radar Opacity", "min": 0, "max": 1, "step": 0.1, "default": 0.5}]},
-  {"id": "openlayers-turf-buffer", "library": "openlayers", "file": "openlayers-examples/turf-buffer.html", "name": "Turf Buffer", "description": "Calculate 500km buffer around clicked point using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Buffer", "text": "Click anywhere to calculate a 500km buffer polygon using Turf.js."}]},
-  {"id": "openlayers-turf-intersection", "library": "openlayers", "file": "openlayers-examples/turf-intersection.html", "name": "Turf Intersection", "description": "Find intersection of two overlapping polygons using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Intersection", "text": "Two overlapping polygons. The intersection area is highlighted in green."}]},
-  {"id": "openlayers-turf-voronoi", "library": "openlayers", "file": "openlayers-examples/turf-voronoi.html", "name": "Turf Voronoi", "description": "Generate Voronoi polygons from points using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Voronoi", "text": "Click to add points. Voronoi polygons update automatically."}]},
-  {"id": "openlayers-turf-convex-hull", "library": "openlayers", "file": "openlayers-examples/turf-convex-hull.html", "name": "Turf Convex Hull", "description": "Create convex hull from points using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Convex Hull", "text": "Click to add points. The convex hull encloses all points."}]},
-  {"id": "openlayers-turf-point-in-polygon", "library": "openlayers", "file": "openlayers-examples/turf-point-in-polygon.html", "name": "Turf Point in Polygon", "description": "Test point containment using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Point-in-Polygon", "text": "Click to test if a point is inside the polygon."}]},
-  {"id": "openlayers-turf-nearest-point", "library": "openlayers", "file": "openlayers-examples/turf-nearest-point.html", "name": "Turf Nearest Point", "description": "Find nearest point using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Nearest Point", "text": "Click to find the nearest of 5 predefined points."}]},
-  {"id": "openlayers-turf-area-measurement", "library": "openlayers", "file": "openlayers-examples/turf-area-measurement.html", "name": "Turf Area Measurement", "description": "Measure area of drawn polygon using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Area", "text": "Click to add vertices. The area is calculated automatically."}]},
-  {"id": "openlayers-turf-great-circle", "library": "openlayers", "file": "openlayers-examples/turf-great-circle.html", "name": "Turf Great Circle", "description": "Draw geodesic curves using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Great Circle", "text": "Geodesic curve between New York and London."}]},
-  {"id": "openlayers-animate-line", "library": "openlayers", "file": "openlayers-examples/animate-line.html", "name": "Animate Line", "description": "Progressive line drawing animation", "category": "Animation & Camera", "controls": [{"type": "info", "label": "Line Animation", "text": "Watch a line being drawn progressively."}, {"type": "button", "id": "playBtn", "label": "▶ Play"}]},
-  {"id": "openlayers-cluster-markers", "library": "openlayers", "file": "openlayers-examples/cluster-markers.html", "name": "Cluster Markers", "description": "Supercluster-based marker clustering", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Clustering", "text": "Markers grouped into clusters. Click to expand."}]},
-  {"id": "openlayers-geocode-nominatim", "library": "openlayers", "file": "openlayers-examples/geocode-nominatim.html", "name": "Geocode Nominatim", "description": "Search locations with Nominatim API", "category": "Search & Geocoding", "controls": [{"type": "text", "id": "searchQuery", "label": "Search Location", "placeholder": "e.g. Tokyo, Japan"}, {"type": "button", "id": "searchBtn", "label": "🔍 Search"}]},
-  {"id": "openlayers-geojson-upload", "library": "openlayers", "file": "openlayers-examples/geojson-upload.html", "name": "GeoJSON Upload", "description": "Drag and drop GeoJSON files", "category": "Layers & Sources", "controls": [{"type": "info", "label": "GeoJSON Upload", "text": "Drag a GeoJSON file onto the map to visualize it."}]},
-  {"id": "openlayers-hover-effect", "library": "openlayers", "file": "openlayers-examples/hover-effect.html", "name": "Hover Effect", "description": "Interactive hover highlighting on polygons", "category": "Interactivity", "controls": [{"type": "info", "label": "Hover Effect", "text": "Hover over zones to see highlighting and tooltips."}]},
-  {"id": "openlayers-realtime-data", "library": "openlayers", "file": "openlayers-examples/realtime-data.html", "name": "Realtime Data", "description": "Live-updating point data stream", "category": "Data Visualization", "controls": [{"type": "info", "label": "Realtime Data", "text": "Live stream of data points. Watch the counter increase."}]},
-  {"id": "openlayers-satellite-map", "library": "openlayers", "file": "openlayers-examples/satellite-map.html", "name": "Satellite Map", "description": "Style switcher with satellite imagery", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Map Styles", "text": "Switch between different map styles."}, {"type": "select", "id": "mapStyle", "label": "Map Style", "options": [{"value": "osm", "label": "🗺️ Streets"}, {"value": "satellite", "label": "🛰️ Satellite"}, {"value": "dark", "label": "🌙 Dark"}]}]},
-  {"id": "openlayers-time-slider", "library": "openlayers", "file": "openlayers-examples/time-slider.html", "name": "Time Slider", "description": "Temporal data visualization with time slider", "category": "Data Visualization", "controls": [{"type": "info", "label": "Time Slider", "text": "Drag the slider to see how data changes over time."}, {"type": "range", "id": "timeHour", "label": "Hour of Day", "min": 0, "max": 23, "step": 1, "default": 12}]},
-  {"id": "openlayers-fly-to-animation", "library": "openlayers", "file": "openlayers-examples/fly-to-animation.html", "name": "Fly-To Animation", "description": "Smooth animated fly-to with easing", "category": "Animation & Camera", "controls": [{"type": "info", "label": "Fly-To", "text": "Click buttons to animate the map to different locations."}]},
-  {"id": "openlayers-layer-toggle", "library": "openlayers", "file": "openlayers-examples/layer-toggle.html", "name": "Layer Toggle", "description": "Switch between multiple tile layers", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Layer Control", "text": "Switch between OpenStreetMap, Topographic, and Dark CARTO layers."}]},
-  {"id": "openlayers-mouse-follow", "library": "openlayers", "file": "openlayers-examples/mouse-follow.html", "name": "Mouse Follow", "description": "Marker that follows the mouse cursor", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Mouse Follow", "text": "An overlay follows your mouse cursor across the map."}]},
-  {"id": "openlayers-popup-tooltip", "library": "openlayers", "file": "openlayers-examples/popup-tooltip.html", "name": "Popup & Tooltip", "description": "Rich popups with hover tooltips", "category": "Popups & Tooltips", "controls": [{"type": "info", "label": "Popup & Tooltip", "text": "Click for popups, hover for tooltips on vector features."}]},
-  {"id": "openlayers-sync-maps", "library": "openlayers", "file": "openlayers-examples/sync-maps.html", "name": "Sync Maps", "description": "Multiple maps with synchronized movement", "category": "Map Comparison", "controls": [{"type": "info", "label": "Synced Maps", "text": "Two maps side-by-side with synchronized panning and zooming."}]},
-  {"id": "openlayers-sync-maps-comparison", "library": "openlayers", "file": "openlayers-examples/sync-maps-comparison.html", "name": "Sync Maps Comparison", "description": "Side-by-side map comparison with synced views", "category": "Map Comparison", "controls": [{"type": "info", "label": "Sync Comparison", "text": "Drag the divider to compare Street vs Satellite layers."}]},
-  {"id": "leaflet-basic-map", "library": "leaflet", "file": "leaflet-examples/basic-map.html", "name": "Basic Map", "description": "Minimal Leaflet map setup", "category": "Getting Started", "controls": [{"type": "info", "label": "Controls", "text": "Use mouse to pan. Scroll to zoom. Click marker for popup."}]},
-  {"id": "leaflet-choropleth", "library": "leaflet", "file": "leaflet-examples/choropleth.html", "name": "Choropleth", "description": "Data-driven polygon coloring", "category": "Data Visualization", "controls": [{"type": "info", "label": "Choropleth", "text": "Polygons colored by data value. Hover for details."}]},
-  {"id": "leaflet-click-coordinates", "library": "leaflet", "file": "leaflet-examples/click-coordinates.html", "name": "Click Coordinates", "description": "Capture click coordinates", "category": "Getting Started", "controls": [{"type": "info", "label": "Instructions", "text": "Click anywhere on the map to see coordinates."}]},
-  {"id": "leaflet-context-menu", "library": "leaflet", "file": "leaflet-examples/context-menu.html", "name": "Context Menu", "description": "Right-click context menu", "category": "Controls & UI", "controls": [{"type": "info", "label": "Context Menu", "text": "Right-click on the map to see the context menu."}]},
-  {"id": "leaflet-custom-marker", "library": "leaflet", "file": "leaflet-examples/custom-marker.html", "name": "Custom Marker", "description": "Custom HTML marker with popup", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Custom Marker", "text": "HTML-based marker with styled popup."}, {"type": "range", "id": "markerSize", "label": "Marker Size (px)", "min": 16, "max": 48, "step": 2, "default": 32}]},
-  {"id": "leaflet-draw-geojson", "library": "leaflet", "file": "leaflet-examples/draw-geojson.html", "name": "Draw GeoJSON", "description": "Draw and export GeoJSON features", "category": "Geometry & Drawing", "controls": [{"type": "info", "label": "Drawing Tools", "text": "Use the toolbar to draw shapes. Export as GeoJSON."}, {"type": "button", "id": "exportBtn", "label": "Export GeoJSON"}]},
-  {"id": "leaflet-fly-to-animation", "library": "leaflet", "file": "leaflet-examples/fly-to-animation.html", "name": "Fly To Animation", "description": "Animated fly-to with easing", "category": "Animation & Camera", "controls": [{"type": "info", "label": "Fly To", "text": "Click buttons to animate the map to different locations."}, {"type": "range", "id": "duration", "label": "Duration (s)", "min": 0.5, "max": 5, "step": 0.5, "default": 2}]},
-  {"id": "leaflet-fullscreen", "library": "leaflet", "file": "leaflet-examples/fullscreen.html", "name": "Fullscreen", "description": "Fullscreen toggle control", "category": "Controls & UI", "controls": [{"type": "info", "label": "Fullscreen", "text": "Click the fullscreen button to toggle fullscreen mode."}]},
-  {"id": "leaflet-geocoding", "library": "leaflet", "file": "leaflet-examples/geocoding.html", "name": "Geocoding", "description": "Search locations with Nominatim", "category": "Search & Geocoding", "controls": [{"type": "text", "id": "searchQuery", "label": "Search Location", "placeholder": "e.g. Paris, France"}, {"type": "button", "id": "searchBtn", "label": "Search"}]},
-  {"id": "leaflet-geolocation", "library": "leaflet", "file": "leaflet-examples/geolocation.html", "name": "Geolocation", "description": "User position tracking with accuracy", "category": "Navigation", "controls": [{"type": "info", "label": "Geolocation", "text": "Tracks your current position using browser geolocation."}]},
-  {"id": "leaflet-heatmap", "library": "leaflet", "file": "leaflet-examples/heatmap.html", "name": "Heatmap", "description": "Heat map density visualization", "category": "Data Visualization", "controls": [{"type": "info", "label": "Heatmap", "text": "Point density visualization using heat gradient."}, {"type": "range", "id": "radius", "label": "Radius", "min": 5, "max": 50, "step": 1, "default": 25}, {"type": "range", "id": "blur", "label": "Blur", "min": 5, "max": 50, "step": 1, "default": 15}]},
-  {"id": "leaflet-layer-toggle", "library": "leaflet", "file": "leaflet-examples/layer-toggle.html", "name": "Layer Toggle", "description": "Switch between multiple tile layers", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Layer Control", "text": "Switch between different map tile providers."}]},
-  {"id": "leaflet-marker-clustering", "library": "leaflet", "file": "leaflet-examples/marker-clustering.html", "name": "Marker Clustering", "description": "Cluster nearby markers together", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Marker Clustering", "text": "Markers are grouped into clusters when zoomed out."}]},
-  {"id": "leaflet-mouse-follow", "library": "leaflet", "file": "leaflet-examples/mouse-follow.html", "name": "Mouse Follow", "description": "Marker that follows the mouse cursor", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Mouse Follow", "text": "A marker follows your mouse cursor across the map."}]},
-  {"id": "leaflet-popup-tooltip", "library": "leaflet", "file": "leaflet-examples/popup-tooltip.html", "name": "Popup & Tooltip", "description": "Rich popups with images and hover tooltips", "category": "Popups & Tooltips", "controls": [{"type": "info", "label": "Popups & Tooltips", "text": "Click markers for popups. Hover for tooltips."}]},
-  {"id": "leaflet-scale-control", "library": "leaflet", "file": "leaflet-examples/scale-control.html", "name": "Scale Bar", "description": "Metric and imperial scale bar", "category": "Controls & UI", "controls": [{"type": "info", "label": "Scale Bar", "text": "Distance scale in the bottom-right corner."}]},
-  {"id": "leaflet-sync-maps-comparison", "library": "leaflet", "file": "leaflet-examples/sync-maps-comparison.html", "name": "Sync Maps Comparison", "description": "Side-by-side map comparison with synced views", "category": "Map Comparison", "controls": [{"type": "info", "label": "Sync Comparison", "text": "Drag the divider to compare two different map styles."}]},
-  {"id": "leaflet-sync-maps", "library": "leaflet", "file": "leaflet-examples/sync-maps.html", "name": "Sync Maps", "description": "Multiple maps with synchronized movement", "category": "Map Comparison", "controls": [{"type": "info", "label": "Synced Maps", "text": "Both maps move together."}]},
-  {"id": "leaflet-wasd-navigation", "library": "leaflet", "file": "leaflet-examples/wasd-navigation.html", "name": "WASD Navigation", "description": "Game-like WASD keyboard navigation", "category": "Navigation", "controls": [{"type": "info", "label": "WASD Navigation", "text": "Use W/A/S/D to pan. Q/E to zoom."}, {"type": "range", "id": "panSpeed", "label": "Pan Speed", "min": 10, "max": 100, "step": 5, "default": 50}]},
-  {"id": "leaflet-turf-buffer", "library": "leaflet", "file": "leaflet-examples/turf-buffer.html", "name": "Turf Buffer", "description": "Calculate 10km buffer around clicked point using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Buffer", "text": "Click anywhere to calculate a 10km buffer polygon using Turf.js."}]},
-  {"id": "leaflet-turf-intersection", "library": "leaflet", "file": "leaflet-examples/turf-intersection.html", "name": "Turf Intersection", "description": "Find intersection of two overlapping polygons using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Intersection", "text": "Two overlapping polygons. The intersection area is highlighted in green."}]},
-  {"id": "leaflet-turf-voronoi", "library": "leaflet", "file": "leaflet-examples/turf-voronoi.html", "name": "Turf Voronoi", "description": "Generate Voronoi polygons from points using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Voronoi", "text": "Click to add points. Voronoi polygons update automatically."}]},
-  {"id": "leaflet-turf-convex-hull", "library": "leaflet", "file": "leaflet-examples/turf-convex-hull.html", "name": "Turf Convex Hull", "description": "Create convex hull from points using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Convex Hull", "text": "Click to add points. The convex hull encloses all points."}]},
-  {"id": "leaflet-turf-point-in-polygon", "library": "leaflet", "file": "leaflet-examples/turf-point-in-polygon.html", "name": "Turf Point in Polygon", "description": "Test point containment using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Point-in-Polygon", "text": "Click to test if a point is inside the polygon."}]},
-  {"id": "leaflet-turf-nearest-point", "library": "leaflet", "file": "leaflet-examples/turf-nearest-point.html", "name": "Turf Nearest Point", "description": "Find nearest point using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Nearest Point", "text": "Click to find the nearest of 5 predefined points."}]},
-  {"id": "leaflet-turf-area-measurement", "library": "leaflet", "file": "leaflet-examples/turf-area-measurement.html", "name": "Turf Area Measurement", "description": "Measure area of drawn polygon using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Area", "text": "Click to add vertices. The area is calculated automatically."}]},
-  {"id": "leaflet-turf-great-circle", "library": "leaflet", "file": "leaflet-examples/turf-great-circle.html", "name": "Turf Great Circle", "description": "Draw geodesic curves using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Great Circle", "text": "Geodesic curve between New York and Paris."}]},
-  {"id": "leaflet-animate-line", "library": "leaflet", "file": "leaflet-examples/animate-line.html", "name": "Animate Line", "description": "Progressive line drawing animation with play/reset", "category": "Animation & Camera", "controls": [{"type": "info", "label": "Line Animation", "text": "Watch a line being drawn progressively."}, {"type": "button", "id": "playBtn", "label": "▶ Play"}, {"type": "button", "id": "resetBtn", "label": "↺ Reset"}]},
-  {"id": "leaflet-custom-controls", "library": "leaflet", "file": "leaflet-examples/custom-controls.html", "name": "Custom Controls", "description": "Custom zoom + rotate-north controls", "category": "Controls & UI", "controls": [{"type": "info", "label": "Custom Controls", "text": "Custom zoom buttons and a rotate-north button."}]},
-  {"id": "leaflet-geofence", "library": "leaflet", "file": "leaflet-examples/geofence.html", "name": "Geofence", "description": "Geofence detection using Turf.js", "category": "Spatial Analysis", "controls": [{"type": "info", "label": "Geofence", "text": "Click to test if point is inside the 50km geofence."}]},
-  {"id": "leaflet-geojson-upload", "library": "leaflet", "file": "leaflet-examples/geojson-upload.html", "name": "GeoJSON Upload", "description": "Drag and drop GeoJSON files to render", "category": "Layers & Sources", "controls": [{"type": "info", "label": "GeoJSON Upload", "text": "Drop a GeoJSON file onto the map to visualize it."}]},
-  {"id": "leaflet-hover-effect", "library": "leaflet", "file": "leaflet-examples/hover-effect.html", "name": "Hover Effect", "description": "Interactive hover highlighting on polygons with tooltip", "category": "Interactivity", "controls": [{"type": "info", "label": "Hover Effect", "text": "Hover over zones to see highlighting and tooltips."}]},
-  {"id": "leaflet-image-overlay", "library": "leaflet", "file": "leaflet-examples/image-overlay.html", "name": "Image Overlay", "description": "Overlay an image on the map with opacity control", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Image Overlay", "text": "An image is overlaid on the map area."}, {"type": "range", "id": "opacity", "label": "Opacity", "min": 0, "max": 1, "step": 0.05, "default": 0.7}]},
-  {"id": "leaflet-minimap", "library": "leaflet", "file": "leaflet-examples/minimap.html", "name": "Mini Map", "description": "Overview minimap synced to main view", "category": "Controls & UI", "controls": [{"type": "info", "label": "Mini Map", "text": "Small overview map in the corner synced with the main view."}]},
-  {"id": "leaflet-realtime-data", "library": "leaflet", "file": "leaflet-examples/realtime-data.html", "name": "Realtime Data", "description": "Live-updating point data stream", "category": "Data Visualization", "controls": [{"type": "info", "label": "Realtime Data", "text": "Live stream of data points. Watch the counter increase."}]},
-  {"id": "leaflet-satellite-map", "library": "leaflet", "file": "leaflet-examples/satellite-map.html", "name": "Satellite Map", "description": "Style switcher with satellite imagery", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Map Styles", "text": "Switch between different map styles."}]},
-  {"id": "leaflet-store-locator", "library": "leaflet", "file": "leaflet-examples/store-locator.html", "name": "Store Locator", "description": "Store locator with search and category filtering", "category": "Search & Geocoding", "controls": [{"type": "info", "label": "Store Locator", "text": "Find stores by searching or filtering by category."}, {"type": "text", "id": "searchBox", "label": "Search Stores", "placeholder": "Search by name..."}, {"type": "select", "id": "category", "label": "Category", "options": [{"value": "all", "label": "All"}, {"value": "coffee", "label": "☕ Coffee"}, {"value": "restaurant", "label": "🍽️ Restaurant"}, {"value": "shop", "label": "🛍️ Shop"}]}]},
-  {"id": "leaflet-time-slider", "library": "leaflet", "file": "leaflet-examples/time-slider.html", "name": "Time Slider", "description": "Temporal data visualization with time slider", "category": "Data Visualization", "controls": [{"type": "info", "label": "Time Slider", "text": "Drag the slider to see how data changes over time."}, {"type": "range", "id": "timeHour", "label": "Hour of Day", "min": 0, "max": 23, "step": 1, "default": 12}]},
-  {"id": "leaflet-weather", "library": "leaflet", "file": "leaflet-examples/weather.html", "name": "Weather", "description": "Weather overlay with NOAA radar data", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Weather Overlay", "text": "Weather radar data over the map."}, {"type": "checkbox", "id": "showRadar", "label": "Radar Layer", "default": true}, {"type": "range", "id": "radarOpacity", "label": "Radar Opacity", "min": 0, "max": 1, "step": 0.1, "default": 0.5}]},
-  {"id": "maplibre-3d-building", "library": "maplibre", "file": "maplibre-examples/3d-building.html", "name": "3D Building", "description": "3D building extrusion with pitch/bearing", "category": "3D & Visualization", "controls": [{"type": "info", "label": "3D Buildings", "text": "Buildings rendered in 3D. Adjust pitch and bearing."}, {"type": "range", "id": "pitch", "label": "Pitch (°)", "min": 0, "max": 85, "step": 5, "default": 60}, {"type": "range", "id": "bearing", "label": "Bearing (°)", "min": 0, "max": 360, "step": 5, "default": -20}]},
-  {"id": "maplibre-animate-line", "library": "maplibre", "file": "maplibre-examples/animate-line.html", "name": "Animate Line", "description": "Progressive line drawing animation", "category": "Animation & Camera", "controls": [{"type": "info", "label": "Line Animation", "text": "Watch a line being drawn progressively."}, {"type": "range", "id": "animSpeed", "label": "Speed", "min": 0.5, "max": 5, "step": 0.5, "default": 2}, {"type": "button", "id": "playBtn", "label": "▶ Play"}, {"type": "button", "id": "resetBtn", "label": "↺ Reset"}]},
-  {"id": "maplibre-basic-map", "library": "maplibre", "file": "maplibre-examples/basic-map.html", "name": "Basic Map", "description": "Minimal MapLibre GL JS setup", "category": "Getting Started", "controls": [{"type": "info", "label": "Controls", "text": "Use mouse to pan. Scroll to zoom. Click marker for popup."}]},
-  {"id": "maplibre-choropleth", "library": "maplibre", "file": "maplibre-examples/choropleth.html", "name": "Choropleth", "description": "Choropleth with data-driven styling", "category": "Data Visualization", "controls": [{"type": "info", "label": "Choropleth", "text": "Regions colored by data values."}, {"type": "range", "id": "borderWidth", "label": "Border Width", "min": 0, "max": 5, "step": 0.5, "default": 2}]},
-  {"id": "maplibre-click-coordinates", "library": "maplibre", "file": "maplibre-examples/click-coordinates.html", "name": "Click Coordinates", "description": "Capture click coordinates", "category": "Getting Started", "controls": [{"type": "info", "label": "Instructions", "text": "Click on the map to see coordinates."}]},
-  {"id": "maplibre-cluster-markers", "library": "maplibre", "file": "maplibre-examples/cluster-markers.html", "name": "Cluster Markers", "description": "Supercluster-based marker clustering", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Clustering", "text": "Markers grouped into clusters. Click to expand."}, {"type": "range", "id": "clusterRadius", "label": "Cluster Radius", "min": 20, "max": 100, "step": 5, "default": 60}]},
-  {"id": "maplibre-custom-marker", "library": "maplibre", "file": "maplibre-examples/custom-marker.html", "name": "Custom Marker", "description": "Custom HTML marker with popup", "category": "Markers & Icons", "controls": [{"type": "info", "label": "Custom Marker", "text": "HTML-based marker with styled popup."}]},
-  {"id": "maplibre-draw-polygon", "library": "maplibre", "file": "maplibre-examples/draw-polygon.html", "name": "Draw Polygon", "description": "Draw and edit polygons with mapbox-gl-draw", "category": "Geometry & Drawing", "controls": [{"type": "info", "label": "Drawing Tools", "text": "Draw polygons, lines, and points."}]},
-  {"id": "maplibre-external-layer-control", "library": "maplibre", "file": "maplibre-examples/external-layer-control.html", "name": "External Layer Control", "description": "Control layers from outside the map", "category": "Controls & UI", "controls": [{"type": "info", "label": "External Controls", "text": "Toggle map layers from the right panel."}, {"type": "checkbox", "id": "showBuildings", "label": "Buildings", "default": true}, {"type": "checkbox", "id": "showLabels", "label": "Labels", "default": true}]},
-  {"id": "maplibre-fullscreen", "library": "maplibre", "file": "maplibre-examples/fullscreen.html", "name": "Fullscreen", "description": "Fullscreen control", "category": "Controls & UI", "controls": [{"type": "info", "label": "Fullscreen", "text": "Click the fullscreen button to toggle."}]},
-  {"id": "maplibre-geojson-upload", "library": "maplibre", "file": "maplibre-examples/geojson-upload.html", "name": "GeoJSON Upload", "description": "Drag and drop GeoJSON files", "category": "Layers & Sources", "controls": [{"type": "info", "label": "GeoJSON Upload", "text": "Drag a GeoJSON file onto the map to visualize it."}]},
-  {"id": "maplibre-geocode-nominatim", "library": "maplibre", "file": "maplibre-examples/geocode-nominatim.html", "name": "Geocode Nominatim", "description": "Search locations with Nominatim API", "category": "Search & Geocoding", "controls": [{"type": "text", "id": "searchQuery", "label": "Search Location", "placeholder": "e.g. Tokyo, Japan"}, {"type": "button", "id": "searchBtn", "label": "🔍 Search"}]},
-  {"id": "maplibre-heatmap", "library": "maplibre", "file": "maplibre-examples/heatmap.html", "name": "Heatmap", "description": "WebGL-accelerated heatmap layer", "category": "Data Visualization", "controls": [{"type": "info", "label": "Heatmap", "text": "High-performance heatmap using WebGL."}, {"type": "range", "id": "radius", "label": "Radius", "min": 5, "max": 50, "step": 1, "default": 30}, {"type": "range", "id": "intensity", "label": "Intensity", "min": 1, "max": 10, "step": 0.5, "default": 5}]},
-  {"id": "maplibre-hover-effect", "library": "maplibre", "file": "maplibre-examples/hover-effect.html", "name": "Hover Effect", "description": "Interactive hover highlighting on polygons", "category": "Interactivity", "controls": [{"type": "info", "label": "Hover Effect", "text": "Hover over zones to see highlighting and tooltips."}]},
-  {"id": "maplibre-realtime-data", "library": "maplibre", "file": "maplibre-examples/realtime-data.html", "name": "Realtime Data", "description": "Live-updating point data stream", "category": "Data Visualization", "controls": [{"type": "info", "label": "Realtime Data", "text": "Live stream of data points. Watch the counter increase."}, {"type": "range", "id": "updateInterval", "label": "Update Interval (ms)", "min": 200, "max": 2000, "step": 100, "default": 800}]},
-  {"id": "maplibre-satellite-map", "library": "maplibre", "file": "maplibre-examples/satellite-map.html", "name": "Satellite Map", "description": "Style switcher with satellite imagery", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Map Styles", "text": "Switch between different map styles."}, {"type": "select", "id": "mapStyle", "label": "Map Style", "options": [{"value": "streets", "label": "🗺️ Streets"}, {"value": "satellite", "label": "🛰️ Satellite"}, {"value": "dark", "label": "🌙 Dark"}]}]},
-  {"id": "maplibre-time-slider", "library": "maplibre", "file": "maplibre-examples/time-slider.html", "name": "Time Slider", "description": "Temporal data visualization with time slider", "category": "Data Visualization", "controls": [{"type": "info", "label": "Time Slider", "text": "Drag the slider to see how data changes over time."}, {"type": "range", "id": "timeHour", "label": "Hour of Day", "min": 0, "max": 23, "step": 1, "default": 12}]},
-  {"id": "maplibre-turf-buffer", "library": "maplibre", "file": "maplibre-examples/turf-buffer.html", "name": "Turf Buffer", "description": "Calculate 10km buffer around clicked point using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Buffer", "text": "Click anywhere to calculate a 10km buffer polygon using Turf.js."}]},
-  {"id": "maplibre-turf-intersection", "library": "maplibre", "file": "maplibre-examples/turf-intersection.html", "name": "Turf Intersection", "description": "Find intersection of two overlapping polygons using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Intersection", "text": "Two overlapping polygons. The intersection area is highlighted in green."}]},
-  {"id": "maplibre-turf-voronoi", "library": "maplibre", "file": "maplibre-examples/turf-voronoi.html", "name": "Turf Voronoi", "description": "Generate Voronoi polygons from points using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Voronoi", "text": "Click to add points. Voronoi polygons update automatically."}]},
-  {"id": "maplibre-turf-convex-hull", "library": "maplibre", "file": "maplibre-examples/turf-convex-hull.html", "name": "Turf Convex Hull", "description": "Create convex hull from points using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Convex Hull", "text": "Click to add points. The convex hull encloses all points."}]},
-  {"id": "maplibre-turf-point-in-polygon", "library": "maplibre", "file": "maplibre-examples/turf-point-in-polygon.html", "name": "Turf Point in Polygon", "description": "Test point containment using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Point-in-Polygon", "text": "Click to test if a point is inside the polygon."}]},
-  {"id": "maplibre-turf-nearest-point", "library": "maplibre", "file": "maplibre-examples/turf-nearest-point.html", "name": "Turf Nearest Point", "description": "Find nearest point using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Nearest Point", "text": "Click to find the nearest of 5 predefined points."}]},
-  {"id": "maplibre-turf-area-measurement", "library": "maplibre", "file": "maplibre-examples/turf-area-measurement.html", "name": "Turf Area Measurement", "description": "Measure area of drawn polygon using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Area", "text": "Click to add vertices. The area is calculated automatically."}]},
-  {"id": "maplibre-turf-great-circle", "library": "maplibre", "file": "maplibre-examples/turf-great-circle.html", "name": "Turf Great Circle", "description": "Draw geodesic curves using Turf.js", "category": "Turf.js Spatial", "controls": [{"type": "info", "label": "Turf.js Great Circle", "text": "Geodesic curve between New York and Paris."}]},
-  {"id": "maplibre-context-menu", "library": "maplibre", "file": "maplibre-examples/context-menu.html", "name": "Context Menu", "description": "Right-click context menu with zoom-to and add marker actions", "category": "Controls & UI", "controls": [{"type": "info", "label": "Context Menu", "text": "Right-click on the map to open the context menu."}]},
-  {"id": "maplibre-custom-controls", "library": "maplibre", "file": "maplibre-examples/custom-controls.html", "name": "Custom Controls", "description": "Custom rotate-north control button", "category": "Controls & UI", "controls": [{"type": "info", "label": "Custom Controls", "text": "A custom 'N' button that resets map rotation to north."}]},
-  {"id": "maplibre-geofence", "library": "maplibre", "file": "maplibre-examples/geofence.html", "name": "Geofence", "description": "Geofence detection using Turf.js", "category": "Spatial Analysis", "controls": [{"type": "info", "label": "Geofence", "text": "Click to test if point is inside the 50km geofence."}, {"type": "range", "id": "fenceRadius", "label": "Fence Radius (km)", "min": 1, "max": 100, "step": 1, "default": 50}]},
-  {"id": "maplibre-geolocation", "library": "maplibre", "file": "maplibre-examples/geolocation.html", "name": "Geolocation", "description": "User position tracking with accuracy circle", "category": "Getting Started", "controls": [{"type": "info", "label": "Geolocation", "text": "Tracks your current position using browser geolocation API."}]},
-  {"id": "maplibre-image-overlay", "library": "maplibre", "file": "maplibre-examples/image-overlay.html", "name": "Image Overlay", "description": "Static image overlay with opacity control", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Image Overlay", "text": "An image is overlaid on the map area."}, {"type": "range", "id": "opacity", "label": "Opacity", "min": 0, "max": 1, "step": 0.05, "default": 0.7}]},
-  {"id": "maplibre-minimap", "library": "maplibre", "file": "maplibre-examples/minimap.html", "name": "Mini Map", "description": "Overview minimap synced to main view", "category": "Controls & UI", "controls": [{"type": "info", "label": "Mini Map", "text": "Small overview map in the corner synced with the main view."}]},
-  {"id": "maplibre-popup-tooltip", "library": "maplibre", "file": "maplibre-examples/popup-tooltip.html", "name": "Popup & Tooltip", "description": "Rich popups with images and hover tooltips", "category": "Popups & Tooltips", "controls": [{"type": "info", "label": "Popup & Tooltip", "text": "Click markers for popups. Hover for tooltips."}]},
-  {"id": "maplibre-scale-bar", "library": "maplibre", "file": "maplibre-examples/scale-bar.html", "name": "Scale Bar", "description": "Metric scale bar control", "category": "Controls & UI", "controls": [{"type": "info", "label": "Scale Bar", "text": "Distance scale in the bottom-left corner."}]},
-  {"id": "maplibre-store-locator", "library": "maplibre", "file": "maplibre-examples/store-locator.html", "name": "Store Locator", "description": "Store locator with search and category filtering", "category": "Search & Geocoding", "controls": [{"type": "info", "label": "Store Locator", "text": "Find stores by searching or filtering by category."}, {"type": "text", "id": "searchBox", "label": "Search Stores", "placeholder": "Search by name..."}, {"type": "select", "id": "category", "label": "Category", "options": [{"value": "all", "label": "All"}, {"value": "coffee", "label": "☕ Coffee"}, {"value": "restaurant", "label": "🍽️ Restaurant"}, {"value": "shop", "label": "🛍️ Shop"}]}]},
-  {"id": "maplibre-sync-maps", "library": "maplibre", "file": "maplibre-examples/sync-maps.html", "name": "Sync Maps", "description": "Multiple maps with synchronized movement", "category": "Map Comparison", "controls": [{"type": "info", "label": "Synced Maps", "text": "Both maps move together."}]},
-  {"id": "maplibre-sync-maps-comparison", "library": "maplibre", "file": "maplibre-examples/sync-maps-comparison.html", "name": "Sync Maps Comparison", "description": "Side-by-side map comparison with synced views", "category": "Map Comparison", "controls": [{"type": "info", "label": "Sync Comparison", "text": "Drag the divider to compare two different map styles."}]},
-  {"id": "maplibre-wasd-navigation", "library": "maplibre", "file": "maplibre-examples/wasd-navigation.html", "name": "WASD Navigation", "description": "Game-like WASD keyboard navigation", "category": "Navigation", "controls": [{"type": "info", "label": "WASD Navigation", "text": "Use W/A/S/D to pan. Q/E to zoom."}, {"type": "range", "id": "panSpeed", "label": "Pan Speed", "min": 10, "max": 100, "step": 5, "default": 50}]},
-  {"id": "maplibre-weather", "library": "maplibre", "file": "maplibre-examples/weather.html", "name": "Weather", "description": "Weather overlay with NOAA radar data", "category": "Layers & Sources", "controls": [{"type": "info", "label": "Weather Overlay", "text": "Weather radar data over the map."}, {"type": "checkbox", "id": "showRadar", "label": "Radar Layer", "default": true}, {"type": "range", "id": "radarOpacity", "label": "Radar Opacity", "min": 0, "max": 1, "step": 0.1, "default": 0.5}]}
+  {
+    "id": "openlayers-basic-map",
+    "library": "openlayers",
+    "file": "openlayers-implementation/basic-map.html",
+    "name": "Basic Map",
+    "description": "Minimal map setup with OpenLayers",
+    "category": "Getting Started",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Controls",
+        "text": "Use mouse to pan. Scroll to zoom."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-choropleth",
+    "library": "openlayers",
+    "file": "openlayers-implementation/choropleth.html",
+    "name": "Choropleth Map",
+    "description": "Thematic area shading by data values",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Choropleth",
+        "text": "Polygons colored by population density. Hover to see details."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-click-coordinates",
+    "library": "openlayers",
+    "file": "openlayers-implementation/click-coordinates.html",
+    "name": "Click Coordinates",
+    "description": "Capture click coordinates on the map",
+    "category": "Getting Started",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Instructions",
+        "text": "Click anywhere on the map to see coordinates."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-context-menu",
+    "library": "openlayers",
+    "file": "openlayers-implementation/context-menu.html",
+    "name": "Context Menu",
+    "description": "Right-click context menu with actions",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Instructions",
+        "text": "Right-click on the map to open the context menu."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-custom-marker",
+    "library": "openlayers",
+    "file": "openlayers-implementation/custom-marker.html",
+    "name": "Custom Marker",
+    "description": "Pulsing animated marker with popup",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Custom Marker",
+        "text": "Animated pulsing marker with click popup."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-drawing-tools",
+    "library": "openlayers",
+    "file": "openlayers-implementation/drawing-tools.html",
+    "name": "Drawing Tools",
+    "description": "Draw points, lines, and polygons on the map",
+    "category": "Geometry & Drawing",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Drawing Tools",
+        "text": "Select geometry type and draw on the map."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-custom-controls",
+    "library": "openlayers",
+    "file": "openlayers-implementation/custom-controls.html",
+    "name": "Custom Controls",
+    "description": "Custom rotate-north control button",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Custom Controls",
+        "text": "A custom 'N' button that resets map rotation to north."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-fullscreen",
+    "library": "openlayers",
+    "file": "openlayers-implementation/fullscreen.html",
+    "name": "Fullscreen",
+    "description": "Fullscreen toggle control",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Fullscreen",
+        "text": "Click the fullscreen button to toggle fullscreen mode."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-geofence",
+    "library": "openlayers",
+    "file": "openlayers-implementation/geofence.html",
+    "name": "Geofence",
+    "description": "Geofence detection with moving marker",
+    "category": "Spatial Analysis",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Geofence",
+        "text": "Click to place the marker. It changes color when inside/outside the geofence."
+      },
+      {
+        "type": "range",
+        "id": "fenceRadius",
+        "label": "Fence Radius (km)",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "default": 50
+      }
+    ]
+  },
+  {
+    "id": "openlayers-geolocation",
+    "library": "openlayers",
+    "file": "openlayers-implementation/geolocation.html",
+    "name": "Geolocation",
+    "description": "User position tracking with accuracy circle",
+    "category": "Navigation",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Geolocation",
+        "text": "Tracks your current position using browser geolocation API."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-heatmap",
+    "library": "openlayers",
+    "file": "openlayers-implementation/heatmap.html",
+    "name": "Heatmap",
+    "description": "Heat map density visualization",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Heatmap",
+        "text": "Density visualization using heat gradient."
+      },
+      {
+        "type": "range",
+        "id": "radius",
+        "label": "Radius",
+        "min": 5,
+        "max": 50,
+        "step": 1,
+        "default": 20
+      }
+    ]
+  },
+  {
+    "id": "openlayers-image-overlay",
+    "library": "openlayers",
+    "file": "openlayers-implementation/image-overlay.html",
+    "name": "Image Overlay",
+    "description": "Overlay an image on the map",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Image Overlay",
+        "text": "An image is overlaid on the map area."
+      },
+      {
+        "type": "range",
+        "id": "opacity",
+        "label": "Opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "default": 0.7
+      }
+    ]
+  },
+  {
+    "id": "openlayers-minimap",
+    "library": "openlayers",
+    "file": "openlayers-implementation/minimap.html",
+    "name": "Mini Map",
+    "description": "Overview minimap synced to main view",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Mini Map",
+        "text": "Small overview map in the corner synced with the main view."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-polygon-extrusion",
+    "library": "openlayers",
+    "file": "openlayers-implementation/polygon-extrusion.html",
+    "name": "Colored Polygons with Rotation",
+    "description": "Styled polygons with rotation control",
+    "category": "Geometry & Drawing",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Polygons",
+        "text": "Colored polygons with rotation slider."
+      },
+      {
+        "type": "range",
+        "id": "pitch",
+        "label": "Pitch (\u00b0)",
+        "min": 0,
+        "max": 60,
+        "step": 5,
+        "default": 45
+      }
+    ]
+  },
+  {
+    "id": "openlayers-scale-bar",
+    "library": "openlayers",
+    "file": "openlayers-implementation/scale-bar.html",
+    "name": "Scale Bar",
+    "description": "Scale bar with imperial/metric units",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Scale Bar",
+        "text": "Distance scale displayed in the corner."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-store-locator",
+    "library": "openlayers",
+    "file": "openlayers-implementation/store-locator.html",
+    "name": "Store Locator",
+    "description": "Store locator with search and filtering",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Store Locator",
+        "text": "Find stores by searching or filtering by category."
+      },
+      {
+        "type": "text",
+        "id": "searchBox",
+        "label": "Search Stores",
+        "placeholder": "Search by name..."
+      },
+      {
+        "type": "select",
+        "id": "category",
+        "label": "Category",
+        "options": [
+          {
+            "value": "all",
+            "label": "All"
+          },
+          {
+            "value": "coffee",
+            "label": "\u2615 Coffee"
+          },
+          {
+            "value": "restaurant",
+            "label": "\ud83c\udf7d\ufe0f Restaurant"
+          },
+          {
+            "value": "shop",
+            "label": "\ud83d\udecd\ufe0f Shop"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "openlayers-wasd-navigation",
+    "library": "openlayers",
+    "file": "openlayers-implementation/wasd-navigation.html",
+    "name": "WASD Navigation",
+    "description": "Game-like WASD keyboard navigation",
+    "category": "Navigation",
+    "controls": [
+      {
+        "type": "info",
+        "label": "WASD Navigation",
+        "text": "Use W/A/S/D keys to pan the map. Use Q/E to zoom."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-weather",
+    "library": "openlayers",
+    "file": "openlayers-implementation/weather.html",
+    "name": "Weather",
+    "description": "Weather overlay with radar data",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Weather Overlay",
+        "text": "Weather radar and temperature data overlay."
+      },
+      {
+        "type": "checkbox",
+        "id": "showRadar",
+        "label": "Radar Layer",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "radarOpacity",
+        "label": "Radar Opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "default": 0.5
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-buffer",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-buffer.html",
+    "name": "Turf Buffer",
+    "description": "Calculate 500km buffer around clicked point using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Buffer",
+        "text": "Click anywhere to calculate a 500km buffer polygon using Turf.js."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-intersection",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-intersection.html",
+    "name": "Turf Intersection",
+    "description": "Find intersection of two overlapping polygons using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Intersection",
+        "text": "Two overlapping polygons. The intersection area is highlighted in green."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-voronoi",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-voronoi.html",
+    "name": "Turf Voronoi",
+    "description": "Generate Voronoi polygons from points using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Voronoi",
+        "text": "Click to add points. Voronoi polygons update automatically."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-convex-hull",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-convex-hull.html",
+    "name": "Turf Convex Hull",
+    "description": "Create convex hull from points using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Convex Hull",
+        "text": "Click to add points. The convex hull encloses all points."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-point-in-polygon",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-point-in-polygon.html",
+    "name": "Turf Point in Polygon",
+    "description": "Test point containment using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Point-in-Polygon",
+        "text": "Click to test if a point is inside the polygon."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-nearest-point",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-nearest-point.html",
+    "name": "Turf Nearest Point",
+    "description": "Find nearest point using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Nearest Point",
+        "text": "Click to find the nearest of 5 predefined points."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-area-measurement",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-area-measurement.html",
+    "name": "Turf Area Measurement",
+    "description": "Measure area of drawn polygon using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Area",
+        "text": "Click to add vertices. The area is calculated automatically."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-turf-great-circle",
+    "library": "openlayers",
+    "file": "openlayers-implementation/turf-great-circle.html",
+    "name": "Turf Great Circle",
+    "description": "Draw geodesic curves using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Great Circle",
+        "text": "Geodesic curve between New York and London."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-animate-line",
+    "library": "openlayers",
+    "file": "openlayers-implementation/animate-line.html",
+    "name": "Animate Line",
+    "description": "Progressive line drawing animation",
+    "category": "Animation & Camera",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Line Animation",
+        "text": "Watch a line being drawn progressively."
+      },
+      {
+        "type": "button",
+        "id": "playBtn",
+        "label": "\u25b6 Play"
+      }
+    ]
+  },
+  {
+    "id": "openlayers-cluster-markers",
+    "library": "openlayers",
+    "file": "openlayers-implementation/cluster-markers.html",
+    "name": "Cluster Markers",
+    "description": "Supercluster-based marker clustering",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Clustering",
+        "text": "Markers grouped into clusters. Click to expand."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-geocode-nominatim",
+    "library": "openlayers",
+    "file": "openlayers-implementation/geocoding.html",
+    "name": "Geocode Nominatim",
+    "description": "Search locations with Nominatim API",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "text",
+        "id": "searchQuery",
+        "label": "Search Location",
+        "placeholder": "e.g. Tokyo, Japan"
+      },
+      {
+        "type": "button",
+        "id": "searchBtn",
+        "label": "\ud83d\udd0d Search"
+      }
+    ]
+  },
+  {
+    "id": "openlayers-geojson-upload",
+    "library": "openlayers",
+    "file": "openlayers-implementation/geojson-upload.html",
+    "name": "GeoJSON Upload",
+    "description": "Drag and drop GeoJSON files",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "GeoJSON Upload",
+        "text": "Drag a GeoJSON file onto the map to visualize it."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-hover-effect",
+    "library": "openlayers",
+    "file": "openlayers-implementation/hover-effect.html",
+    "name": "Hover Effect",
+    "description": "Interactive hover highlighting on polygons",
+    "category": "Interactivity",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Hover Effect",
+        "text": "Hover over zones to see highlighting and tooltips."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-realtime-data",
+    "library": "openlayers",
+    "file": "openlayers-implementation/realtime-data.html",
+    "name": "Realtime Data",
+    "description": "Live-updating point data stream",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Realtime Data",
+        "text": "Live stream of data points. Watch the counter increase."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-satellite-map",
+    "library": "openlayers",
+    "file": "openlayers-implementation/satellite-map.html",
+    "name": "Satellite Map",
+    "description": "Style switcher with satellite imagery",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Map Styles",
+        "text": "Switch between different map styles."
+      },
+      {
+        "type": "select",
+        "id": "mapStyle",
+        "label": "Map Style",
+        "options": [
+          {
+            "value": "osm",
+            "label": "\ud83d\uddfa\ufe0f Streets"
+          },
+          {
+            "value": "satellite",
+            "label": "\ud83d\udef0\ufe0f Satellite"
+          },
+          {
+            "value": "dark",
+            "label": "\ud83c\udf19 Dark"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "openlayers-time-slider",
+    "library": "openlayers",
+    "file": "openlayers-implementation/time-slider.html",
+    "name": "Time Slider",
+    "description": "Temporal data visualization with time slider",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Time Slider",
+        "text": "Drag the slider to see how data changes over time."
+      },
+      {
+        "type": "range",
+        "id": "timeHour",
+        "label": "Hour of Day",
+        "min": 0,
+        "max": 23,
+        "step": 1,
+        "default": 12
+      }
+    ]
+  },
+  {
+    "id": "openlayers-fly-to-animation",
+    "library": "openlayers",
+    "file": "openlayers-implementation/fly-to-animation.html",
+    "name": "Fly-To Animation",
+    "description": "Smooth animated fly-to with easing",
+    "category": "Animation & Camera",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Fly-To",
+        "text": "Click buttons to animate the map to different locations."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-layer-toggle",
+    "library": "openlayers",
+    "file": "openlayers-implementation/layer-toggle.html",
+    "name": "Layer Toggle",
+    "description": "Switch between multiple tile layers",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Layer Control",
+        "text": "Switch between OpenStreetMap, Topographic, and Dark CARTO layers."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-mouse-follow",
+    "library": "openlayers",
+    "file": "openlayers-implementation/mouse-follow.html",
+    "name": "Mouse Follow",
+    "description": "Marker that follows the mouse cursor",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Mouse Follow",
+        "text": "An overlay follows your mouse cursor across the map."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-popup-tooltip",
+    "library": "openlayers",
+    "file": "openlayers-implementation/popup-tooltip.html",
+    "name": "Popup & Tooltip",
+    "description": "Rich popups with hover tooltips",
+    "category": "Popups & Tooltips",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Popup & Tooltip",
+        "text": "Click for popups, hover for tooltips on vector features."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-sync-maps",
+    "library": "openlayers",
+    "file": "openlayers-implementation/sync-maps.html",
+    "name": "Sync Maps",
+    "description": "Multiple maps with synchronized movement",
+    "category": "Map Comparison",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Synced Maps",
+        "text": "Two maps side-by-side with synchronized panning and zooming."
+      }
+    ]
+  },
+  {
+    "id": "openlayers-sync-maps-comparison",
+    "library": "openlayers",
+    "file": "openlayers-implementation/sync-maps-comparison.html",
+    "name": "Sync Maps Comparison",
+    "description": "Side-by-side map comparison with synced views",
+    "category": "Map Comparison",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Sync Comparison",
+        "text": "Drag the divider to compare Street vs Satellite layers."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-basic-map",
+    "library": "leaflet",
+    "file": "leaflet-implementation/basic-map.html",
+    "name": "Basic Map",
+    "description": "Minimal Leaflet map setup",
+    "category": "Getting Started",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Controls",
+        "text": "Use mouse to pan. Scroll to zoom. Click marker for popup."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-choropleth",
+    "library": "leaflet",
+    "file": "leaflet-implementation/choropleth.html",
+    "name": "Choropleth",
+    "description": "Data-driven polygon coloring",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Choropleth",
+        "text": "Polygons colored by data value. Hover for details."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-click-coordinates",
+    "library": "leaflet",
+    "file": "leaflet-implementation/click-coordinates.html",
+    "name": "Click Coordinates",
+    "description": "Capture click coordinates",
+    "category": "Getting Started",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Instructions",
+        "text": "Click anywhere on the map to see coordinates."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-context-menu",
+    "library": "leaflet",
+    "file": "leaflet-implementation/context-menu.html",
+    "name": "Context Menu",
+    "description": "Right-click context menu",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Context Menu",
+        "text": "Right-click on the map to see the context menu."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-custom-marker",
+    "library": "leaflet",
+    "file": "leaflet-implementation/custom-marker.html",
+    "name": "Custom Marker",
+    "description": "Custom HTML marker with popup",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Custom Marker",
+        "text": "HTML-based marker with styled popup."
+      },
+      {
+        "type": "range",
+        "id": "markerSize",
+        "label": "Marker Size (px)",
+        "min": 16,
+        "max": 48,
+        "step": 2,
+        "default": 32
+      }
+    ]
+  },
+  {
+    "id": "leaflet-draw-geojson",
+    "library": "leaflet",
+    "file": "leaflet-implementation/drawing-tools.html",
+    "name": "Draw GeoJSON",
+    "description": "Draw and export GeoJSON features",
+    "category": "Geometry & Drawing",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Drawing Tools",
+        "text": "Use the toolbar to draw shapes. Export as GeoJSON."
+      },
+      {
+        "type": "button",
+        "id": "exportBtn",
+        "label": "Export GeoJSON"
+      }
+    ]
+  },
+  {
+    "id": "leaflet-fly-to-animation",
+    "library": "leaflet",
+    "file": "leaflet-implementation/fly-to-animation.html",
+    "name": "Fly To Animation",
+    "description": "Animated fly-to with easing",
+    "category": "Animation & Camera",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Fly To",
+        "text": "Click buttons to animate the map to different locations."
+      },
+      {
+        "type": "range",
+        "id": "duration",
+        "label": "Duration (s)",
+        "min": 0.5,
+        "max": 5,
+        "step": 0.5,
+        "default": 2
+      }
+    ]
+  },
+  {
+    "id": "leaflet-fullscreen",
+    "library": "leaflet",
+    "file": "leaflet-implementation/fullscreen.html",
+    "name": "Fullscreen",
+    "description": "Fullscreen toggle control",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Fullscreen",
+        "text": "Click the fullscreen button to toggle fullscreen mode."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-geocoding",
+    "library": "leaflet",
+    "file": "leaflet-implementation/geocoding.html",
+    "name": "Geocoding",
+    "description": "Search locations with Nominatim",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "text",
+        "id": "searchQuery",
+        "label": "Search Location",
+        "placeholder": "e.g. Paris, France"
+      },
+      {
+        "type": "button",
+        "id": "searchBtn",
+        "label": "Search"
+      }
+    ]
+  },
+  {
+    "id": "leaflet-geolocation",
+    "library": "leaflet",
+    "file": "leaflet-implementation/geolocation.html",
+    "name": "Geolocation",
+    "description": "User position tracking with accuracy",
+    "category": "Navigation",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Geolocation",
+        "text": "Tracks your current position using browser geolocation."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-heatmap",
+    "library": "leaflet",
+    "file": "leaflet-implementation/heatmap.html",
+    "name": "Heatmap",
+    "description": "Heat map density visualization",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Heatmap",
+        "text": "Point density visualization using heat gradient."
+      },
+      {
+        "type": "range",
+        "id": "radius",
+        "label": "Radius",
+        "min": 5,
+        "max": 50,
+        "step": 1,
+        "default": 25
+      },
+      {
+        "type": "range",
+        "id": "blur",
+        "label": "Blur",
+        "min": 5,
+        "max": 50,
+        "step": 1,
+        "default": 15
+      }
+    ]
+  },
+  {
+    "id": "leaflet-layer-toggle",
+    "library": "leaflet",
+    "file": "leaflet-implementation/layer-toggle.html",
+    "name": "Layer Toggle",
+    "description": "Switch between multiple tile layers",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Layer Control",
+        "text": "Switch between different map tile providers."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-marker-clustering",
+    "library": "leaflet",
+    "file": "leaflet-implementation/cluster-markers.html",
+    "name": "Marker Clustering",
+    "description": "Cluster nearby markers together",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Marker Clustering",
+        "text": "Markers are grouped into clusters when zoomed out."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-mouse-follow",
+    "library": "leaflet",
+    "file": "leaflet-implementation/mouse-follow.html",
+    "name": "Mouse Follow",
+    "description": "Marker that follows the mouse cursor",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Mouse Follow",
+        "text": "A marker follows your mouse cursor across the map."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-popup-tooltip",
+    "library": "leaflet",
+    "file": "leaflet-implementation/popup-tooltip.html",
+    "name": "Popup & Tooltip",
+    "description": "Rich popups with images and hover tooltips",
+    "category": "Popups & Tooltips",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Popups & Tooltips",
+        "text": "Click markers for popups. Hover for tooltips."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-scale-control",
+    "library": "leaflet",
+    "file": "leaflet-implementation/scale-bar.html",
+    "name": "Scale Bar",
+    "description": "Metric and imperial scale bar",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Scale Bar",
+        "text": "Distance scale in the bottom-right corner."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-sync-maps-comparison",
+    "library": "leaflet",
+    "file": "leaflet-implementation/sync-maps-comparison.html",
+    "name": "Sync Maps Comparison",
+    "description": "Side-by-side map comparison with synced views",
+    "category": "Map Comparison",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Sync Comparison",
+        "text": "Drag the divider to compare two different map styles."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-sync-maps",
+    "library": "leaflet",
+    "file": "leaflet-implementation/sync-maps.html",
+    "name": "Sync Maps",
+    "description": "Multiple maps with synchronized movement",
+    "category": "Map Comparison",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Synced Maps",
+        "text": "Both maps move together."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-wasd-navigation",
+    "library": "leaflet",
+    "file": "leaflet-implementation/wasd-navigation.html",
+    "name": "WASD Navigation",
+    "description": "Game-like WASD keyboard navigation",
+    "category": "Navigation",
+    "controls": [
+      {
+        "type": "info",
+        "label": "WASD Navigation",
+        "text": "Use W/A/S/D to pan. Q/E to zoom."
+      },
+      {
+        "type": "range",
+        "id": "panSpeed",
+        "label": "Pan Speed",
+        "min": 10,
+        "max": 100,
+        "step": 5,
+        "default": 50
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-buffer",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-buffer.html",
+    "name": "Turf Buffer",
+    "description": "Calculate 10km buffer around clicked point using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Buffer",
+        "text": "Click anywhere to calculate a 10km buffer polygon using Turf.js."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-intersection",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-intersection.html",
+    "name": "Turf Intersection",
+    "description": "Find intersection of two overlapping polygons using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Intersection",
+        "text": "Two overlapping polygons. The intersection area is highlighted in green."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-voronoi",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-voronoi.html",
+    "name": "Turf Voronoi",
+    "description": "Generate Voronoi polygons from points using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Voronoi",
+        "text": "Click to add points. Voronoi polygons update automatically."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-convex-hull",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-convex-hull.html",
+    "name": "Turf Convex Hull",
+    "description": "Create convex hull from points using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Convex Hull",
+        "text": "Click to add points. The convex hull encloses all points."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-point-in-polygon",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-point-in-polygon.html",
+    "name": "Turf Point in Polygon",
+    "description": "Test point containment using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Point-in-Polygon",
+        "text": "Click to test if a point is inside the polygon."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-nearest-point",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-nearest-point.html",
+    "name": "Turf Nearest Point",
+    "description": "Find nearest point using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Nearest Point",
+        "text": "Click to find the nearest of 5 predefined points."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-area-measurement",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-area-measurement.html",
+    "name": "Turf Area Measurement",
+    "description": "Measure area of drawn polygon using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Area",
+        "text": "Click to add vertices. The area is calculated automatically."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-turf-great-circle",
+    "library": "leaflet",
+    "file": "leaflet-implementation/turf-great-circle.html",
+    "name": "Turf Great Circle",
+    "description": "Draw geodesic curves using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Great Circle",
+        "text": "Geodesic curve between New York and Paris."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-animate-line",
+    "library": "leaflet",
+    "file": "leaflet-implementation/animate-line.html",
+    "name": "Animate Line",
+    "description": "Progressive line drawing animation with play/reset",
+    "category": "Animation & Camera",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Line Animation",
+        "text": "Watch a line being drawn progressively."
+      },
+      {
+        "type": "button",
+        "id": "playBtn",
+        "label": "\u25b6 Play"
+      },
+      {
+        "type": "button",
+        "id": "resetBtn",
+        "label": "\u21ba Reset"
+      }
+    ]
+  },
+  {
+    "id": "leaflet-custom-controls",
+    "library": "leaflet",
+    "file": "leaflet-implementation/custom-controls.html",
+    "name": "Custom Controls",
+    "description": "Custom zoom + rotate-north controls",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Custom Controls",
+        "text": "Custom zoom buttons and a rotate-north button."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-geofence",
+    "library": "leaflet",
+    "file": "leaflet-implementation/geofence.html",
+    "name": "Geofence",
+    "description": "Geofence detection using Turf.js",
+    "category": "Spatial Analysis",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Geofence",
+        "text": "Click to test if point is inside the 50km geofence."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-geojson-upload",
+    "library": "leaflet",
+    "file": "leaflet-implementation/geojson-upload.html",
+    "name": "GeoJSON Upload",
+    "description": "Drag and drop GeoJSON files to render",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "GeoJSON Upload",
+        "text": "Drop a GeoJSON file onto the map to visualize it."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-hover-effect",
+    "library": "leaflet",
+    "file": "leaflet-implementation/hover-effect.html",
+    "name": "Hover Effect",
+    "description": "Interactive hover highlighting on polygons with tooltip",
+    "category": "Interactivity",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Hover Effect",
+        "text": "Hover over zones to see highlighting and tooltips."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-image-overlay",
+    "library": "leaflet",
+    "file": "leaflet-implementation/image-overlay.html",
+    "name": "Image Overlay",
+    "description": "Overlay an image on the map with opacity control",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Image Overlay",
+        "text": "An image is overlaid on the map area."
+      },
+      {
+        "type": "range",
+        "id": "opacity",
+        "label": "Opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "default": 0.7
+      }
+    ]
+  },
+  {
+    "id": "leaflet-minimap",
+    "library": "leaflet",
+    "file": "leaflet-implementation/minimap.html",
+    "name": "Mini Map",
+    "description": "Overview minimap synced to main view",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Mini Map",
+        "text": "Small overview map in the corner synced with the main view."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-realtime-data",
+    "library": "leaflet",
+    "file": "leaflet-implementation/realtime-data.html",
+    "name": "Realtime Data",
+    "description": "Live-updating point data stream",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Realtime Data",
+        "text": "Live stream of data points. Watch the counter increase."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-satellite-map",
+    "library": "leaflet",
+    "file": "leaflet-implementation/satellite-map.html",
+    "name": "Satellite Map",
+    "description": "Style switcher with satellite imagery",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Map Styles",
+        "text": "Switch between different map styles."
+      }
+    ]
+  },
+  {
+    "id": "leaflet-store-locator",
+    "library": "leaflet",
+    "file": "leaflet-implementation/store-locator.html",
+    "name": "Store Locator",
+    "description": "Store locator with search and category filtering",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Store Locator",
+        "text": "Find stores by searching or filtering by category."
+      },
+      {
+        "type": "text",
+        "id": "searchBox",
+        "label": "Search Stores",
+        "placeholder": "Search by name..."
+      },
+      {
+        "type": "select",
+        "id": "category",
+        "label": "Category",
+        "options": [
+          {
+            "value": "all",
+            "label": "All"
+          },
+          {
+            "value": "coffee",
+            "label": "\u2615 Coffee"
+          },
+          {
+            "value": "restaurant",
+            "label": "\ud83c\udf7d\ufe0f Restaurant"
+          },
+          {
+            "value": "shop",
+            "label": "\ud83d\udecd\ufe0f Shop"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "leaflet-time-slider",
+    "library": "leaflet",
+    "file": "leaflet-implementation/time-slider.html",
+    "name": "Time Slider",
+    "description": "Temporal data visualization with time slider",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Time Slider",
+        "text": "Drag the slider to see how data changes over time."
+      },
+      {
+        "type": "range",
+        "id": "timeHour",
+        "label": "Hour of Day",
+        "min": 0,
+        "max": 23,
+        "step": 1,
+        "default": 12
+      }
+    ]
+  },
+  {
+    "id": "leaflet-weather",
+    "library": "leaflet",
+    "file": "leaflet-implementation/weather.html",
+    "name": "Weather",
+    "description": "Weather overlay with NOAA radar data",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Weather Overlay",
+        "text": "Weather radar data over the map."
+      },
+      {
+        "type": "checkbox",
+        "id": "showRadar",
+        "label": "Radar Layer",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "radarOpacity",
+        "label": "Radar Opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "default": 0.5
+      }
+    ]
+  },
+  {
+    "id": "maplibre-3d-building",
+    "library": "maplibre",
+    "file": "maplibre-implementation/3d-building.html",
+    "name": "3D Building",
+    "description": "3D building extrusion with pitch/bearing",
+    "category": "3D & Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "3D Buildings",
+        "text": "Buildings rendered in 3D. Adjust pitch and bearing."
+      },
+      {
+        "type": "range",
+        "id": "pitch",
+        "label": "Pitch (\u00b0)",
+        "min": 0,
+        "max": 85,
+        "step": 5,
+        "default": 60
+      },
+      {
+        "type": "range",
+        "id": "bearing",
+        "label": "Bearing (\u00b0)",
+        "min": 0,
+        "max": 360,
+        "step": 5,
+        "default": -20
+      }
+    ]
+  },
+  {
+    "id": "maplibre-animate-line",
+    "library": "maplibre",
+    "file": "maplibre-implementation/animate-line.html",
+    "name": "Animate Line",
+    "description": "Progressive line drawing animation",
+    "category": "Animation & Camera",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Line Animation",
+        "text": "Watch a line being drawn progressively."
+      },
+      {
+        "type": "range",
+        "id": "animSpeed",
+        "label": "Speed",
+        "min": 0.5,
+        "max": 5,
+        "step": 0.5,
+        "default": 2
+      },
+      {
+        "type": "button",
+        "id": "playBtn",
+        "label": "\u25b6 Play"
+      },
+      {
+        "type": "button",
+        "id": "resetBtn",
+        "label": "\u21ba Reset"
+      }
+    ]
+  },
+  {
+    "id": "maplibre-basic-map",
+    "library": "maplibre",
+    "file": "maplibre-implementation/basic-map.html",
+    "name": "Basic Map",
+    "description": "Minimal MapLibre GL JS setup",
+    "category": "Getting Started",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Controls",
+        "text": "Use mouse to pan. Scroll to zoom. Click marker for popup."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-choropleth",
+    "library": "maplibre",
+    "file": "maplibre-implementation/choropleth.html",
+    "name": "Choropleth",
+    "description": "Choropleth with data-driven styling",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Choropleth",
+        "text": "Regions colored by data values."
+      },
+      {
+        "type": "range",
+        "id": "borderWidth",
+        "label": "Border Width",
+        "min": 0,
+        "max": 5,
+        "step": 0.5,
+        "default": 2
+      }
+    ]
+  },
+  {
+    "id": "maplibre-click-coordinates",
+    "library": "maplibre",
+    "file": "maplibre-implementation/click-coordinates.html",
+    "name": "Click Coordinates",
+    "description": "Capture click coordinates",
+    "category": "Getting Started",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Instructions",
+        "text": "Click on the map to see coordinates."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-cluster-markers",
+    "library": "maplibre",
+    "file": "maplibre-implementation/cluster-markers.html",
+    "name": "Cluster Markers",
+    "description": "Supercluster-based marker clustering",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Clustering",
+        "text": "Markers grouped into clusters. Click to expand."
+      },
+      {
+        "type": "range",
+        "id": "clusterRadius",
+        "label": "Cluster Radius",
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "default": 60
+      }
+    ]
+  },
+  {
+    "id": "maplibre-custom-marker",
+    "library": "maplibre",
+    "file": "maplibre-implementation/custom-marker.html",
+    "name": "Custom Marker",
+    "description": "Custom HTML marker with popup",
+    "category": "Markers & Icons",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Custom Marker",
+        "text": "HTML-based marker with styled popup."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-draw-polygon",
+    "library": "maplibre",
+    "file": "maplibre-implementation/drawing-tools.html",
+    "name": "Draw Polygon",
+    "description": "Draw and edit polygons with mapbox-gl-draw",
+    "category": "Geometry & Drawing",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Drawing Tools",
+        "text": "Draw polygons, lines, and points."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-external-layer-control",
+    "library": "maplibre",
+    "file": "maplibre-implementation/external-layer-control.html",
+    "name": "External Layer Control",
+    "description": "Control layers from outside the map",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "External Controls",
+        "text": "Toggle map layers from the right panel."
+      },
+      {
+        "type": "checkbox",
+        "id": "showBuildings",
+        "label": "Buildings",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "showLabels",
+        "label": "Labels",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "maplibre-fullscreen",
+    "library": "maplibre",
+    "file": "maplibre-implementation/fullscreen.html",
+    "name": "Fullscreen",
+    "description": "Fullscreen control",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Fullscreen",
+        "text": "Click the fullscreen button to toggle."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-geojson-upload",
+    "library": "maplibre",
+    "file": "maplibre-implementation/geojson-upload.html",
+    "name": "GeoJSON Upload",
+    "description": "Drag and drop GeoJSON files",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "GeoJSON Upload",
+        "text": "Drag a GeoJSON file onto the map to visualize it."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-geocode-nominatim",
+    "library": "maplibre",
+    "file": "maplibre-implementation/geocoding.html",
+    "name": "Geocode Nominatim",
+    "description": "Search locations with Nominatim API",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "text",
+        "id": "searchQuery",
+        "label": "Search Location",
+        "placeholder": "e.g. Tokyo, Japan"
+      },
+      {
+        "type": "button",
+        "id": "searchBtn",
+        "label": "\ud83d\udd0d Search"
+      }
+    ]
+  },
+  {
+    "id": "maplibre-heatmap",
+    "library": "maplibre",
+    "file": "maplibre-implementation/heatmap.html",
+    "name": "Heatmap",
+    "description": "WebGL-accelerated heatmap layer",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Heatmap",
+        "text": "High-performance heatmap using WebGL."
+      },
+      {
+        "type": "range",
+        "id": "radius",
+        "label": "Radius",
+        "min": 5,
+        "max": 50,
+        "step": 1,
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "intensity",
+        "label": "Intensity",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "default": 5
+      }
+    ]
+  },
+  {
+    "id": "maplibre-hover-effect",
+    "library": "maplibre",
+    "file": "maplibre-implementation/hover-effect.html",
+    "name": "Hover Effect",
+    "description": "Interactive hover highlighting on polygons",
+    "category": "Interactivity",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Hover Effect",
+        "text": "Hover over zones to see highlighting and tooltips."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-realtime-data",
+    "library": "maplibre",
+    "file": "maplibre-implementation/realtime-data.html",
+    "name": "Realtime Data",
+    "description": "Live-updating point data stream",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Realtime Data",
+        "text": "Live stream of data points. Watch the counter increase."
+      },
+      {
+        "type": "range",
+        "id": "updateInterval",
+        "label": "Update Interval (ms)",
+        "min": 200,
+        "max": 2000,
+        "step": 100,
+        "default": 800
+      }
+    ]
+  },
+  {
+    "id": "maplibre-satellite-map",
+    "library": "maplibre",
+    "file": "maplibre-implementation/satellite-map.html",
+    "name": "Satellite Map",
+    "description": "Style switcher with satellite imagery",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Map Styles",
+        "text": "Switch between different map styles."
+      },
+      {
+        "type": "select",
+        "id": "mapStyle",
+        "label": "Map Style",
+        "options": [
+          {
+            "value": "streets",
+            "label": "\ud83d\uddfa\ufe0f Streets"
+          },
+          {
+            "value": "satellite",
+            "label": "\ud83d\udef0\ufe0f Satellite"
+          },
+          {
+            "value": "dark",
+            "label": "\ud83c\udf19 Dark"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "maplibre-time-slider",
+    "library": "maplibre",
+    "file": "maplibre-implementation/time-slider.html",
+    "name": "Time Slider",
+    "description": "Temporal data visualization with time slider",
+    "category": "Data Visualization",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Time Slider",
+        "text": "Drag the slider to see how data changes over time."
+      },
+      {
+        "type": "range",
+        "id": "timeHour",
+        "label": "Hour of Day",
+        "min": 0,
+        "max": 23,
+        "step": 1,
+        "default": 12
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-buffer",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-buffer.html",
+    "name": "Turf Buffer",
+    "description": "Calculate 10km buffer around clicked point using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Buffer",
+        "text": "Click anywhere to calculate a 10km buffer polygon using Turf.js."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-intersection",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-intersection.html",
+    "name": "Turf Intersection",
+    "description": "Find intersection of two overlapping polygons using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Intersection",
+        "text": "Two overlapping polygons. The intersection area is highlighted in green."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-voronoi",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-voronoi.html",
+    "name": "Turf Voronoi",
+    "description": "Generate Voronoi polygons from points using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Voronoi",
+        "text": "Click to add points. Voronoi polygons update automatically."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-convex-hull",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-convex-hull.html",
+    "name": "Turf Convex Hull",
+    "description": "Create convex hull from points using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Convex Hull",
+        "text": "Click to add points. The convex hull encloses all points."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-point-in-polygon",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-point-in-polygon.html",
+    "name": "Turf Point in Polygon",
+    "description": "Test point containment using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Point-in-Polygon",
+        "text": "Click to test if a point is inside the polygon."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-nearest-point",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-nearest-point.html",
+    "name": "Turf Nearest Point",
+    "description": "Find nearest point using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Nearest Point",
+        "text": "Click to find the nearest of 5 predefined points."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-area-measurement",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-area-measurement.html",
+    "name": "Turf Area Measurement",
+    "description": "Measure area of drawn polygon using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Area",
+        "text": "Click to add vertices. The area is calculated automatically."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-turf-great-circle",
+    "library": "maplibre",
+    "file": "maplibre-implementation/turf-great-circle.html",
+    "name": "Turf Great Circle",
+    "description": "Draw geodesic curves using Turf.js",
+    "category": "Turf.js Spatial",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Turf.js Great Circle",
+        "text": "Geodesic curve between New York and Paris."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-context-menu",
+    "library": "maplibre",
+    "file": "maplibre-implementation/context-menu.html",
+    "name": "Context Menu",
+    "description": "Right-click context menu with zoom-to and add marker actions",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Context Menu",
+        "text": "Right-click on the map to open the context menu."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-custom-controls",
+    "library": "maplibre",
+    "file": "maplibre-implementation/custom-controls.html",
+    "name": "Custom Controls",
+    "description": "Custom rotate-north control button",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Custom Controls",
+        "text": "A custom 'N' button that resets map rotation to north."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-geofence",
+    "library": "maplibre",
+    "file": "maplibre-implementation/geofence.html",
+    "name": "Geofence",
+    "description": "Geofence detection using Turf.js",
+    "category": "Spatial Analysis",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Geofence",
+        "text": "Click to test if point is inside the 50km geofence."
+      },
+      {
+        "type": "range",
+        "id": "fenceRadius",
+        "label": "Fence Radius (km)",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "default": 50
+      }
+    ]
+  },
+  {
+    "id": "maplibre-geolocation",
+    "library": "maplibre",
+    "file": "maplibre-implementation/geolocation.html",
+    "name": "Geolocation",
+    "description": "User position tracking with accuracy circle",
+    "category": "Getting Started",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Geolocation",
+        "text": "Tracks your current position using browser geolocation API."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-image-overlay",
+    "library": "maplibre",
+    "file": "maplibre-implementation/image-overlay.html",
+    "name": "Image Overlay",
+    "description": "Static image overlay with opacity control",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Image Overlay",
+        "text": "An image is overlaid on the map area."
+      },
+      {
+        "type": "range",
+        "id": "opacity",
+        "label": "Opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "default": 0.7
+      }
+    ]
+  },
+  {
+    "id": "maplibre-minimap",
+    "library": "maplibre",
+    "file": "maplibre-implementation/minimap.html",
+    "name": "Mini Map",
+    "description": "Overview minimap synced to main view",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Mini Map",
+        "text": "Small overview map in the corner synced with the main view."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-popup-tooltip",
+    "library": "maplibre",
+    "file": "maplibre-implementation/popup-tooltip.html",
+    "name": "Popup & Tooltip",
+    "description": "Rich popups with images and hover tooltips",
+    "category": "Popups & Tooltips",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Popup & Tooltip",
+        "text": "Click markers for popups. Hover for tooltips."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-scale-bar",
+    "library": "maplibre",
+    "file": "maplibre-implementation/scale-bar.html",
+    "name": "Scale Bar",
+    "description": "Metric scale bar control",
+    "category": "Controls & UI",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Scale Bar",
+        "text": "Distance scale in the bottom-left corner."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-store-locator",
+    "library": "maplibre",
+    "file": "maplibre-implementation/store-locator.html",
+    "name": "Store Locator",
+    "description": "Store locator with search and category filtering",
+    "category": "Search & Geocoding",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Store Locator",
+        "text": "Find stores by searching or filtering by category."
+      },
+      {
+        "type": "text",
+        "id": "searchBox",
+        "label": "Search Stores",
+        "placeholder": "Search by name..."
+      },
+      {
+        "type": "select",
+        "id": "category",
+        "label": "Category",
+        "options": [
+          {
+            "value": "all",
+            "label": "All"
+          },
+          {
+            "value": "coffee",
+            "label": "\u2615 Coffee"
+          },
+          {
+            "value": "restaurant",
+            "label": "\ud83c\udf7d\ufe0f Restaurant"
+          },
+          {
+            "value": "shop",
+            "label": "\ud83d\udecd\ufe0f Shop"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "maplibre-sync-maps",
+    "library": "maplibre",
+    "file": "maplibre-implementation/sync-maps.html",
+    "name": "Sync Maps",
+    "description": "Multiple maps with synchronized movement",
+    "category": "Map Comparison",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Synced Maps",
+        "text": "Both maps move together."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-sync-maps-comparison",
+    "library": "maplibre",
+    "file": "maplibre-implementation/sync-maps-comparison.html",
+    "name": "Sync Maps Comparison",
+    "description": "Side-by-side map comparison with synced views",
+    "category": "Map Comparison",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Sync Comparison",
+        "text": "Drag the divider to compare two different map styles."
+      }
+    ]
+  },
+  {
+    "id": "maplibre-wasd-navigation",
+    "library": "maplibre",
+    "file": "maplibre-implementation/wasd-navigation.html",
+    "name": "WASD Navigation",
+    "description": "Game-like WASD keyboard navigation",
+    "category": "Navigation",
+    "controls": [
+      {
+        "type": "info",
+        "label": "WASD Navigation",
+        "text": "Use W/A/S/D to pan. Q/E to zoom."
+      },
+      {
+        "type": "range",
+        "id": "panSpeed",
+        "label": "Pan Speed",
+        "min": 10,
+        "max": 100,
+        "step": 5,
+        "default": 50
+      }
+    ]
+  },
+  {
+    "id": "maplibre-weather",
+    "library": "maplibre",
+    "file": "maplibre-implementation/weather.html",
+    "name": "Weather",
+    "description": "Weather overlay with NOAA radar data",
+    "category": "Layers & Sources",
+    "controls": [
+      {
+        "type": "info",
+        "label": "Weather Overlay",
+        "text": "Weather radar data over the map."
+      },
+      {
+        "type": "checkbox",
+        "id": "showRadar",
+        "label": "Radar Layer",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "radarOpacity",
+        "label": "Radar Opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "default": 0.5
+      }
+    ]
+  }
 ]

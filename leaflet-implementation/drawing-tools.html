@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet - Draw & Export GeoJSON</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 60%; width: 100%; }
+        #panel { height: 40%; padding: 12px; background: #1e293b; color: #e2e8f0; display: flex; flex-direction: column; }
+        #geojson-output { flex: 1; background: #0f172a; color: #94a3b8; border: 1px solid #334155; border-radius: 4px; padding: 8px; font-family: monospace; font-size: 12px; resize: none; }
+        .btn-row { margin-top: 8px; display: flex; gap: 8px; }
+        .btn { padding: 6px 14px; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-secondary { background: #475569; color: white; }
+    </style>
+</head>
+<body>
+    
+    <div id="map"></div>
+    <div id="panel">
+        <textarea id="geojson-output" readonly placeholder="Draw shapes on the map above. GeoJSON will appear here..."></textarea>
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="copyGeoJSON()">Copy to Clipboard</button>
+            <button class="btn btn-secondary" onclick="downloadGeoJSON()">Download .json</button>
+            <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+    <script src="drawing-tools.js"></script>
+</body>
+</html>

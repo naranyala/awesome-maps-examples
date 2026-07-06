@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapLibre - Context Menu</title>
+    <script src="https://unpkg.com/maplibre-gl@3.3.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.3.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { width: 100vw; height: 100vh; }
+        .context-menu {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.95);
+            color: #fff;
+            border-radius: 6px;
+            padding: 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: sans-serif;
+            font-size: 14px;
+            z-index: 1000;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+        .context-menu-item {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .context-menu-item:hover {
+            background: rgba(59, 130, 246, 0.5);
+        }
+        .context-menu-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="contextMenu" class="context-menu">
+        <div class="context-menu-item" id="menu-center">Center map here</div>
+        <div class="context-menu-item" id="menu-marker">Add marker here</div>
+        <div class="context-menu-divider"></div>
+        <div class="context-menu-item" id="menu-coords" style="font-family: monospace; font-size: 12px; color: #94a3b8;">Coords</div>
+    </div>
+    <script src="context-menu.js"></script>
+</body>
+</html>

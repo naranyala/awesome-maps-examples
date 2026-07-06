@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Realtime Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .status { position: absolute; top: 10px; left: 10px; z-index: 1000; background: rgba(15,23,42,.85); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 13px; }
+    .live-dot { display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; margin-right: 6px; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }</style>
+</head>
+<body>
+    <div class="status"><span class="live-dot"></span><span id="count">0</span> points live</div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="realtime-data.js"></script>
+</body>
+</html>
