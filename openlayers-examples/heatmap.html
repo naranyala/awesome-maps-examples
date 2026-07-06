@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenLayers - Heatmap</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }</style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script>
+        // Generating random points for heatmap
+        const features = [];
+        for (let i = 0; i < 500; i++) {
+            const coordinates = [
+                2 * Math.random() * 20037508 - 20037508,
+                2 * Math.random() * 20037508 - 20037508
+            ];
+            features.push(new ol.Feature(new ol.geom.Point(coordinates)));
+        }
+
+        const source = new ol.source.Vector({ features: features });
+
+        const heatmapLayer = new ol.layer.Heatmap({
+            source: source,
+            blur: 15,
+            radius: 20,
+            weight: function (feature) {
+                return 0.5 + Math.random() * 0.5; // Random weight for demo
+            }
+        });
+
+        const map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({ source: new ol.source.Stamen({ layer: 'toner' }) }), // Dark theme base map
+                heatmapLayer
+            ],
+            view: new ol.View({ center: [0, 0], zoom: 2 })
+        });
+    </script>
+</body>
+</html>

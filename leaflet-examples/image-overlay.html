@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet - Image Overlay</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .controls { position: absolute; top: 10px; left: 10px; background: white; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 1000; }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <label>Opacity: <input type="range" id="opacity" min="0" max="1" step="0.05" value="0.7" oninput="overlay.setOpacity(+this.value)"></label>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([52, -2], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+
+        const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Satellite_image_of_the_United_Kingdom_%282000%29.jpg/800px-Satellite_image_of_the_United_Kingdom_%282000%29.jpg';
+        const bounds = [[48, -10], [56, 5]];
+        const overlay = L.imageOverlay(imageUrl, bounds, { opacity: 0.7 }).addTo(map);
+    </script>
+</body>
+</html>

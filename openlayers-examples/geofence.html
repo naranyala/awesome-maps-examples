@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Geofence</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .info { position: absolute; top: 10px; left: 10px; background: white; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 100; }
+    .info.outside { border-left: 4px solid #ef4444; }
+    .info.inside { border-left: 4px solid #22c55e; }</style>
+</head>
+<body>
+    <div class="info" id="info">Click to place marker. Fence radius: 50km</div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script>
+        const center = ol.proj.fromLonLat([-0.1275, 51.5074]);
+        const fenceRadius = 50;
+        const fenceSource = new ol.source.Vector();
+        const fenceLayer = new ol.layer.Vector({
+            source: fenceSource,
+            style: new ol.style.Style({ fill: new ol.style.Fill({ color: 'rgba(59,130,246,0.15)' }), stroke: new ol.style.Stroke({ color: '#3b82f6', width: 2, lineDash: [5, 5] }) })
+        });
+        const markerSource = new ol.source.Vector();
+        const markerLayer = new ol.layer.Vector({ source: markerSource });
+
+        const map = new ol.Map({
+            target: 'map',
+            layers: [new ol.layer.Tile({ source: new ol.source.OSM() }), fenceLayer, markerLayer],
+            view: new ol.View({ center: center, zoom: 10 })
+        });
+
+        // Draw fence circle
+        const fenceCenter = ol.proj.toLonLat(center);
+        const circle = turf.circle(fenceCenter, fenceRadius, { steps: 64, units: 'kilometers' });
+        const fenceFeatures = new ol.format.GeoJSON().readFeatures(circle, { featureProjection: 'EPSG:3857' });
+        fenceSource.addFeatures(fenceFeatures);
+
+        const info = document.getElementById('info');
+        map.on('click', function(evt) {
+            markerSource.clear();
+            const feature = new ol.Feature({ geometry: new ol.geom.Point(evt.coordinate) });
+            feature.setStyle(new ol.style.Style({ image: new ol.style.Circle({ radius: 8, fill: new ol.style.Fill({ color: '#22c55e' }), stroke: new ol.style.Stroke({ color: '#fff', width: 2 }) }) }));
+            markerSource.addFeature(feature);
+
+            const clickLonLat = ol.proj.toLonLat(evt.coordinate);
+            const point = turf.point(clickLonLat);
+            const fenceCenterPt = turf.point(fenceCenter);
+            const dist = turf.distance(point, fenceCenterPt, { units: 'kilometers' });
+            const inside = dist <= fenceRadius;
+            info.className = 'info ' + (inside ? 'inside' : 'outside');
+            info.textContent = inside ? '✅ Inside fence (' + dist.toFixed(1) + 'km)' : '❌ Outside fence (' + dist.toFixed(1) + 'km)';
+        });
+    </script>
+</body>
+</html>

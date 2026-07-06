@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Mouse Follow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; cursor: crosshair; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .controls { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2); font-family: sans-serif; }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <strong>Mouse Follower</strong><br/>
+        Move your mouse over the map to see the symbol follow it.
+    </div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script>
+        const map = new ol.Map({
+            target: 'map',
+            layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
+            view: new ol.View({ center: ol.proj.fromLonLat([-0.09, 51.505]), zoom: 13 })
+        });
+
+        const followerEl = document.createElement('div');
+        followerEl.innerHTML = '<div style="background:red;width:20px;height:20px;border-radius:50%;border:2px solid white;box-shadow:0 0 5px rgba(0,0,0,0.5)"></div>';
+
+        const follower = new ol.Overlay({
+            element: followerEl,
+            positioning: 'center-center',
+            stopEvent: false
+        });
+        follower.setPosition(ol.proj.fromLonLat([-0.09, 51.505]));
+        map.addOverlay(follower);
+
+        map.on('pointermove', (e) => {
+            requestAnimationFrame(() => {
+                follower.setPosition(e.coordinate);
+            });
+        });
+    </script>
+</body>
+</html>

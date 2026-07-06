@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre - Choropleth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .info { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 10px 14px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.2); font-size: 13px; }
+    </style>
+</head>
+<body>
+    
+    <div class="info" id="info">Hover over a country</div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script>
+        const countries = { type: 'FeatureCollection', features: [
+            { type:'Feature', properties:{ name:'USA', density:94 }, geometry:{ type:'Polygon', coordinates:[[[-125,48],[-67,48],[-67,25],[-125,25],[-125,48]]] } },
+            { type:'Feature', properties:{ name:'Brazil', density:25 }, geometry:{ type:'Polygon', coordinates:[[[-74,-5],[-35,-5],[-35,-33],[-74,-33],[-74,-5]]] } },
+            { type:'Feature', properties:{ name:'UK', density:275 }, geometry:{ type:'Polygon', coordinates:[[[-6,58],[2,58],[2,50],[-6,50],[-6,58]]] } },
+            { type:'Feature', properties:{ name:'Japan', density:347 }, geometry:{ type:'Polygon', coordinates:[[[130,45],[146,45],[146,30],[130,30],[130,45]]] } },
+            { type:'Feature', properties:{ name:'Australia', density:3 }, geometry:{ type:'Polygon', coordinates:[[[113,-10],[154,-10],[154,-44],[113,-44],[113,-10]]] } }
+        ]};
+
+        const map = new maplibregl.Map({ container: 'map', style: 'https://demotiles.maplibre.org/style.json', center: [-20, 20], zoom: 1.5 });
+        map.addControl(new maplibregl.NavigationControl());
+
+        function getColor(d) { return d > 300 ? '#800026' : d > 200 ? '#BD0026' : d > 100 ? '#E31A1C' : d > 50 ? '#FC4E2A' : '#FED976'; }
+
+        map.on('load', () => {
+            map.addSource('countries', { type: 'geojson', data: countries });
+            map.addLayer({ id: 'countries-fill', type: 'fill', source: 'countries', paint: { 'fill-color': ['interpolate', ['linear'], ['get', 'density'], 0, '#FED976', 50, '#FC4E2A', 100, '#E31A1C', 200, '#BD0026', 300, '#800026'], 'fill-opacity': 0.7 } });
+            map.addLayer({ id: 'countries-outline', type: 'line', source: 'countries', paint: { 'line-color': '#fff', 'line-width': 2 } });
+
+            const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false });
+            map.on('mouseenter', 'countries-fill', (e) => {
+                map.getCanvas().style.cursor = 'pointer';
+                const p = e.features[0].properties;
+                popup.setLngLat(e.lngLat).setHTML(`<b>${p.name}</b><br>Density: ${p.density}/km²`).addTo(map);
+                document.getElementById('info').innerHTML = `<b>${p.name}</b> — ${p.density} people/km²`;
+            });
+            map.on('mouseleave', 'countries-fill', () => { map.getCanvas().style.cursor = ''; popup.remove(); });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Click Coordinates</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .info { position: absolute; top: 10px; left: 10px; background: white; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 100; font-size: 14px; }</style>
+</head>
+<body>
+    <div class="info" id="info">Click on the map to get coordinates</div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script>
+        const map = new ol.Map({
+            target: 'map',
+            layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
+            view: new ol.View({ center: ol.proj.fromLonLat([0, 0]), zoom: 2 })
+        });
+        const info = document.getElementById('info');
+        map.on('click', function(evt) {
+            const coords = ol.proj.toLonLat(evt.coordinate);
+            info.innerHTML = 'Lat: ' + coords[1].toFixed(6) + ', Lon: ' + coords[0].toFixed(6);
+        });
+    </script>
+</body>
+</html>

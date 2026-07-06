@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Popup & Tooltip</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .ol-popup { background: white; padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.2); max-width: 250px; }
+        .ol-popup .title { font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+        .ol-popup .desc { color: #64748b; font-size: 13px; }
+        .ol-popup .arrow { position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid white; }
+        .tooltip { position: absolute; z-index: 1000; background: rgba(30,41,59,0.95); color: white; padding: 6px 12px; border-radius: 6px; font-size: 13px; pointer-events: none; display: none; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <div class="tooltip" id="tooltip"></div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script>
+        const locations = [
+            { lng: -0.1278, lat: 51.5074, name: 'Westminster', desc: 'Home of Parliament' },
+            { lng: -0.1419, lat: 51.5014, name: 'Buckingham Palace', desc: "The Queen's residence" },
+            { lng: -0.0762, lat: 51.5085, name: 'Tower of London', desc: 'Historic castle' },
+            { lng: -0.1195, lat: 51.5033, name: 'London Eye', desc: '135m observation wheel' }
+        ];
+
+        const features = locations.map(loc => {
+            const f = new ol.Feature({ geometry: new ol.geom.Point(ol.proj.fromLonLat([loc.lng, loc.lat])), name: loc.name, desc: loc.desc });
+            return f;
+        });
+        const source = new ol.source.Vector({ features });
+        const layer = new ol.layer.Vector({
+            source: source,
+            style: new ol.style.Style({
+                image: new ol.style.Circle({ radius: 8, fill: new ol.style.Fill({ color: '#3b82f6' }), stroke: new ol.style.Stroke({ color: '#fff', width: 2 }) })
+            })
+        });
+
+        const popupEl = document.createElement('div');
+        popupEl.className = 'ol-popup';
+        popupEl.innerHTML = '<div class="arrow"></div>';
+        const popup = new ol.Overlay({ element: popupEl, positioning: 'top-center', offset: [0, -12] });
+        popup.setPosition(undefined);
+
+        const tooltipEl = document.getElementById('tooltip');
+
+        const map = new ol.Map({
+            target: 'map',
+            layers: [new ol.layer.Tile({ source: new ol.source.OSM() }), layer],
+            overlays: [popup],
+            view: new ol.View({ center: ol.proj.fromLonLat([-0.1, 51.505]), zoom: 15 })
+        });
+
+        map.on('click', (e) => {
+            const feature = map.forEachFeatureAtPixel(e.pixel, f => f);
+            if (feature) {
+                const coords = feature.getGeometry().getCoordinates();
+                popupEl.innerHTML = `<div class="title">${feature.get('name')}</div><div class="desc">${feature.get('desc')}</div><div style="margin-top:6px"><img src="https://placehold.co/200x100/3b82f6/fff?text=${encodeURIComponent(feature.get('name'))}" style="border-radius:4px;width:100%"></div><div class="arrow"></div>`;
+                popup.setPosition(coords);
+            } else {
+                popup.setPosition(undefined);
+            }
+        });
+
+        map.on('pointermove', (e) => {
+            const feature = map.forEachFeatureAtPixel(e.pixel, f => f);
+            if (feature) {
+                tooltipEl.style.display = 'block';
+                tooltipEl.style.left = (e.originalEvent.clientX + 12) + 'px';
+                tooltipEl.style.top = (e.originalEvent.clientY - 10) + 'px';
+                tooltipEl.innerHTML = `<b>${feature.get('name')}</b>`;
+                map.getViewport().style.cursor = 'pointer';
+            } else {
+                tooltipEl.style.display = 'none';
+                map.getViewport().style.cursor = '';
+            }
+        });
+    </script>
+</body>
+</html>

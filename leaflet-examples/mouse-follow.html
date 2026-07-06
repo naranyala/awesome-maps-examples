@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet - Mouse Following Symbol</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; cursor: crosshair; }
+        #map { height: 100%; width: 100%; }
+        .controls { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2); font-family: sans-serif; }
+    </style>
+</head>
+<body>
+    
+    <div class="controls">
+        <strong>Mouse Follower</strong><br/>
+        Move your mouse over the map to see the symbol follow it.
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        const followerIcon = L.divIcon({
+            html: '<div style="background: red; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 5px rgba(0,0,0,0.5);"></div>',
+            className: '',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+        });
+
+        const follower = L.marker([51.505, -0.09], { icon: followerIcon, interactive: false }).addTo(map);
+
+        map.on('mousemove', (e) => {
+            // Use requestAnimationFrame for smooth following
+            requestAnimationFrame(() => {
+                follower.setLatLng(e.latlng);
+            });
+        });
+    </script>
+</body>
+</html>

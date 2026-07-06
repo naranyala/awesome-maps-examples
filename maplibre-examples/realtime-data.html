@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre - Realtime Data</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .status { position: absolute; top: 10px; left: 10px; z-index: 1000; background: rgba(15,23,42,.85); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 13px; }
+        .live-dot { display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; margin-right: 6px; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+    </style>
+</head>
+<body>
+    
+    <div class="status"><span class="live-dot"></span><span id="count">0</span> points live</div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script>
+        const map = new maplibregl.Map({ container: 'map', style: 'https://demotiles.maplibre.org/style.json', center: [-0.09, 51.505], zoom: 12 });
+        map.addControl(new maplibregl.NavigationControl());
+
+        let points = [];
+
+        function addRandomPoint() {
+            points.push({
+                type: 'Feature',
+                properties: { id: Date.now(), value: Math.random() * 100 },
+                geometry: { type: 'Point', coordinates: [-0.09 + (Math.random() - 0.5) * 0.1, 51.505 + (Math.random() - 0.5) * 0.08] }
+            });
+            if (points.length > 50) points.shift();
+            if (map.getSource('live-points')) {
+                map.getSource('live-points').setData({ type: 'FeatureCollection', features: points });
+            }
+            document.getElementById('count').textContent = points.length;
+        }
+
+        map.on('load', () => {
+            map.addSource('live-points', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+            map.addLayer({ id: 'live-dots', type: 'circle', source: 'live-points', paint: { 'circle-radius': 5, 'circle-color': '#3b82f6', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
+            for (let i = 0; i < 10; i++) addRandomPoint();
+            setInterval(addRandomPoint, 800);
+        });
+    </script>
+</body>
+</html>

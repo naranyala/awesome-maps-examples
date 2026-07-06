@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Context Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .context-menu { position: absolute; background: white; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 100; display: none; padding: 4px 0; min-width: 160px; }
+    .context-menu-item { padding: 8px 16px; cursor: pointer; font-size: 14px; }
+    .context-menu-item:hover { background: #f0f0f0; }</style>
+</head>
+<body>
+    <div class="context-menu" id="contextMenu">
+        <div class="context-menu-item" onclick="zoomIn()">Zoom In</div>
+        <div class="context-menu-item" onclick="zoomOut()">Zoom Out</div>
+        <div class="context-menu-item" onclick="addMarker()">Add Marker</div>
+        <div class="context-menu-item" onclick="hideMenu()">Close</div>
+    </div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script>
+        const map = new ol.Map({
+            target: 'map',
+            layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
+            view: new ol.View({ center: ol.proj.fromLonLat([0, 0]), zoom: 2 })
+        });
+        const menu = document.getElementById('contextMenu');
+        let clickCoords = null;
+
+        document.getElementById('map').addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            clickCoords = map.getEventCoordinate(e);
+            menu.style.display = 'block';
+            menu.style.left = e.pageX + 'px';
+            menu.style.top = e.pageY + 'px';
+        });
+        document.addEventListener('click', function() { menu.style.display = 'none'; });
+        function zoomIn() { map.getView().animate({ zoom: map.getView().getZoom() + 1, duration: 300 }); }
+        function zoomOut() { map.getView().animate({ zoom: map.getView().getZoom() - 1, duration: 300 }); }
+        function addMarker() {
+            if (!clickCoords) return;
+            const feature = new ol.Feature({ geometry: new ol.geom.Point(clickCoords) });
+            feature.setStyle(new ol.style.Style({ image: new ol.style.Circle({ radius: 8, fill: new ol.style.Fill({ color: '#ff0000' }), stroke: new ol.style.Stroke({ color: '#fff', width: 2 }) }) }));
+            const source = new ol.source.Vector();
+            source.addFeature(feature);
+            map.addLayer(new ol.layer.Vector({ source: source }));
+        }
+        function hideMenu() { menu.style.display = 'none'; }
+    </script>
+</body>
+</html>

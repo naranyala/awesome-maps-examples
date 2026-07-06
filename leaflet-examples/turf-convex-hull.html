@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet + Turf.js - Convex Hull</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .instructions { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15, 23, 42, 0.85); color: white; padding: 15px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); max-width: 250px; font-size: 13px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <strong>🔺 Convex Hull</strong><br>
+        Click to add points. The convex hull encloses all points.
+        <br><br>
+        <button onclick="clearPoints()" style="padding:4px 8px;border-radius:4px;border:none;background:#ef4444;color:white;cursor:pointer;font-size:12px;">Clear All</button>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script>
+        const map = L.map('map').setView([51.505, -0.09], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+        
+        let points = [];
+        let hullLayer = null;
+        let markersLayer = L.layerGroup().addTo(map);
+        
+        function updateHull() {
+            if (hullLayer) map.removeLayer(hullLayer);
+            if (points.length < 3) return;
+            
+            const fc = turf.featureCollection(points);
+            const hull = turf.convex(fc, { concavity: 2 });
+            
+            if (hull) {
+                hullLayer = L.geoJSON(hull, {
+                    style: { color: '#8b5cf6', weight: 2, fillColor: '#8b5cf6', fillOpacity: 0.15, dashArray: '5,5' }
+                }).addTo(map);
+            }
+        }
+        
+        map.on('click', function(e) {
+            const pt = turf.point([e.latlng.lng, e.latlng.lat]);
+            points.push(pt);
+            
+            L.circleMarker(e.latlng, { radius: 5, color: '#8b5cf6', fillColor: '#8b5cf6', fillOpacity: 0.8, weight: 1 }).addTo(markersLayer);
+            updateHull();
+        });
+        
+        function clearPoints() {
+            points = [];
+            markersLayer.clearLayers();
+            if (hullLayer) map.removeLayer(hullLayer);
+        }
+    </script>
+</body>
+</html>

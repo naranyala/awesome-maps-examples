@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre - External UI Control</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; display: flex; font-family: sans-serif; }
+        #sidebar { width: 300px; padding: 20px; background: #f8f9fa; border-right: 1px solid #ddd; }
+        #map { flex: 1; height: 100%; }
+        .layer-item { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    
+    <div id="sidebar" style="padding-top: 60px;">
+        <h2>Map Controls</h2>
+        <p>Control the map from outside the canvas.</p>
+        <div class="layer-item">
+            <input type="checkbox" id="toggle-geolines" checked>
+            <label for="toggle-geolines">Show Geolines</label>
+        </div>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script>
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://demotiles.maplibre.org/style.json',
+            center: [0, 0],
+            zoom: 2
+        });
+
+        document.getElementById('toggle-geolines').addEventListener('change', (e) => {
+            const visibility = e.target.checked ? 'visible' : 'none';
+            if (map.getLayer('geolines')) {
+                map.setLayoutProperty('geolines', 'visibility', visibility);
+            }
+        });
+    </script>
+</body>
+</html>

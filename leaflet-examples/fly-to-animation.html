@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet - Fly To Animation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .controls { position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 12px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+        .controls button { display: block; width: 100%; margin-bottom: 6px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background: white; cursor: pointer; font-size: 13px; }
+        .controls button:hover { background: #f0f4ff; border-color: #3b82f6; }
+        .info { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(15,23,42,0.9); color: white; padding: 10px 20px; border-radius: 8px; font-size: 13px; }
+    </style>
+</head>
+<body>
+    
+    <div class="controls">
+        <button onclick="flyTo(51.505, -0.09, 13, 'London')">🇬🇧 London</button>
+        <button onclick="flyTo(48.8566, 2.3522, 13, 'Paris')">🇫🇷 Paris</button>
+        <button onclick="flyTo(41.9028, 12.4964, 13, 'Rome')">🇮🇹 Rome</button>
+        <button onclick="flyTo(52.52, 13.405, 13, 'Berlin')">🇩🇪 Berlin</button>
+        <button onclick="flyTo(40.4168, -3.7038, 13, 'Madrid')">🇪🇸 Madrid</button>
+    </div>
+    <div class="info" id="info">Current: London (51.505, -0.09)</div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19, attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        let marker = L.marker([51.505, -0.09]).addTo(map).bindPopup('London').openPopup();
+
+        function flyTo(lat, lng, zoom, name) {
+            map.flyTo([lat, lng], zoom, { duration: 2 });
+            setTimeout(() => {
+                marker.setLatLng([lat, lng]).setPopupContent(name).openPopup();
+                document.getElementById('info').textContent = `Current: ${name} (${lat.toFixed(3)}, ${lng.toFixed(3)})`;
+            }, 2100);
+        }
+
+        map.on('move', () => {
+            const c = map.getCenter();
+            document.getElementById('info').textContent = `Lat: ${c.lat.toFixed(4)}, Lng: ${c.lng.toFixed(4)}, Zoom: ${map.getZoom()}`;
+        });
+    </script>
+</body>
+</html>

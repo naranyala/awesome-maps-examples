@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet - Custom Controls</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .custom-zoom { background: white; padding: 4px; border-radius: 4px; border: 2px solid rgba(0,0,0,.2); }
+        .custom-zoom a { display: block; text-align: center; text-decoration: none; color: #333; font-size: 18px; font-weight: bold; padding: 4px 12px; }
+        .custom-zoom a:hover { background: #f4f4f4; }
+        .rotate-north-btn { width: 34px; height: 34px; background: white; border: 2px solid rgba(0,0,0,.2); border-radius: 4px; cursor: pointer; font-weight: bold; color: #333; display: flex; align-items: center; justify-content: center; margin-top: 4px; }
+        .rotate-north-btn:hover { background: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map', { zoomControl: false, rotation: 0.5 }).setView([0, 0], 3);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+
+        const ZoomControl = L.Control.extend({
+            options: { position: 'topleft' },
+            onAdd: function () {
+                const div = L.DomUtil.create('div', 'custom-zoom leaflet-bar');
+                div.innerHTML = '<a href="#" onclick="map.zoomIn()" title="Zoom in">+</a><a href="#" onclick="map.zoomOut()" title="Zoom out">−</a>';
+                L.DomEvent.disableClickPropagation(div);
+                return div;
+            }
+        });
+        map.addControl(new ZoomControl());
+
+        const RotateNorthControl = L.Control.extend({
+            options: { position: 'topleft' },
+            onAdd: function () {
+                const btn = L.DomUtil.create('button', 'rotate-north-btn');
+                btn.innerHTML = 'N';
+                btn.title = 'Reset rotation';
+                btn.onclick = function () { map.setRotation(0); };
+                L.DomEvent.disableClickPropagation(btn);
+                return btn;
+            }
+        });
+        map.addControl(new RotateNorthControl());
+    </script>
+</body>
+</html>

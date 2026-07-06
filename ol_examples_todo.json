@@ -1,0 +1,80 @@
+[
+  {
+    "link": "animated-gif.html",
+    "title": "Animated GIF",
+    "shortdesc": "Example of using an animated GIF as an icon.",
+    "tags": [
+      "animation",
+      "vector",
+      "style",
+      "icon",
+      "gif"
+    ]
+  },
+  {
+    "link": "custom-controls.html",
+    "title": "Custom Controls",
+    "shortdesc": "Shows how to create custom controls.",
+    "tags": [
+      "custom",
+      "control"
+    ]
+  },
+  {
+    "link": "drag-and-drop.html",
+    "title": "Drag-and-Drop",
+    "shortdesc": "Example of using the drag-and-drop interaction.",
+    "tags": [
+      "drag-and-drop",
+      "gpx",
+      "geojson",
+      "igc",
+      "kml",
+      "topojson",
+      "maptiler"
+    ]
+  },
+  {
+    "link": "heatmap-earthquakes.html",
+    "title": "Earthquakes Heatmap",
+    "shortdesc": "Demonstrates the use of a heatmap layer.",
+    "tags": [
+      "heatmap",
+      "kml",
+      "vector",
+      "style",
+      "webgl"
+    ]
+  },
+  {
+    "link": "geolocation.html",
+    "title": "Geolocation",
+    "shortdesc": "Using geolocation to control a map view.",
+    "tags": [
+      "geolocation",
+      "openstreetmap"
+    ]
+  },
+  {
+    "link": "measure.html",
+    "title": "Measure",
+    "shortdesc": "Using a draw interaction to measure lengths and areas.",
+    "tags": [
+      "draw",
+      "edit",
+      "measure",
+      "vector"
+    ]
+  },
+  {
+    "link": "overlay.html",
+    "title": "Overlay",
+    "shortdesc": "Demonstrates overlays.",
+    "tags": [
+      "overlay",
+      "popup",
+      "bootstrap",
+      "popover"
+    ]
+  }
+]

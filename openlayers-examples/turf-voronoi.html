@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers + Turf.js - Voronoi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .info { position: absolute; top: 10px; right: 10px; background: white; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 100; font-size: 13px; }</style>
+</head>
+<body>
+    <div class="info">Click to add points. Voronoi updates automatically.</div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script>
+        const pointSource = new ol.source.Vector();
+        const pointLayer = new ol.layer.Vector({ source: pointSource, style: new ol.style.Style({ image: new ol.style.Circle({ radius: 6, fill: new ol.style.Fill({ color: '#3b82f6' }), stroke: new ol.style.Stroke({ color: '#fff', width: 2 }) }) }) });
+        const voronoiSource = new ol.source.Vector();
+        const voronoiLayer = new ol.layer.Vector({ source: voronoiSource, style: new ol.style.Style({ fill: new ol.style.Fill({ color: 'rgba(139,92,246,0.2)' }), stroke: new ol.style.Stroke({ color: '#8b5cf6', width: 1 }) }) });
+        const map = new ol.Map({ target: 'map', layers: [new ol.layer.Tile({ source: new ol.source.OSM() }), voronoiLayer, pointLayer], view: new ol.View({ center: ol.proj.fromLonLat([-0.1275, 51.5074]), zoom: 12 }) });
+
+        map.on('click', function(evt) {
+            const lonlat = ol.proj.toLonLat(evt.coordinate);
+            pointSource.addFeature(new ol.Feature({ geometry: new ol.geom.Point(evt.coordinate) }));
+            if (pointSource.getFeatures().length >= 3) {
+                voronoiSource.clear();
+                const points = turf.featureCollection(pointSource.getFeatures().map(f => turf.point(ol.proj.toLonLat(f.getGeometry().getCoordinates()))));
+                const bbox = turf.bbox(points);
+                const voronoi = turf.voronoi(points, { bbox });
+                if (voronoi) voronoiSource.addFeatures(new ol.format.GeoJSON().readFeatures(voronoi, { featureProjection: 'EPSG:3857' }));
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre + Turf.js - Convex Hull</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .instructions { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15, 23, 42, 0.85); color: white; padding: 15px; border-radius: 8px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); max-width: 250px; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <strong>🔺 Convex Hull</strong><br>
+        Click to add points. Hull encloses all.
+        <br><br>
+        <button onclick="clearAll()" style="padding:4px 8px;border-radius:4px;border:none;background:#ef4444;color:white;cursor:pointer;font-size:12px;">Clear All</button>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script>
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://demotiles.maplibre.org/style.json',
+            center: [-0.09, 51.505], zoom: 10
+        });
+        
+        let points = [];
+        let markers = [];
+        
+        map.on('load', () => {
+            map.addSource('hull', { type: 'geojson', data: turf.featureCollection([]) });
+            map.addLayer({ id: 'hull-fill', type: 'fill', source: 'hull', paint: { 'fill-color': '#8b5cf6', 'fill-opacity': 0.2, 'fill-outline-color': '#8b5cf6' } });
+            map.addLayer({ id: 'hull-line', type: 'line', source: 'hull', paint: { 'line-color': '#8b5cf6', 'line-width': 2, 'line-dasharray': [5, 5] } });
+            map.getCanvas().style.cursor = 'crosshair';
+        });
+        
+        map.on('click', (e) => {
+            const pt = turf.point([e.lngLat.lng, e.lngLat.lat]);
+            points.push(pt);
+            
+            const el = document.createElement('div');
+            el.style.cssText = 'width:10px;height:10px;background:#8b5cf6;border-radius:50%;border:2px solid white;box-shadow:0 0 4px rgba(0,0,0,0.3);';
+            markers.push(new maplibregl.Marker({ element: el }).setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map));
+            
+            if (points.length >= 3) {
+                const hull = turf.convex(turf.featureCollection(points), { concavity: 2 });
+                if (hull) map.getSource('hull').setData(hull);
+            }
+        });
+        
+        function clearAll() {
+            points = [];
+            markers.forEach(m => m.remove());
+            markers = [];
+            if (map.getSource('hull')) map.getSource('hull').setData(turf.featureCollection([]));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MapLibre - GeoJSON Upload</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+        #map { height: 100%; width: 100%; }
+        .drop-zone { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; width: 320px; padding: 40px; background: rgba(15,23,42,.85); color: #fff; border: 2px dashed rgba(255,255,255,.3); border-radius: 16px; text-align: center; pointer-events: auto; }
+        .drop-zone.dragover { border-color: #3b82f6; background: rgba(59,130,246,.2); }
+        .drop-zone p { margin: 0; font-size: 15px; }
+        .drop-zone small { color: #94a3b8; }
+        .feature-count { position: absolute; top: 10px; right: 10px; z-index: 1000; background: rgba(15,23,42,.85); color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 13px; display: none; }
+    </style>
+</head>
+<body>
+    
+    <div class="feature-count" id="feature-count"></div>
+    <div class="drop-zone" id="drop-zone">
+        <p>📁 Drop a GeoJSON file here</p>
+        <small>or click to select</small>
+        <input type="file" id="file-input" accept=".geojson,.json" style="display:none">
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script>
+        const map = new maplibregl.Map({ container: 'map', style: 'https://demotiles.maplibre.org/style.json', center: [0, 20], zoom: 2 });
+        map.addControl(new maplibregl.NavigationControl());
+
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); handleFile(e.dataTransfer.files[0]); });
+        fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+        function handleFile(file) {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const geojson = JSON.parse(e.target.result);
+                    if (map.getSource('uploaded')) map.getSource('uploaded').setData(geojson);
+                    else {
+                        map.addSource('uploaded', { type: 'geojson', data: geojson });
+                        map.addLayer({ id: 'uploaded-fill', type: 'fill', source: 'uploaded', paint: { 'fill-color': '#3b82f6', 'fill-opacity': 0.4 }, filter: ['==', '$type', 'Polygon'] });
+                        map.addLayer({ id: 'uploaded-line', type: 'line', source: 'uploaded', paint: { 'line-color': '#3b82f6', 'line-width': 2 } });
+                        map.addLayer({ id: 'uploaded-point', type: 'circle', source: 'uploaded', paint: { 'circle-radius': 6, 'circle-color': '#3b82f6', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 }, filter: ['==', '$type', 'Point'] });
+                    }
+                    const count = geojson.features ? geojson.features.length : 0;
+                    document.getElementById('feature-count').textContent = `✅ ${count} feature(s) loaded`;
+                    document.getElementById('feature-count').style.display = 'block';
+                    if (geojson.features && geojson.features.length > 0) {
+                        const bbox = turf.bbox(geojson);
+                        map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40 });
+                    }
+                    dropZone.style.display = 'none';
+                } catch (err) { alert('Invalid GeoJSON file'); }
+            };
+            reader.readAsText(file);
+        }
+    </script>
+    <script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
+</body>
+</html>

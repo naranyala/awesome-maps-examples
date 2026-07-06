@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OpenLayers - Cluster Markers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>body, html, #map { margin: 0; height: 100%; width: 100%; font-family: sans-serif; }
+    .info { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(15,23,42,0.9); color: white; padding: 8px 16px; border-radius: 6px; font-size: 13px; }</style>
+</head>
+<body>
+    <div class="info" id="info">500 markers clustered</div>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol-layerswitcher@4.1.0/dist/ol-layerswitcher.js"></script>
+    <script>
+        // Generate 500 random points around London
+        const features = [];
+        for (let i = 0; i < 500; i++) {
+            features.push(new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.fromLonLat([-0.09 + (Math.random()-0.5)*0.2, 51.505 + (Math.random()-0.5)*0.15])),
+                name: 'Point ' + i
+            }));
+        }
+        const source = new ol.source.Vector({ features });
+
+        // Cluster source with distance threshold
+        const clusterSource = new ol.source.Cluster({ distance: 40, minDistance: 20, source });
+
+        const clusters = new ol.layer.Vector({
+            source: clusterSource,
+            style: function (feature) {
+                const size = feature.get('features').length;
+                const radius = Math.min(8 + Math.sqrt(size) * 3, 30);
+                const color = size > 10 ? '#f28cb1' : size > 5 ? '#f1f075' : '#51bbd6';
+                return new ol.style.Style({
+                    image: new ol.style.Circle({ radius, fill: new ol.style.Fill({ color }), stroke: new ol.style.Stroke({ color: '#fff', width: 2 }) }),
+                    text: size > 1 ? new ol.style.Text({ text: size.toString(), fill: new ol.style.Fill({ color: '#fff' }), font: 'bold 12px sans-serif' }) : undefined
+                });
+            }
+        });
+
+        const map = new ol.Map({
+            target: 'map',
+            layers: [new ol.layer.Tile({ source: new ol.source.OSM() }), clusters],
+            view: new ol.View({ center: ol.proj.fromLonLat([-0.09, 51.505]), zoom: 11 })
+        });
+    </script>
+</body>
+</html>
